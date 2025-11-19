@@ -1,7 +1,7 @@
-import BalancedLifeSection from "@/components/home/BalancedLifeSection ";
-import DownloadAppSection from "@/components/home/DownloadAppSection ";
-import HeroSection from "@/components/home/HeroSection";
-import OffersSection from "@/components/home/OffersSection";
+import BalancedLifeSection from "./sections/BalancedLifeSection ";
+import DownloadAppSection from "./sections/DownloadAppSection ";
+import HeroSection from "./sections/HeroSection";
+import OffersSection from "./sections/OffersSection";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
