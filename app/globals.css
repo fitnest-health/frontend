@@ -57,7 +57,7 @@
   --color-electricblue-950: #00359e;
   --color-electricblue-1000: #002266;
 
-  --color-gray-50: #FAFAFA;
+  --color-gray-50: #fafafa;
   --color-gray-100: #f7f7f7;
   --color-gray-200: #f0f0f1;
   --color-gray-300: #ececed;
@@ -103,6 +103,55 @@
   --color-success-400: #43863a;
   --color-success-500: #2d5a27;
   --color-success-600: #1b3617;
+
+  --font-display: var(--font-sf-pro);
+  /* header sizes  */
+  --text-h1-size: 52px;
+  --text-h2-size: 48px;
+  --text-h3-size: 44px;
+  --text-h4-size: 40px;
+  --text-h5-size: 36px;
+  --text-h6-size: 30px;
+  /* titles */
+  --text-t1-size: 26px;
+  --text-t2-size: 24px;
+  /* sub titles */
+  --text-s1-size: 20px;
+  --text-s2-size: 18px;
+  /* body */
+  --text-b1-size: 16px;
+  --text-b2-size: 14px;
+  --text-b3-size: 12px;
+
+  /* line heights */
+  --leading-h1: 80px;
+  --leading-h2: 72px;
+  --leading-h3: 66px;
+  --leading-h4: 60px;
+  --leading-h5: 52px;
+  --leading-h6: 46px;
+  --leading-t1: 40px;
+  --leading-t2: 36px;
+  --leading-s1: 30px;
+  --leading-s2: 28px;
+  --leading-b1: 24px;
+  --leading-b2: 20px;
+  --leading-b3: 18px;
+
+/* it doesnt work */
+  /* --font-header-1 : var(--font-sf-pro, var(--text-h1-size, var(--leading-h1)));
+  --font-header-2 : var(--font-sf-pro, var(--text-h2-size, var(--leading-h2)));
+  --font-header-3 : var(--font-sf-pro, var(--text-h3-size, var(--leading-h3)));
+  --font-header-4 : var(--font-sf-pro, var(--text-h4-size, var(--leading-h4)));
+  --font-header-5 : var(--font-sf-pro, var(--text-h5-size, var(--leading-h5)));
+  --font-header-6 : var(--font-sf-pro, var(--text-h6-size, var(--leading-h6)));
+  --font-title-1 : var(--font-sf-pro, var(--text-t1-size, var(--leading-t1)));
+  --font-title-2 : var(--font-sf-pro, var(--text-t2-size, var(--leading-t2)));
+  --font-subtitle-1 : var(--font-sf-pro, var(--text-s1-size, var(--leading-s1)));
+  --font-subtitle-2 : var(--font-sf-pro, var(--text-s2-size, var(--leading-s2)));
+  --font-body-1 : var(--font-sf-pro, var(--text-b1-size, var(--leading-b1)));
+  --font-body-2 : var(--font-sf-pro, var(--text-b2-size, var(--leading-b2)));
+  --font-body-3 : var(--font-sf-pro, var(--text-b3-size, var(--leading-b3))); */
 }
 
 @theme inline {
@@ -110,6 +159,7 @@
   --color-foreground: var(--color-gray-50);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -162,8 +212,8 @@
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: var(--color-error-400);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --border: var(--color-primary-700);
+  --input: #0c0e1266;
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);

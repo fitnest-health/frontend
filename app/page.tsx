@@ -2,6 +2,7 @@ import BalancedLifeSection from "@/components/home/BalancedLifeSection ";
 import DownloadAppSection from "@/components/home/DownloadAppSection ";
 import HeroSection from "@/components/home/HeroSection";
 import OffersSection from "@/components/home/OffersSection";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -10,6 +11,39 @@ export default function Home() {
       <DownloadAppSection />
       <BalancedLifeSection />
       <OffersSection />
+
+      <div className="testing flex gap-4">
+        <Button className="text-h4-size" variant={"default"} size={"sm"}>
+          Button
+        </Button>
+        <Button disabled  variant={"default"} size={"default"}>
+          Button
+        </Button>
+        <Button variant={"default"} size={"lg"}>
+          Button
+        </Button>
+        <Button variant={"outline"} size={"sm"}>
+          Button
+        </Button>
+        <Button variant={"outline"} size={"default"}>
+          Button
+        </Button>
+        <Button variant={"outline"} size={"lg"}>
+          Button
+        </Button>
+
+        <Button variant={"ghost"} size={"sm"}>
+          Button
+        </Button>
+        <Button variant={"ghost"} size={"default"}>
+          Button
+        </Button>
+        <Button variant={"ghost"} size={"lg"}>
+          Button
+        </Button>
+
+        <Button variant={"link"}>Button</Button>
+      </div>
     </div>
   );
 }
