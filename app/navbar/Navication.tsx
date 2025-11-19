@@ -23,6 +23,7 @@ const NavLinks = [
 
 const Navication = () => {
     return (
+        
         <div className='hidden justify-end items-center md:flex'>
             <nav className="flex justify-between text-white! gradient-border py-4 px-7 rounded-4xl bg-[#0E293D4D] backdrop-blur-md md:min-w-[532px]">
                 {
