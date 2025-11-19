@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <div className="flex flex-col px-18 py-10 min-h-screen bg-[#111729]">
           <Navbar />
-          <main className="grow w-full">
+          <main className="grow w-full ">
             {children}
           </main>
           <Footer />
