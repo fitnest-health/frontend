@@ -1,6 +1,6 @@
 "use client";
 
-const AboutSection = () => {
+const About = () => {
     return (
         <section className="w-full py-15 mt-9 md:px-12 lg:px-15 space-y-24">
             <div className="flex flex-col md:flex-row items-center justify-between gap-10">
@@ -66,6 +66,6 @@ const AboutSection = () => {
     );
 };
 
-export default AboutSection;
+export default About;
 
 
