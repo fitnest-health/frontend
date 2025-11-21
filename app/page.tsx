@@ -15,7 +15,7 @@ export default function Home() {
       <BalancedLifeSection />
       <OffersSection />
    
-      <div className="testing flex gap-4">
+      <div className="testing flex flex-col gap-4">
         <Button className="text-h4-size" variant={"default"} size={"sm"}>
           Button
         </Button>

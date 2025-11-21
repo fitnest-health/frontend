@@ -5,9 +5,10 @@ import { LogOut, User } from "lucide-react"
 
 interface UserSectionProps {
     initialUser: any
+    isMobileMode?: boolean
 }
 
-const UserAuth = ({ initialUser }: UserSectionProps) => {
+const UserAuth = ({ initialUser, isMobileMode = false }: UserSectionProps) => {
 
     // const displayUser = !!initialUser
 
@@ -33,7 +34,7 @@ const UserAuth = ({ initialUser }: UserSectionProps) => {
         } */
 
     return (
-        <div className="flex gap-2">
+        <div className={`${isMobileMode ? 'flex flex-col-reverse mt-5' : 'hidden'} md:flex gap-2`}>
             <Button variant="link" size="sm" asChild >
                 <Link href="/login">
                     <User />
