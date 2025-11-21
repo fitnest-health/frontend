@@ -1,7 +1,7 @@
 import { ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
-const NavLinks = [
+export const NavLinks = [
     {
         name: 'Əsas səhifə',
         href: '/'
@@ -23,8 +23,8 @@ const NavLinks = [
 
 const Navication = () => {
     return (
-        <div className='hidden justify-end items-center md:flex'>
-            <nav className="flex justify-between text-white! gradient-border py-4 px-7 rounded-4xl bg-[#0E293D4D] backdrop-blur-md md:min-w-[532px]">
+        <div className='hidden  md:flex  md:justify-center xl:justify-normal w-full'>
+            <nav className="flex justify-between text-white! w-full gradient-border py-4 px-7 rounded-4xl bg-[#0E293D4D] backdrop-blur-md lg:max-w-[528px]">
                 {
                     NavLinks.map((item, index) => (
                         <Link key={index} href={item.href} className="text-lg flex items-center gap-1 cursor-pointer z-10 leading-6 font-medium">
