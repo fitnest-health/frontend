@@ -106,22 +106,22 @@
 
   --font-display: var(--font-sf-pro);
   /* header sizes  */
-  --text-h1-size: 52px;
-  --text-h2-size: 48px;
-  --text-h3-size: 44px;
-  --text-h4-size: 40px;
-  --text-h5-size: 36px;
-  --text-h6-size: 30px;
+  --text-h1: 52px;
+  --text-h2: 48px;
+  --text-h3: 44px;
+  --text-h4: 40px;
+  --text-h5: 36px;
+  --text-h6: 30px;
   /* titles */
-  --text-t1-size: 26px;
-  --text-t2-size: 24px;
+  --text-t1: 26px;
+  --text-t2: 24px;
   /* sub titles */
-  --text-s1-size: 20px;
-  --text-s2-size: 18px;
+  --text-s1: 20px;
+  --text-s2: 18px;
   /* body */
-  --text-b1-size: 16px;
-  --text-b2-size: 14px;
-  --text-b3-size: 12px;
+  --text-b1: 16px;
+  --text-b2: 14px;
+  --text-b3: 12px;
 
   /* line heights */
   --leading-h1: 80px;
@@ -138,7 +138,11 @@
   --leading-b2: 20px;
   --leading-b3: 18px;
 
-/* it doesnt work */
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
+
+  /* it doesnt work */
   /* --font-header-1 : var(--font-sf-pro, var(--text-h1-size, var(--leading-h1)));
   --font-header-2 : var(--font-sf-pro, var(--text-h2-size, var(--leading-h2)));
   --font-header-3 : var(--font-sf-pro, var(--text-h3-size, var(--leading-h3)));
@@ -291,5 +295,15 @@
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+  }
+
+  .gradient-border-bottom {
+    border-bottom: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90.55deg,
+        #A5BFF6 4.73%,
+        #C6A7F5 45.81%,
+        #92D5DB 80.14%,
+        rgba(1, 162, 188, 0.1) 112.9%);
   }
 }

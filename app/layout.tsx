@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={` ${sfPro.className} antialiased`}
       >
-        <div className="flex flex-col px-18 py-10 min-h-screen bg-[#111729]">
+        <div className="flex flex-col p-5 lg:px-18 md:py-10 min-h-screen bg-[#111729]">
           <Navbar />
           <main className="grow w-full ">
             {children}
