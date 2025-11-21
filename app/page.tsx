@@ -1,5 +1,4 @@
 'use client'
-import AboutSection from "./sections/AboutSection";
 import { Input } from "@/components/ui/input";
 import BalancedLifeSection from "./sections/BalancedLifeSection ";
 import DownloadAppSection from "./sections/DownloadAppSection ";
@@ -11,7 +10,6 @@ import mailIcon from '@/public/icons/mail.svg'
 export default function Home() {
   return (
     <div className="text-white mx-auto w-fit">
-      <AboutSection/>
       <HeroSection />
       <DownloadAppSection />
       <BalancedLifeSection />
