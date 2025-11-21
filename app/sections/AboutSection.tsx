@@ -46,7 +46,7 @@ const AboutSection = () => {
                         </p>
                     </div>
                 </div>
-                <div className="w-[628px] h-[448px] md">
+                <div className="w-[628px] h-[448px]">
                     <img
                         src="/images/image3.png"
                         className="w-full h-full object-cover r-[32px]"
@@ -54,7 +54,7 @@ const AboutSection = () => {
                     />
                 </div>
             </div>
-            <div className="text-center  mt-[48px]">
+            <div className="text-center mt-[48px]">
                 <h4 className="text-[40px] font-medium leading-[60px]">
                     <span className="text-[var(--color-primary-700)]">FitNest</span> - Sənin sağlamlıq yol yoldaşındır.
                 </h4>
