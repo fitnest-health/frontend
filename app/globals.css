@@ -289,6 +289,7 @@
     inset: 0;
     padding: 1px;
     border-radius: inherit;
+    pointer-events: none;
     background: linear-gradient(90deg, #c6a7f5, #01a2bc);
     -webkit-mask: linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);

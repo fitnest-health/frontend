@@ -8,7 +8,7 @@ export const NavLinks = [
     },
     {
         name: 'Bizi tanıyın',
-        href: '/#'
+        href: '/about'
     },
     {
         name: 'FitClub',
