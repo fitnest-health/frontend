@@ -1,10 +1,11 @@
-import Banner from "@/components/common/banner"
+import BannerContainer from "@/components/common/BannerContainer"
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion"
+import { MessageCircleQuestionMark } from "lucide-react"
 
 interface AccordionData {
   title: string
@@ -21,39 +22,36 @@ const accordionItems: AccordionData[] = [
 
 const Faq = () => {
   return (
-    <div>
-      <Banner
-        title="FAQs"
-        subtitle={
-          <>
-            <span className="text-primary-700">FitNest</span>
-            <span> haqqında ən çox soruşulan suallar</span>
-          </>
-        }
-        iconUrl="/public/icons/mail.svg"
-        iconAlt="FAQ Icon"
-      />
-    <div>
-      <Accordion type="single" collapsible className=" relative z-50 w-full space-y-6 md:pt-[332px] sm:pt-64 pt-52 md:px-40">
-      {accordionItems.map((item, index) => (
-        <AccordionItem
-          key={index}
-          value={`item-${index}`} 
-          className="border gradient-border bg-softblue-950 text-white px-8 py-4 rounded-4xl overflow-hidden"
+    <BannerContainer
+      title="FAQs"
+      subtitle={
+        <>
+          <span className="text-primary-700">FitNest</span>
+          <span> haqqında ən çox soruşulan suallar</span>
+        </>
+      }
+      icon={MessageCircleQuestionMark}
+    >
+      <div>
+        <Accordion type="single" collapsible className="w-full space-y-6 ">
+          {accordionItems.map((item, index) => (
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className="border gradient-border bg-softblue-950 text-white px-8 py-4 rounded-4xl overflow-hidden"
 
-        >
-          <AccordionTrigger className="text-t2-size leading-t2 font-medium sm:text-h6-size sm:leading-h6">
-            {item.title}
-          </AccordionTrigger>
-          <AccordionContent className="text-s2-size leading-s2 sm:text-t2-size sm:leading-t2">
-            {item.content}
-          </AccordionContent>
-        </AccordionItem>
-      ))}
-    </Accordion>
-    </div>
-
-    </div>
+            >
+              <AccordionTrigger className="text-t2 leading-t2 font-medium sm:text-h6 sm:leading-h6">
+                {item.title}
+              </AccordionTrigger>
+              <AccordionContent className="text-s2 leading-s2 sm:text-t2-size sm:leading-t2">
+                {item.content}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </BannerContainer>
   )
 }
 
