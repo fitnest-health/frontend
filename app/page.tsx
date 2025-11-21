@@ -1,3 +1,4 @@
+import AboutSection from "./sections/AboutSection";
 import BalancedLifeSection from "./sections/BalancedLifeSection ";
 import DownloadAppSection from "./sections/DownloadAppSection ";
 import HeroSection from "./sections/HeroSection";
@@ -7,6 +8,7 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
     <div className="text-white mx-auto w-fit">
+      <AboutSection/>
       <HeroSection />
       <DownloadAppSection />
       <BalancedLifeSection />
