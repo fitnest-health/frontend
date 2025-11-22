@@ -32,7 +32,7 @@ const PrivacyPolicy = () => {
                                 <CardTitle>{item.id}. {item.title}</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <p className="text-gray-500 min-[1440px]:text-card-foreground font-sans">{item.text}</p>
+                                <p className="text-gray-500 min-[1440px]:text-card-foreground">{item.text}</p>
                             </CardContent>
                         </Card>
                     ))
