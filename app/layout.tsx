@@ -33,8 +33,9 @@ export default function RootLayout({
           <main className="grow w-full ">
             {children}
           </main>
-          <Footer />
+         
         </div>
+         <Footer />
       </body>
     </html>
   );

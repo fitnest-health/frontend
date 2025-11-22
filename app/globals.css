@@ -104,7 +104,14 @@
   --color-success-500: #2d5a27;
   --color-success-600: #1b3617;
 
-  --font-display: var(--font-sf-pro);
+  --default-font-family: "SF Pro", "SF Pro Display", "SF Pro Icons",
+    "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-geist-sans: "SF Pro", "SF Pro Display", "SF Pro Icons",
+    "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-geist-mono: "SF Mono", "SF Mono", "SF Pro Display", "SF Pro Icons",
+    "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+  --font-display: var(--default-font-family);
   /* header sizes  */
   --text-h1: 52px;
   --text-h2: 48px;
@@ -278,6 +285,9 @@
   } */
 }
 
+* {
+  scroll-behavior: smooth;
+}
 @layer utilities {
   .gradient-border {
     position: relative;
@@ -301,10 +311,12 @@
   .gradient-border-bottom {
     border-bottom: 1px solid;
     border-image-slice: 1;
-    border-image-source: linear-gradient(90.55deg,
-        #A5BFF6 4.73%,
-        #C6A7F5 45.81%,
-        #92D5DB 80.14%,
-        rgba(1, 162, 188, 0.1) 112.9%);
+    border-image-source: linear-gradient(
+      90.55deg,
+      #a5bff6 4.73%,
+      #c6a7f5 45.81%,
+      #92d5db 80.14%,
+      rgba(1, 162, 188, 0.1) 112.9%
+    );
   }
 }
