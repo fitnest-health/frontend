@@ -4,7 +4,7 @@ import { type LucideIcon } from "lucide-react";
 interface BannerProps {
     title: string;
     subtitle: string | React.ReactNode;
-    icon: LucideIcon;
+    icon?: LucideIcon;
     iconClassName?: string;
     iconUrl?: string;
     children: React.ReactNode;
@@ -19,11 +19,11 @@ const BannerContainer: React.FC<BannerProps> = ({ title, subtitle, icon: Icon, c
                         {
                             iconUrl
                                 ? <img src={iconUrl} className='sm:w-12 sm:h-12 w-7 h-7' />
-                                : <Icon className={`${iconClassName} sm:w-12 sm:h-12 w-7 h-7 `} />
+                                : Icon && <Icon className={`${iconClassName} sm:w-12 sm:h-12 w-7 h-7 `} />
                         }
                         <h2 className='text-t1 leading-t1 font-medium sm:text-h2 sm:leading-h2'>{title}</h2>
                     </div>
-                    <p className='text-b2 leading-b2 font-medium mt-3 sm:text-s2 sm:leading-s2'>{subtitle}</p>
+                    <p className='text-b2 text-center leading-b2 font-medium mt-3 sm:text-s2 sm:leading-s2 max-w-[360px] sm:max-w-[460px] md:max-w-[628px]'>{subtitle}</p>
                 </div>
             </div>
             <div className='md:pt-[332px] sm:pt-52 pt-36 lg:px-40'>
