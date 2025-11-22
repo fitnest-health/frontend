@@ -1,6 +1,6 @@
 import BannerContainer from "@/components/common/BannerContainer"
 import AlertIcon from '../../public/icons/alert-circle.svg'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/common/cardForPrivacy&Terms";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface TermItem {
   id: string;
