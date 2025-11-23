@@ -65,7 +65,7 @@ const About = () => {
                         className={`relative grid sm:grid-cols-2 grid-cols-1 items-stretch justify-between sm:gap-5 md:mt-[151px] sm:mt-5 mt-4 ${item.reverse ? "flex-row-reverse" : ""
                             }`}
                     >
-                        <div className="gradient-border rounded-4xl h-full">
+                        <div className="z-20 gradient-border rounded-4xl h-full">
                             <div className="p-8 h-full flex flex-col gap-6">
                                 <h2 className="text-t1 leading-t1 md:text-h4 font-bold md:leading-h4 text-neutral-50">
                                     {item.title}
@@ -76,7 +76,7 @@ const About = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="sm:hidden block absolute top-0 left-0 h-full w-full rounded-4xl opacity-30">
+                        <div className="sm:hidden block absolute top-0 left-0 h-full w-full rounded-4xl opacity-60 ">
                             <Image
                                 src={item.img}
                                 alt={item.alt}
