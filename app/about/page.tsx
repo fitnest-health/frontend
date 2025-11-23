@@ -1,4 +1,5 @@
 import BannerContainer from "@/components/common/BannerContainer";
+import Image from "next/image";
 
 const aboutItems = [
     {
@@ -61,7 +62,7 @@ const About = () => {
                 {aboutItems.map((item, index) => (
                     <div
                         key={index}
-                        className={`grid sm:grid-cols-2 grid-cols-1 items-stretch justify-between sm:gap-5 md:mt-[151px] sm:mt-5 mt-4 ${item.reverse ? "flex-row-reverse" : ""
+                        className={`relative grid sm:grid-cols-2 grid-cols-1 items-stretch justify-between sm:gap-5 md:mt-[151px] sm:mt-5 mt-4 ${item.reverse ? "flex-row-reverse" : ""
                             }`}
                     >
                         <div className="gradient-border rounded-4xl h-full">
@@ -75,17 +76,22 @@ const About = () => {
                                 </p>
                             </div>
                         </div>
-
-                        <div className="relative h-full w-full">
-                            <div
-                                className="absolute top-0 h-full w-full rounded-4xl bg-cover bg-center sm:hidden"
-                                style={{ backgroundImage: `url(${item.img})` }}
-                            ></div>
-
-                            <img
+                        <div className="sm:hidden block absolute top-0 left-0 h-full w-full rounded-4xl opacity-30">
+                            <Image
                                 src={item.img}
                                 alt={item.alt}
-                                className="hidden sm:block w-full h-full object-cover rounded-4xl"
+                                fill
+                                className="object-cover rounded-4xl"
+                                priority
+                            />
+                        </div>
+                        <div className="hidden sm:block relative h-full w-full rounded-4xl">
+                            <Image
+                                src={item.img}
+                                alt={item.alt}
+                                fill
+                                className="object-cover rounded-4xl"
+                                priority
                             />
                         </div>
                     </div>
