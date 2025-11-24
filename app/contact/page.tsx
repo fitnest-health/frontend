@@ -1,7 +1,12 @@
-
+import { Card } from "@/components/ui/card"
 const Contact = () => {
     return (
-        <div>Contact</div>
+        <div className="py-16">
+
+            <div></div>
+            
+            <Card>contact</Card>
+        </div>
     )
 }
 
