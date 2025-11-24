@@ -54,10 +54,10 @@ export default function BugReportForm() {
       </div>
       <Card className="w-full space-y-12 rounded-[50px]">
         <CardHeader>
-          <h2 className="text-h2 leading-h2 font-normal">
+          <h2 className="text-t1 leading-t1 sm:text-h2 sm:leading-h2 font-normal">
             Bizimlə əlaqə saxla
           </h2>
-          <p className="font-light text-t2 leading-t2">
+          <p className="font-light text-b1 leading-b1 sm:text-t2 sm:leading-t2">
             Komandamız səninlə əlaqə saxlayacaq
           </p>
         </CardHeader>
