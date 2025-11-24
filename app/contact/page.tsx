@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import peopleIcon from "@/public/icons/people.svg";
 import phoneIcon from "@/public/icons/phone.svg";
 import mailIcon from "@/public/icons/mail.svg";
+import { contactFormSchema } from "@/config/schemas";
 
 import { Input } from "@/components/ui/input";
 
@@ -23,16 +24,9 @@ import Image from "next/image";
 import contactImg from "@/public/images/contact.jpg";
 import { Textarea } from "@/components/ui/textarea";
 
-const formSchema = z.object({
-  fullname: z.string().min(2).max(50),
-  phone: z.string().min(2).max(50),
-  email: z.email(),
-  message: z.string().min(2).max(500),
-});
-
 export default function BugReportForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       fullname: "",
       phone: "",
@@ -41,15 +35,15 @@ export default function BugReportForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof contactFormSchema>) {
     // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    // form validasiya olmasa bu funksiya islemeyecek
     console.log(values);
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-14">
-      <div className="rounded-[50px] h-[750px] ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-14">
+      <div className="rounded-[50px] h-[750px] hidden sm:block">
         <Image
           src={contactImg}
           className="rounded-[50px] grayscale w-full h-full object-cover"
@@ -71,7 +65,7 @@ export default function BugReportForm() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-8 w-full py-10"
+            className="space-y-8 w-full py-0 lg:py-10"
           >
             <FormField
               control={form.control}
