@@ -19,15 +19,15 @@ const Footer = async () => {
       <ToTopBtn />
       <div className="footer_inside max-w-7xl mx-auto py-[30px] sm:py-[60px] px-5 ">
         <div className="footer_top flex flex-col sm:flex-row justify-between gap-14 sm:gap-0 ">
-            <Link className=" block sm:hidden mx-auto" href="/">
-              <Image
-                src={logo}
-                className="w-20 h-12"
-                alt="logo"
-                width={80}
-                height={50}
-              />
-            </Link>
+          <Link className=" block sm:hidden mx-auto" href="/">
+            <Image
+              src={logo}
+              className="w-20 h-12"
+              alt="logo"
+              width={80}
+              height={50}
+            />
+          </Link>
           <div className="left-side flex w-full sm:w-3/4 justify-between mx-auto">
             <Link className=" hidden sm:block" href="/">
               <Image
@@ -41,10 +41,10 @@ const Footer = async () => {
 
             <ul className="flex flex-col gap-4 text-b1 leading-b1 text-neutral-50 font-medium ">
               <AnimatedLink href="/faq">FAQ</AnimatedLink>
-              <AnimatedLink href="#">Məxfilik siyasəti</AnimatedLink>
-              <AnimatedLink href="#">İstifadə şərtləri</AnimatedLink>
-              <AnimatedLink href="#">Şikayətlər və təkliflər</AnimatedLink>
-              <AnimatedLink href="/about">Əlaqə</AnimatedLink>
+              <AnimatedLink href="/privacy">Məxfilik siyasəti</AnimatedLink>
+              <AnimatedLink href="/terms">İstifadə şərtləri</AnimatedLink>
+              <AnimatedLink href="/feedback">Şikayətlər və təkliflər</AnimatedLink>
+              <AnimatedLink href="/contact">Əlaqə</AnimatedLink>
             </ul>
 
             <ul className="flex flex-col gap-4 text-b1 leading-b1 text-neutral-50 font-medium ">
@@ -114,8 +114,8 @@ const Footer = async () => {
             </ul>
           </div>
 
-          <div className="right-side   sm:w-1/2">
-            <div className="contact flex flex-col gap-14 w-full sm:w-1/2 ml-0  sm:ml-auto">
+          <div className="right-side sm:w-1/2 flex justify-end">
+            <div className="contact flex flex-col sm:items-end gap-14 w-full">
               <div className="lang flex gap-9 justify-between sm:justify-start">
                 <LangBtn txt="AZ" />
                 <LangBtn txt="EN" />
@@ -146,10 +146,8 @@ const Footer = async () => {
               </div>
             </div>
           </div>
-
-          <div className="socialLinks"></div>
         </div>
-
+        <div className="border-b border-neutral-800 pt-5 sm:pt-[37px]"></div>
         <div className="footer_bottom h-full flex justify-center items-center">
           <p className=" p-3 sm:pt-14 text-b3 leading-b3 font-medium">© 2025 FitNest</p>
         </div>
