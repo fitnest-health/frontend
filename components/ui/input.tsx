@@ -40,7 +40,7 @@ export function Input({
         type={type}
         data-slot="input"
         className={cn(
-          "w-full bg-transparent border-0 outline-none",
+          "w-full bg-transparent border-0 outline-none rounded-full",
           "placeholder:text-neutral-700 dark:bg-transparent",
           "file:text-foreground selection:bg-primary selection:text-primary-foreground",
           "h-9 px-2 text-base md:text-sm",
