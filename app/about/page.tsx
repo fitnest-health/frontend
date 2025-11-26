@@ -15,6 +15,7 @@ const aboutItems = [
         alt: "Mission",
         reverse: false,
     },
+    
     {
         title: "Vizyonumuz",
         text: (
