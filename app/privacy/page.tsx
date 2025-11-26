@@ -5,7 +5,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Shield } from "lucide-react";
+import ShieldIcon from '@/public/icons/shield.svg'
 
 interface PolicyItem {
     id: number;
@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
         <BannerContainer
             title="Məxfilik siyasəti"
             subtitle='Şəxsi məlumatlarınızın qorunması bizim üçün prioritetdir'
-            icon={Shield}
+            iconUrl={ShieldIcon.src}
         >
             <div className="w-full flex flex-col gap-5 items-center">
                 {

@@ -2,7 +2,7 @@
 import BannerContainer from "@/components/common/BannerContainer"
 import { Card } from "@/components/ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { MessageCircleQuestionMark } from "lucide-react"
+import MessageIcon from '@/public/icons/message-question-circle.svg'
 import { useForm } from "react-hook-form"
 import mailIcon from "@/public/icons/mail.svg";
 import peopleIcon from "@/public/icons/people.svg";
@@ -67,7 +67,7 @@ const Feedback = () => {
     <BannerContainer
       title="Şikayət və təkliflər"
       subtitle="Sizin fikirləriniz bizim üçün dəyərlidir – paylaşın, biz qulaq asırıq!"
-      icon={MessageCircleQuestionMark}
+      iconUrl={MessageIcon.src}
     >
       <Card className="lg:max-w-[628px] mx-auto mt-4 mb-10">
         <Form {...form}>

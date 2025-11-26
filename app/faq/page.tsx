@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion"
-import { MessageCircleQuestionMark } from "lucide-react"
+import MessageIcon from '@/public/icons/message-question-circle.svg'
 
 interface AccordionData {
   title: string
@@ -30,7 +30,7 @@ const Faq = () => {
           <span> haqqında ən çox soruşulan suallar</span>
         </>
       }
-      icon={MessageCircleQuestionMark}
+      iconUrl={MessageIcon.src}
     >
       <div>
         <Accordion type="single" collapsible className="w-full space-y-6 ">
