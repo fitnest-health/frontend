@@ -117,7 +117,7 @@ const Footer = async () => {
           <div className="right-side sm:w-1/2 flex justify-end">
             <div className="contact flex flex-col sm:items-end gap-14 w-full">
               <div className="lang flex gap-9 justify-between sm:justify-start">
-                <LangBtn txt="AZ" />
+                <LangBtn isActive = {true} txt="AZ" />
                 <LangBtn txt="EN" />
                 <LangBtn txt="RU" />
               </div>
