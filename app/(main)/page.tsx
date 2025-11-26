@@ -1,9 +1,9 @@
 'use client'
 import { Input } from "@/components/ui/input";
-import BalancedLifeSection from "./sections/BalancedLifeSection ";
-import DownloadAppSection from "./sections/DownloadAppSection ";
-import HeroSection from "./sections/HeroSection";
-import OffersSection from "./sections/OffersSection";
+import BalancedLifeSection from "../sections/BalancedLifeSection ";
+import DownloadAppSection from "../sections/DownloadAppSection ";
+import HeroSection from "../sections/HeroSection";
+import OffersSection from "../sections/OffersSection";
 import { Button } from "@/components/ui/button";
 import mailIcon from '@/public/icons/mail.svg'
 
