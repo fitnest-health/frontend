@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-
-
-
+import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 
 export const metadata: Metadata = {
   title: "Fitnest",
@@ -13,5 +12,11 @@ export default function AuthLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div>{ children }</div>;
+  return (
+    <div className="bg-softblue-1000 min-h-screen">
+      <Navbar />
+      {children}
+      <Footer />
+    </div>
+  );
 }
