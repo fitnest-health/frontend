@@ -11,6 +11,7 @@ import {
   type OfferPlan,
 } from "@/components/common/offer-section/offers.types";
 import { cn } from "@/lib/utils";
+import Heading from "@/components/common/Heading";
 
 const plans: OfferPlan[] = [
   {
@@ -143,22 +144,12 @@ const OffersSection = () => {
   return (
     <section className="relative w-full py-16 sm:py-20 md:py-24">
       <div className="mx-auto flex w-full  flex-col">
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex w-full justify-center md:justify-start">
-            <div className="flex items-center gap-3">
-              <span className="grid size-10 place-items-center rounded-full gradient-border text-b1 font-semibold text-primary-500">
-                2
-              </span>
-              <h2 className="text-h5 font-semibold leading-h5 text-center sm:text-h4 sm:leading-h4 md:text-left md:text-h3 md:leading-h3">
-                Təkliflərimiz
-              </h2>
-            </div>
-          </div>
+        <div className="flex flex-col items-center ">
+          <Heading title="Təkliflərimiz" number={2} className="xl:pb-10!"/>
           <OfferPeriodToggle
             value={period}
             options={periodOptions}
             onChange={setPeriod}
-            className="mt-2"
           />
         </div>
 
