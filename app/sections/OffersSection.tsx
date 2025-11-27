@@ -113,11 +113,9 @@ const toneGradientClasses: Record<OfferPlan["tone"], string> = {
 };
 
 const toneAccentClasses: Record<OfferPlan["tone"], string> = {
-  standard:
-    "bg-linear-to-b from-[#0E293D00] to-[#154766] shadow-[0_10px_30px_rgba(12,46,72,0.45)]",
-  gold: "bg-linear-to-b from-[#E7B75F00] to-[#F8D57E] shadow-[0_10px_30px_rgba(143,110,36,0.45)]",
-  premium:
-    " bg-linear-to-b from-[#E5E8EC00] to-[#9BAAC7] shadow-[0_10px_30px_rgba(104,122,155,0.45)] ",
+  standard: "bg-linear-to-r from-[#0E293D00] to-[#154766] ",
+  gold: "bg-linear-to-r from-[#E7B75F00] to-[#F8D57E] ",
+  premium: " bg-linear-to-r from-[#E5E8EC00] to-[#9BAAC7]  ",
 };
 
 const OffersSection = () => {
