@@ -1,4 +1,4 @@
-import React from 'react'
+
 import LoadingGift from '@/public/Loading.gif'
 
 const loading = () => {

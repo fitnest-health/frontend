@@ -47,7 +47,7 @@ const HamburgerMenu = () => {
                         animate={{ x: 0 }}           // ekrana girir
                         exit={{ x: "100%" }}         // bağlananda yenə sağa gedir
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="pt-16 absolute -top-6 -right-5 w-screen xs:w-[320px] h-screen bg-softblue-1000  shadow-md z-10"
+                        className="pt-16 absolute -top-7 -right-5 w-screen xs:w-[320px] h-screen bg-softblue-1000  shadow-md z-10"
                     >
                         <div className="bg-[#0E293D4D] h-full p-5 flex flex-col text-neutral-50">
                             <ul >

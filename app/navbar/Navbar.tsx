@@ -9,7 +9,7 @@ const initialUser = {
 
 const Navbar = () => {
     return (
-        <header className="flex items-center gap-4 lg:gap-0 justify-between bg-cswhite text-cswhite w-full md:max-w-[1288px] mx-auto">
+        <header className="z-50 flex items-center gap-4 lg:gap-0 justify-between bg-cswhite text-cswhite w-full md:max-w-[1288px] mx-auto">
             <Logo />
             <div className="flex items-center justify- w-full lg:max-w-[887px]">
                 <Navication />

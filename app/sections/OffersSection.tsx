@@ -11,6 +11,7 @@ import {
   type OfferPlan,
 } from "@/components/common/offer-section/offers.types";
 import { cn } from "@/lib/utils";
+import Heading from "@/components/common/Heading";
 
 const plans: OfferPlan[] = [
   {
@@ -113,11 +114,9 @@ const toneGradientClasses: Record<OfferPlan["tone"], string> = {
 };
 
 const toneAccentClasses: Record<OfferPlan["tone"], string> = {
-  standard:
-    "bg-linear-to-b from-[#0E293D00] to-[#154766] shadow-[0_10px_30px_rgba(12,46,72,0.45)]",
-  gold: "bg-linear-to-b from-[#E7B75F00] to-[#F8D57E] shadow-[0_10px_30px_rgba(143,110,36,0.45)]",
-  premium:
-    " bg-linear-to-b from-[#E5E8EC00] to-[#9BAAC7] shadow-[0_10px_30px_rgba(104,122,155,0.45)] ",
+  standard: "bg-linear-to-r from-[#0E293D00] to-[#154766] ",
+  gold: "bg-linear-to-r from-[#E7B75F00] to-[#F8D57E] ",
+  premium: " bg-linear-to-r from-[#E5E8EC00] to-[#9BAAC7]  ",
 };
 
 const OffersSection = () => {
@@ -143,24 +142,14 @@ const OffersSection = () => {
   );
 
   return (
-    <section className="relative w-full px-4 py-16 sm:py-20 md:py-24">
-      <div className="mx-auto flex w-full max-w-6xl flex-col">
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex w-full justify-center md:justify-start">
-            <div className="flex items-center gap-3">
-              <span className="grid size-10 place-items-center rounded-full gradient-border text-b1 font-semibold text-primary-500">
-                2
-              </span>
-              <h2 className="text-h5 font-semibold leading-h5 text-center sm:text-h4 sm:leading-h4 md:text-left md:text-h3 md:leading-h3">
-                Təkliflərimiz
-              </h2>
-            </div>
-          </div>
+    <section className="relative w-full py-16 sm:py-20 md:py-24">
+      <div className="mx-auto flex w-full  flex-col">
+        <div className="flex flex-col items-center ">
+          <Heading title="Təkliflərimiz" number={2} className="xl:pb-10!"/>
           <OfferPeriodToggle
             value={period}
             options={periodOptions}
             onChange={setPeriod}
-            className="mt-2"
           />
         </div>
 
