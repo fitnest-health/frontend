@@ -59,7 +59,7 @@ const About = () => {
                 </>
             }
         >
-            <section className="w-full pt-14 md:mb-20 sm:mb-10 mb-4 md:mt-8 sm:mt-20 mt-16">
+            <section className="w-full lg:max-w-7xl m-auto pt-14 md:mb-20 sm:mb-10 mb-4 md:mt-8 sm:mt-20 mt-16">
                 {aboutItems.map((item, index) => (
                     <div
                         key={index}
@@ -104,7 +104,7 @@ const About = () => {
                     </h4>
                     <p className="text-b3 leading-b3 sm:text-b1 sm:leading-b1 md:text-s1 md:leading-s1 mt-7 max-w-[780px] mx-auto text-neutral-50">
                         Biz inanırıq ki, hər dəyişiklik bir addımla başlayır.
-                        <span className="color-primary-700">FitNest</span> bu addımı atmaq üçün sənin yanındadır -
+                        <span className="text-primary-700"> FitNest</span> bu addımı atmaq üçün sənin yanındadır -
                         sağlam, balanslı və motivasiyalı həyat üçün.
                     </p>
                 </div>
