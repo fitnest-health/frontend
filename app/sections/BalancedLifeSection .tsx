@@ -14,6 +14,7 @@ import {
   CarouselApi
 } from "@/components/ui/carousel"
 import Fade from "embla-carousel-fade"
+import Heading from '@/components/common/Heading';
 
 interface SlideItem {
     id: number;
@@ -40,17 +41,10 @@ const BalancedLifeSection  = () => {
             setCurrent(api.selectedScrollSnap())
         })
     }, [api])
-    console.log(current);
     
-
     return (
         <div className="bg-softblue-1000 py-10 md:pt-8 md:pb-22 xl:py-20 text-gray-50 ">
-            <div className="flex items-center gap-5 md:gap-7 pb-5 md:pb-7 xl:pb-[60px]">
-                <div className="gradient-border aspect-square w-10 md:w-[63px] rounded-full grid place-items-center bg-[#0E293D]/30">
-                    <span className="text-b1 md:text-s1 font-bold leading-b1 md:leading-s1 z-2">1</span>
-                </div>
-                <h3 className="text-s1 md:text-h4 font-semibold leading-s1 md:leading-h4">Balanslı həyatın başlanğıcı</h3>
-            </div> 
+            <Heading title="Balanslı həyatın başlanğıcı" number={1}/>
             <div className="flex max-xl:flex-col w-full xl:items-top gap-10 md:gap-20 xl:gap-5 grid-cols-1 xl:grid-cols-12">
                 <div id="carusel" className='min-h-[270px] w-full xl:col-span-5 xl:w-[calc(42%-10px)]'>
                     <Carousel 
