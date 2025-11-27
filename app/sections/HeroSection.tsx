@@ -1,7 +1,7 @@
 
 const HeroSection = () => {
   return (
-    <section className="flex lg:max-w-7xl ">
+    <section className="flex lg:items-center sm:items-end lg:max-w-7xl text-[#FAFAFA] lg:h-[calc(100vh-113px)] md:h-[474px] sm:h-[528px]">
 
       <video
         autoPlay
@@ -22,7 +22,7 @@ const HeroSection = () => {
         <source src="/videos/ScreenRecording.mp4" type="video/mp4" />
       </video>
 
-      <div className="z-10 sm:bg-transparent bg-softblue-1000 sm:block flex flex-col items-center lg:w-1/2 lg:mt-[228px] sm:mt-56 mt-[239px] lg:pr-0 sm:pr-[84px]">
+      <div className="z-10 sm:bg-transparent  bg-softblue-1000 sm:block flex flex-col items-center lg:w-1/2 sm:mt-0 mt-[179px] lg:pr-0 sm:pr-[84px] sm:pt-0 pt-4">
         <h1 className="sm:mb-8 mb-4 font-semibold lg:text-h5 lg:leading-h5 sm:text-h6 sm:leading-h6 text-s1 leading-s1">
           Sağlamlığa gedən yol — <span className="text-primary-700">FitNest</span>
         </h1>
@@ -33,8 +33,16 @@ const HeroSection = () => {
           sənin gündəlik motivasiyan üçün bir aradadır.
         </p>
 
-        <button className="z-40 w-full sm:w-auto px-[60px] py-4 lg:text-s1 lg:leading-s1 sm:text-b1 sm:leading-b1 text-b2 leading-b2 font-semibold gradient-border rounded-[52px] text-white bg-linerar-to-b from-[#0B0909] to-[#091120]">
-          İndi Başla
+        <button className="z-40 w-full mb-4 sm:w-auto px-[60px] py-4 lg:text-s1 lg:leading-s1 sm:text-b1 sm:leading-b1 text-b2 leading-b2 font-semibold gradient-border rounded-[52px] text-white 
+          bg-[linear-gradient(180deg,#0B0909_0%,#091120_100%)] transitoin-shadow duration-300"
+          onMouseOver={(e) => {
+            e.currentTarget.style.boxShadow =
+              "inset 0 -10px 40px rgba(0, 180, 204, 0.25), inset 0 0 13px rgba(0, 180, 204, 0.5), inset 0 -2px 20px #134BCD";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.boxShadow = "none";
+          }}
+        >          İndi Başla
         </button>
       </div>
 
