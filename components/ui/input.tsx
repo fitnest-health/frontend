@@ -31,29 +31,28 @@ export function Input({
       )}
     >
       {/* Left Icon */}
-      {left && (
-        <IconWrapper icon={left} />
-      )}
+      {left && <IconWrapper icon={left} />}
 
       {/* Input */}
       <input
         type={type}
         data-slot="input"
         className={cn(
-          "w-full bg-transparent border-0 outline-none",
+          "w-full bg-transparent border-0 outline-none rounded-full",
           "placeholder:text-neutral-700 dark:bg-transparent",
           "file:text-foreground selection:bg-primary selection:text-primary-foreground",
           "h-9 px-2 text-base md:text-sm",
           "disabled:pointer-events-none disabled:opacity-50",
+          "autofill:bg-transparent autofill:text-foreground",
+          "[-webkit-autofill]:bg-transparent [-webkit-autofill]:text-foreground",
+          "[-webkit-autofill]:shadow-[inset_0_0_0px_1000px_hsl(var(--background))]",
           className
         )}
         {...props}
       />
 
       {/* Right Icon */}
-      {right && (
-        <IconWrapper icon={right} />
-      )}
+      {right && <IconWrapper icon={right} />}
     </div>
   );
 }
@@ -94,10 +93,9 @@ function IconWrapper({ icon }: { icon: IconType }) {
       type="button"
       onClick={icon.onClick}
       className={cn(
-        "rounded-full min-w-[38px] min-h-[38px] flex justify-center items-center",
+        `rounded-full min-w-[38px] min-h-[38px] flex justify-center items-center`,
         clickable ? "cursor-pointer" : "pointer-events-none",
-        clickable ? "bg-transparent" : "bg-[#0E293D4D]",
-
+        clickable ? "bg-transparent" : "bg-[#0E293D4D]"
       )}
     >
       <Image
@@ -105,7 +103,7 @@ function IconWrapper({ icon }: { icon: IconType }) {
         alt="icon"
         width={18}
         height={18}
-        className="w-[18px] h-[18px]"
+        className={`${clickable ? "w-6 h-6" : "w-[18px] h-[18px]"}`}
       />
     </button>
   );

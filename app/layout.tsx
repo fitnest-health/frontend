@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./navbar/Navbar";
-import Footer from "./footer/Footer";
+// import Navbar from "./navbar/Navbar";
+// import Footer from "./footer/Footer";
 import localFont from "next/font/local";
 
 const sfPro = localFont({
@@ -28,14 +28,7 @@ export default function RootLayout({
       <body
         className={` ${sfPro.className} antialiased`}
       >
-        <div className="flex flex-col p-5 lg:px-18 md:py-10 min-h-screen bg-softblue-1000">
-          <Navbar />
-          <main className="grow w-full ">
-            {children}
-          </main>
-         
-        </div>
-         <Footer />
+       {children}
       </body>
     </html>
   );
