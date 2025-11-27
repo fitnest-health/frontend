@@ -32,7 +32,7 @@ const Faq = () => {
       }
       icon={MessageCircleQuestionMark}
     >
-      <div>
+      <div className="lg:max-w-7xl m-auto">
         <Accordion type="single" collapsible className="w-full space-y-6 ">
           {accordionItems.map((item, index) => (
             <AccordionItem
