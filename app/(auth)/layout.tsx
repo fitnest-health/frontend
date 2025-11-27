@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import authBackgroundImage from "@/public/images/auth-background.webp";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Fitnest",
@@ -13,10 +15,20 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="bg-softblue-1000 min-h-screen">
-      <Navbar />
-      {children}
+    <>
+      <div className="bg-transparent min-h-screen relative">
+        <Navbar />
+        {children}
+        <Image
+          src={authBackgroundImage}
+          alt="auth"
+          width={1440}
+          height={1000}
+          className="w-full h-full absolute top-0 left-0 object-cover opacity-100 -z-20"
+        />
+        <div className="cover -z-10 absolute bg-softblue-1000 opacity-30 top-0 left-0 w-full h-full"></div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
