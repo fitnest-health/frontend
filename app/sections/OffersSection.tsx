@@ -141,8 +141,8 @@ const OffersSection = () => {
   );
 
   return (
-    <section className="relative w-full px-4 py-16 sm:py-20 md:py-24">
-      <div className="mx-auto flex w-full max-w-6xl flex-col">
+    <section className="relative w-full py-16 sm:py-20 md:py-24">
+      <div className="mx-auto flex w-full  flex-col">
         <div className="flex flex-col items-center gap-4">
           <div className="flex w-full justify-center md:justify-start">
             <div className="flex items-center gap-3">
