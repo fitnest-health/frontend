@@ -26,7 +26,7 @@ const BannerContainer: React.FC<BannerProps> = ({ title, subtitle, icon: Icon, c
                     <p className='text-b2 text-center leading-b2 font-medium mt-3 sm:text-s2 sm:leading-s2 max-w-[360px] sm:max-w-[460px] md:max-w-[628px]'>{subtitle}</p>
                 </div>
             </div>
-            <div className='md:pt-[332px] sm:pt-52 pt-36 lg:px-29'>
+            <div className='md:pt-[332px] sm:pt-52 pt-36 lg:max-w-7xl m-auto'>
                 {children}
             </div>
         </>
