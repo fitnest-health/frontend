@@ -16,7 +16,7 @@ export default function AuthLayout({
 }>) {
   return (
     <>
-      <div className="bg-transparent min-h-screen relative">
+      <div className="bg-transparent min-h-screen relative p-5 lg:px-18 md:py-10">
         <Navbar />
         {children}
         <Image
