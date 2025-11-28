@@ -4,7 +4,6 @@ import FoodBalance from '@/public/images/foodBalance.png';
 import StartChanging from '@/public/images/startChanging.png';
 import Image,{ StaticImageData } from 'next/image';
 import * as React from "react"
-import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -46,7 +45,7 @@ const BalancedLifeSection  = () => {
         <div className="bg-softblue-1000 py-10 md:pt-8 md:pb-22 xl:py-20 text-gray-50 ">
             <Heading title="Balanslı həyatın başlanğıcı" number={1}/>
             <div className="flex max-xl:flex-col w-full xl:items-top gap-10 md:gap-20 xl:gap-5 grid-cols-1 xl:grid-cols-12">
-                <div id="carusel" className='min-h-[270px] w-full xl:col-span-5 xl:w-[calc(42%-10px)]'>
+                <div id="carusel" className='max-sm:grid max-sm:grid-cols-1 min-h-[270px] w-full xl:col-span-5 xl:w-[calc(42%-10px)]'>
                     <Carousel 
                     setApi={setApi} 
                     plugins={[Fade()]}
@@ -57,14 +56,14 @@ const BalancedLifeSection  = () => {
                       <CarouselContent>
                         {caruselContext.map((item) => (
                           <CarouselItem key={item.id}>
-                              <div className='min-h-[270px] md:min-h-[512px] flex p-4 md:p-[70px] xl:p-[50px] relative rounded-4xl'>
-                                  <a className="absolute xl:right-[30px] xl:bottom-[30px] right-5 bottom-5 cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md grid place-items-center z-3">
-                                      <Image src={ArrowForward} alt="arrow"/>
+                              <div className='min-h-[270px] max-[350px]:max-h-[120px]! md:min-h-[512px] flex flex-col p-4 md:p-[70px] xl:p-[50px] relative rounded-4xl'>
+                                  <a className="absolute xl:right-[30px] h-12 max-[410px]:w-7 max-[410px]:h-7 aspect-square xl:bottom-[30px] right-5 bottom-5 cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md z-3">
+                                      <div className='size-full rounded-full'><Image src={ArrowForward} alt="arrow"/></div>
                                   </a>
                                   <div className='absolute inset-0 size-full rounded-4xl overflow-hidden'>
-                                    <Image src={item.src} alt="arrow" fill className=' object-cover '/>
+                                      <Image src={item.src} alt="arrow" className='size-full object-cover rounded-4xl'/>
                                   </div>
-                                  <div className="w-full flex flex-col gap-4 max-md:gap-[62px] items-start self-end z-2">
+                                  <div className="size-full flex flex-col max-md:flex-1 md:gap-4 max-md:justify-between max-md:py-10 items-start md:mt-auto z-2">
                                       <h2 className='font-semibold text-s2 leading-s2 xl:text-h3 xl:leading-h3' dangerouslySetInnerHTML={{ __html: item.title }}></h2>
                                       <p className="font-semibold text-b2 leading-b2 xl:text-s2 xl:leading-s2 max-w-[362px]" dangerouslySetInnerHTML={{ __html: item.text }} ></p>
                                   </div>
@@ -79,13 +78,13 @@ const BalancedLifeSection  = () => {
                     </Carousel>
                 </div>
                 <div className="xl:flex-1 xl:flex xl:flex-col xl:min-h-[270px] xl:col-span-7">
-                    <div className="max-xl:hidden w-full max-h-[270px] flex items-center gap-5 grid grid-cols-2">
+                    <div className="max-xl:hidden w-full max-h-[270px] items-center gap-5 grid grid-cols-2">
                         <div className="size-full flex p-5 relative aspect-360/270">
                             <div className='absolute inset-0 rounded-4xl overflow-hidden'>
                               <Image src={caruselContext[(current+1)%caruselContext.length]?.src} alt="arrow" className=' object-cover size-full'/>
                             </div>
                             <div className="w-full flex justify-between items-center self-end z-2">
-                                <p className="font-semibold text-t2 leading-s2 max-w-[194px]">Sənin qida balansın</p>
+                                <p className="font-semibold text-t2 leading-s2 max-w-[194px]" dangerouslySetInnerHTML={{ __html: caruselContext[(current+1)%caruselContext.length]?.title }}></p>
                                 <a className="cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md grid place-items-center">
                                     <Image src={ArrowForward} alt="arrow" />
                                 </a>
@@ -96,7 +95,7 @@ const BalancedLifeSection  = () => {
                               <Image src={caruselContext[(current+2)%caruselContext.length]?.src} fill alt="arrow" className=' object-cover size-full'/>
                             </div>
                             <div className="w-full flex justify-between items-center self-end z-2">
-                                <p className="font-semibold text-s2 leading-s2 max-w-[228px]"><span className="text-primary-700">FitNest</span> Coachları: Səni Yönləndirən Güc və İlham</p>
+                                <p className="font-semibold text-s2 leading-s2 max-w-[228px]" dangerouslySetInnerHTML={{ __html: caruselContext[(current+2)%caruselContext.length]?.title }}></p>
                                 <a className="cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md grid place-items-center ">
                                     <Image src={ArrowForward} alt="arrow" />
                                 </a>
