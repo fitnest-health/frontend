@@ -3,9 +3,9 @@ import Link from "next/link"
 
 const DownloadAppSection = () => {
   return (
-    <div className="grid grid-cols-1 gap-0  md:grid-cols-2 xl:px-20">
+    <div className="grid grid-cols-1 xl:gap-15 md:grid-cols-2 sm:grid-cols-2 lg:max-w-7xl max-w-screen lg:m-auto lg:mt-24">
 
-      <div className="relative w-[360px] h-[347px] mx-auto md:w-[358px] md:h-[342px] lg:w-[519px] lg:h-[500px] max-w-full scale-[0.9]">
+      <div className="relative w-[360px] h-[347px]  md:w-[358px] md:h-[342px] lg:w-[519px] lg:h-[500px] max-w-full scale-[1]">
         <Image
           src="/images/Group11.png"
           alt="phones"
@@ -13,7 +13,7 @@ const DownloadAppSection = () => {
           className="object-contain"
         />
       </div>
-      <div className="md:mt-15 xl:mt-17 lg:mt-33">
+      <div className="md:mt-15 xl:mt-17 lg:mt-33 sm:mt-20">
         <h6 className="text-neutral-50 text-b1 leading-b1 font-medium md:text-h6 md:leading-h6 xl:text-h2 xl:leading-h2">
           Sağlam həyat tərzinə bir addım da yaxınlaş
         </h6>
