@@ -1,7 +1,7 @@
 import ArrowForward from '@/public/icons/arrow-forward.svg';
-import Coaches from '@/public/images/coaches.png';
-import FoodBalance from '@/public/images/foodBalance.png';
-import StartChanging from '@/public/images/startChanging.png';
+import Coaches from '@/public/images/coaches.jpg';
+import FoodBalance from '@/public/images/foodBalance.jpg';
+import StartChanging from '@/public/images/startChanging.jpg';
 import Image,{ StaticImageData } from 'next/image';
 import * as React from "react"
 import {
@@ -44,8 +44,8 @@ const BalancedLifeSection  = () => {
     return (
         <div className="bg-softblue-1000 py-10 md:pt-8 md:pb-22 xl:py-20 text-gray-50 ">
             <Heading title="Balanslı həyatın başlanğıcı" number={1}/>
-            <div className="flex max-xl:flex-col w-full xl:items-top gap-10 md:gap-20 xl:gap-5 grid-cols-1 xl:grid-cols-12">
-                <div id="carusel" className='max-sm:grid max-sm:grid-cols-1 min-h-[270px] w-full xl:col-span-5 xl:w-[calc(42%-10px)]'>
+            <div className="flex max-xl:flex-col w-full xl:items-top gap-10 md:gap-20 xl:gap-5 xl:grid-cols-12">
+                <div id="carusel" className='max-sm:grid max-sm:grid-cols-1 w-full xl:col-span-5 xl:w-[calc(42%-10px)]'>
                     <Carousel 
                     setApi={setApi} 
                     plugins={[Fade()]}
@@ -56,12 +56,12 @@ const BalancedLifeSection  = () => {
                       <CarouselContent>
                         {caruselContext.map((item) => (
                           <CarouselItem key={item.id}>
-                              <div className='min-h-[270px] max-[350px]:max-h-[120px]! md:min-h-[512px] flex flex-col p-4 md:p-[70px] xl:p-[50px] relative rounded-4xl'>
+                              <div className='min-h-[270px] lg:min-h-[512px] max-w-full flex flex-col p-4 md:p-[70px] xl:p-[50px] relative rounded-4xl'>
                                   <a className="absolute xl:right-[30px] h-12 max-[410px]:w-7 max-[410px]:h-7 aspect-square xl:bottom-[30px] right-5 bottom-5 cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md z-3">
                                       <div className='size-full rounded-full'><Image src={ArrowForward} alt="arrow"/></div>
                                   </a>
                                   <div className='absolute inset-0 size-full rounded-4xl overflow-hidden'>
-                                      <Image src={item.src} alt="arrow" className='size-full object-cover rounded-4xl'/>
+                                      <Image src={item.src} alt="arrow" fill className='size-full object-cover rounded-4xl'/>
                                   </div>
                                   <div className="size-full flex flex-col max-md:flex-1 md:gap-4 max-md:justify-between max-md:py-10 items-start md:mt-auto z-2">
                                       <h2 className='font-semibold text-s2 leading-s2 xl:text-h3 xl:leading-h3' dangerouslySetInnerHTML={{ __html: item.title }}></h2>
