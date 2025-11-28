@@ -45,7 +45,7 @@ const BalancedLifeSection  = () => {
         <div className="bg-softblue-1000 py-10 md:pt-8 md:pb-22 xl:py-20 text-gray-50 ">
             <Heading title="Balanslı həyatın başlanğıcı" number={1}/>
             <div className="flex max-xl:flex-col w-full xl:items-top gap-10 md:gap-20 xl:gap-5 xl:grid-cols-12">
-                <div id="carusel" className='max-sm:grid max-sm:grid-cols-1 w-full xl:col-span-5 xl:w-[calc(42%-10px)]'>
+                <div id="carusel" className='grid grid-cols-1 w-full xl:col-span-5 xl:w-[calc(42%-10px)]'>
                     <Carousel 
                     setApi={setApi} 
                     plugins={[Fade()]}
