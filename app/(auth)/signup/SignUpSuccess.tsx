@@ -18,7 +18,7 @@ const SignUpSuccess = () => {
         size={"default"}
         asChild
       >
-        <Link className="w-full text-center" href="/">Başla</Link>
+        <Link className="w-full h-full text-center" href="/">Başla</Link>
       </Button>
     </AuthGlassContainerLayout>
   );

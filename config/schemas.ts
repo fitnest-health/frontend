@@ -41,6 +41,11 @@ export const LoginSchema = z.object({
     
 });
 
+export const ForgetPassSchema = z.object({
+  email: z.email({ message: "Düzgün email ünvanı daxil edin" }),
+    
+});
+
 export const SignupSchema = z.object({
   name: z.string()
     .min(2, { message: "Ad ən azı 2 simvol olmalıdır" })

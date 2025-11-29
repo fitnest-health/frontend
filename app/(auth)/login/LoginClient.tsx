@@ -65,7 +65,7 @@ const LoginClientPage = () => {
       type: showPassword ? "text" : "password",
       component: Input,
       helperText: "* Şifrəni unutmusan?",
-      helperRoute: "/forgot-password",
+      helperRoute: "/forget-password",
     },
   ];
 
