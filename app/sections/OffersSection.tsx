@@ -17,7 +17,7 @@ const plans: OfferPlan[] = [
   {
     id: "standard",
     tone: "standard",
-    name: "STANDART",
+    name: "Standart",
     description:
       "Başlayanlar üçün əsas imkanlar — seçilmiş zallara rahat giriş.",
     price: {
@@ -40,7 +40,7 @@ const plans: OfferPlan[] = [
   {
     id: "gold",
     tone: "gold",
-    name: "GOLD",
+    name: "Gold",
     description: (
       <>
         Daha çox imkan və fərdiləşdirilmiş təcrübə —{" "}
@@ -70,7 +70,7 @@ const plans: OfferPlan[] = [
   {
     id: "premium",
     tone: "premium",
-    name: "PREMIUM",
+    name: "Premium",
     description: "Bütün zallara və VIP zallara giriş — maksimum sərbəstlik.",
     price: {
       monthly: { amount: "130 ₼", suffix: "/ay" },
@@ -114,9 +114,9 @@ const toneGradientClasses: Record<OfferPlan["tone"], string> = {
 };
 
 const toneAccentClasses: Record<OfferPlan["tone"], string> = {
-  standard: "bg-linear-to-r from-[#0E293D00] to-[#154766] ",
-  gold: "bg-linear-to-r from-[#E7B75F00] to-[#F8D57E] ",
-  premium: " bg-linear-to-r from-[#E5E8EC00] to-[#9BAAC7]  ",
+  standard: "bg-[linear-gradient(99.34deg,rgba(14,41,61,0)_-3.57%,#154766_90.37%)]",
+  gold: "bg-[linear-gradient(100.75deg,rgba(231,183,95,0)_-0.32%,#F8D57E_91.32%)]",
+  premium: "bg-[linear-gradient(102.24deg,rgba(229,232,236,0)_4.05%,#9BAAC7_90.14%)]",
 };
 
 const OffersSection = () => {
@@ -145,7 +145,7 @@ const OffersSection = () => {
     <section className="relative w-full py-16 sm:py-20 md:py-24">
       <div className="mx-auto flex w-full  flex-col">
         <div className="flex flex-col items-center ">
-          <Heading title="Təkliflərimiz" number={2} className="xl:pb-10!"/>
+          <Heading title="Təkliflərimiz" number={2} className="xl:pb-10!" />
           <OfferPeriodToggle
             value={period}
             options={periodOptions}
