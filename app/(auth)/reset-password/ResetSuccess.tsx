@@ -2,15 +2,14 @@ import { Button } from "@/components/ui/button";
 import AuthGlassContainerLayout from "../sections/AuthGlassContainerLayout";
 import Link from "next/link";
 
-const SignUpSuccess = () => {
+const ResetSuccess = () => {
   return (
     <AuthGlassContainerLayout className="mx-auto mt-20">
       <h1 className="text-center text-white text-h5 leading-h5 font-bold">
-        Qeydiyyat tamamlandı!
+        Şifrən uğurla yeniləndi!
       </h1>
       <p className="text-center text-white mt-5 text-b1 leading-b1 font-medium">
-        Artıq <span className="text-primary-700">FitNest</span> hesabın
-        aktivdir. Öz proqramını yaratmağa başla.
+       İndi hesabına yeni şifrə ilə daxil ola bilərsən.
       </p>
       <Button
         className=" mx-auto block mt-20 w-full"
@@ -24,4 +23,4 @@ const SignUpSuccess = () => {
   );
 };
 
-export default SignUpSuccess;
+export default ResetSuccess;

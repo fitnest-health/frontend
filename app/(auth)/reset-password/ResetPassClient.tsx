@@ -22,37 +22,36 @@ import { Input } from "@/components/ui/input";
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginSchema } from "@/config/schemas";
+import { SignupSchema } from "@/config/schemas";
 import { Button } from "@/components/ui/button";
 
 import AuthGlassContainerLayout from "../sections/AuthGlassContainerLayout";
 import Image from "next/image";
 import Link from "next/link";
 
-const LoginClientPage = () => {
+const SignUpClient = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const form = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
+  const form = useForm<z.infer<typeof SignupSchema>>({
+    resolver: zodResolver(SignupSchema),
     defaultValues: {
-      email: "",
+    
       password: "",
+      passwordRepeat: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof LoginSchema>) {
+  function onSubmit(values: z.infer<typeof SignupSchema>) {
     // Do something with the form values.
     // form validasiya olmasa bu funksiya islemeyecek
     console.log(values);
+
+    router.push(`/signup?mail=${values.email}`);
   }
 
   const fields = [
-    {
-      name: "email",
-      placeholder: "E-poçt",
-      leftIcon: mailIcon,
-      component: Input,
-    },
+   
 
     {
       name: "password",
@@ -64,8 +63,19 @@ const LoginClientPage = () => {
       },
       type: showPassword ? "text" : "password",
       component: Input,
-      helperText: "* Şifrəni unutmusan?",
-      helperRoute: "/forget-password",
+      helperText: "* Minimum 8 simvol, 1 böyük hərf, 1 rəqəm",
+      helperRoute: "",
+    },
+    {
+      name: "passwordRepeat",
+      placeholder: "Şifrə təkrarı",
+      leftIcon: passIcon,
+      rightIcon: {
+        src: !showPasswordRepeat ? eyeIcon : eyeSlashIcon,
+        onClick: () => setShowPasswordRepeat(!showPasswordRepeat),
+      },
+      type: showPasswordRepeat ? "text" : "password",
+      component: Input,
     },
   ];
 
@@ -115,44 +125,18 @@ const LoginClientPage = () => {
           ))}
 
           <Button
-            disabled={!form.formState.isValid}
+            // disabled={!form.formState.isValid}
             type="submit"
             className="px-10 py-5 w-full"
           >
-            Daxil ol
+            Şifrəni yenilə
           </Button>
 
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-            <div className="h-px bg-neutral-800"></div>
-            <span>və ya</span>
-            <div className="h-px bg-neutral-800"></div>
-          </div>
-
-          <Button
-            onClick={() => router.push("/register")}
-            variant={"outline"}
-            className="px-10 py-5 w-full border border-neutral-800 text-neutral-50 bg-transparent hover:bg-transparent"
-          >
-            <Image
-              src={googleIcon}
-              alt="google"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-            <span className="text-s2 leading-s2 font-medium font-display">
-              Google ilə daxil ol
-            </span>
-          </Button>
-
-          <div className="text-center">
-            Hesabın yoxdur?{" "}
-            <Link href={'/signup'} className="text-neutral-50 underline">Qeydiyyatdan keç</Link>
-          </div>
+          
         </form>
       </Form>
     </AuthGlassContainerLayout>
   );
 };
 
-export default LoginClientPage;
+export default SignUpClient;
