@@ -15,7 +15,7 @@ const aboutItems = [
         alt: "Mission",
         reverse: false,
     },
-    
+
     {
         title: "Vizyonumuz",
         text: (
@@ -63,20 +63,29 @@ const About = () => {
                 {aboutItems.map((item, index) => (
                     <div
                         key={index}
-                        className={`relative grid sm:grid-cols-2 grid-cols-1 items-stretch justify-between sm:gap-5 md:mt-[151px] sm:mt-5 mt-4 ${item.reverse ? "flex-row-reverse" : ""
-                            }`}
+                        className="relative grid sm:grid-cols-2 grid-cols-1 items-stretch justify-between sm:gap-5 md:mt-[151px] sm:mt-5 mt-4"
                     >
-                        <div className="z-20 gradient-border rounded-4xl h-full">
+                        <div className={`z-20 gradient-border rounded-4xl h-full order-2 sm:order-${item.reverse ? "2" : "1"}`}>
                             <div className="p-8 h-full flex flex-col gap-6">
                                 <h2 className="text-t1 leading-t1 md:text-h4 font-bold md:leading-h4 text-neutral-50">
                                     {item.title}
                                 </h2>
-
                                 <p className="text-b1 leading-b1 md:text-t1 md:leading-t1 text-neutral-50">
                                     {item.text}
                                 </p>
                             </div>
                         </div>
+
+                        <div className={`hidden sm:block relative h-full w-full rounded-4xl order-${item.reverse ? "1" : "2"}`}>
+                            <Image
+                                src={item.img}
+                                alt={item.alt}
+                                fill
+                                className="object-cover rounded-4xl"
+                                priority
+                            />
+                        </div>
+
                         <div className="sm:hidden block absolute top-0 left-0 h-full w-full rounded-4xl opacity-60 ">
                             <Image
                                 src={item.img}
@@ -86,16 +95,8 @@ const About = () => {
                                 priority
                             />
                         </div>
-                        <div className="hidden sm:block relative h-full w-full rounded-4xl">
-                            <Image
-                                src={item.img}
-                                alt={item.alt}
-                                fill
-                                className="object-cover rounded-4xl"
-                                priority
-                            />
-                        </div>
                     </div>
+
                 ))}
 
                 <div className="text-center md:mt-12 sm:mt-10 mt-7">

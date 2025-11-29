@@ -29,7 +29,7 @@ const OfferPlanCard = ({
   return (
     <Card
       className={cn(
-        "relative h-full border-transparent font-sans text-neutral-50  md:min-h-[560px] lg:min-h-[600px]", // md:min-h-[560px] lg:min-h-[600px]
+        "relative shadow-none h-full border-transparent font-sans text-neutral-50  md:min-h-[560px] lg:min-h-[600px]", // md:min-h-[560px] lg:min-h-[600px]
         containerClassName
       )}
     >
@@ -45,7 +45,7 @@ const OfferPlanCard = ({
         <CardHeader className="relative z-10 w-full space-y-6 p-0 text-center">
           <span
             className={cn(
-              "inline-flex min-w-28 items-center justify-center rounded-full px-4 py-1 text-s1 font-bold uppercase leading-s1  text-neutral-50 transition-all sm:min-w-36 sm:px-5 sm:py-1.5",
+              "inline-flex min-w-28 items-center justify-center rounded-full py-4! px-7! text-s1 font-bold leading-s1  text-neutral-50 transition-all sm:min-w-36 sm:px-5 sm:py-1.5",
               accentClassName
             )}
           >
@@ -69,7 +69,7 @@ const OfferPlanCard = ({
           <div className="mt-auto flex justify-end pt-4">
             <Link
               href="/"
-              className="grid size-12 place-items-center rounded-full border border-[#123B554D] bg-[#0A1628] transition-colors duration-200 hover:bg-primary-700/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 active:bg-primary-700/25 active:text-primary-300"
+              className="grid gradient-border-diagonal size-12 place-items-center rounded-full border border-[#123B554D] bg-[#0A1628] transition-colors duration-200 hover:bg-primary-700/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 active:bg-primary-700/25 active:text-primary-300"
             >
               <ArrowUpRight className="size-5" />
             </Link>

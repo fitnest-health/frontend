@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
 /* @custom-variant dark (&:is(.dark *)); */
 
 @theme {
@@ -279,6 +278,60 @@
         #c6a7f5 45.81%,
         #92d5db 80.14%,
         rgba(1, 162, 188, 0.1) 112.9%);
+  }
+
+  /* diagonal border gradient */
+  .gradient-border-diagonal {
+    position: relative;
+  }
+
+  .gradient-border-diagonal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(
+      135deg, 
+     rgba(250, 250, 250, 1) 0%,
+        rgba(250, 250, 250, 0.7) 15%,
+        rgba(250, 250, 250, 0.2) 25%,
+        rgba(250, 250, 250, 0) 35%,
+        rgba(250, 250, 250, 0) 50%,
+        rgba(250, 250, 250, 0) 65%,
+        rgba(250, 250, 250, 0.2) 75%,
+        rgba(250, 250, 250, 0.7) 85%,
+        rgba(250, 250, 250, 1) 100%
+    );
+
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  /* responsive */
+  @media (max-width: 768px) {
+    .max-md\:gradient-border {
+      position: relative;
+    }
+    .max-md\:gradient-border::before {
+      display: block;
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(90deg, #c6a7f5, #01a2bc);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
   }
 }
 

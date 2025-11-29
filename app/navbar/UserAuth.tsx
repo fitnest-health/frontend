@@ -43,7 +43,7 @@ const UserAuth = ({ initialUser, isMobileMode = false }: UserSectionProps) => {
 
             </Button>
             <Button size="sm" asChild>
-                <Link href="/register">Qeydiyyatdan keç</Link>
+                <Link href="/signup">Qeydiyyatdan keç</Link>
             </Button>
         </div>
     )

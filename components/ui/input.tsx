@@ -63,6 +63,7 @@ function normalizeIcon(
 ): IconType | undefined {
   if (!icon) return undefined;
 
+  
   // string -> treat as src
   if (typeof icon === "string") {
     return { src: icon };
