@@ -52,7 +52,7 @@ const BalancedLifeSection  = () => {
                     opts={{ 
                         loop: true,  
                     }} 
-                    className="size-full">
+                    className="size-full ">
                       <CarouselContent>
                         {caruselContext.map((item) => (
                           <CarouselItem key={item.id}>
@@ -60,7 +60,7 @@ const BalancedLifeSection  = () => {
                                   <a className="absolute xl:right-[30px] h-12 md:h-[73px] xl:h-[62px] aspect-square xl:bottom-[30px] right-5 bottom-5 cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md z-3">
                                       <div className='size-full max-md:gradient-border gradient-border-diagonal z-10 rounded-full'><Image src={ArrowForward} fill alt="arrow"/></div>
                                   </a>
-                                  <div className='absolute inset-0 size-full rounded-4xl overflow-hidden'>
+                                  <div className='absolute inset-0 rounded-4xl overflow-hidden'>
                                       <Image src={item.src} alt={item.title } fill className='size-full object-cover rounded-4xl'/>
                                   </div>
                                   <div className="size-full flex flex-col max-md:flex-1 md:gap-4 max-md:justify-between max-md:py-[60px] items-start md:mt-auto z-2">
@@ -71,7 +71,7 @@ const BalancedLifeSection  = () => {
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <div className='mt-5'>
+                      <div className='md:mt-5'>
                         <CarouselPrevious  />
                         <CarouselNext />
                       </div>
