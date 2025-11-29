@@ -196,7 +196,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <div className="size-10 max-md:gradient-border gradient-border-diagonal grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md">
+      <div className="size-10 max-md:gradient-border hover:bg-[#123B55]/70 gradient-border-diagonal grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md">
         <Image src={ArrowLeft} alt="arrow" />
         <span className="sr-only">Next slide</span> 
       </div>
@@ -228,7 +228,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <div className="size-10 max-md:gradient-border gradient-border-diagonal grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md">
+      <div className="size-10 max-md:gradient-border hover:bg-[#123B55]/70 gradient-border-diagonal grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md">
         <Image src={ArrowRight} alt="arrow" />
         <span className="sr-only">Next slide</span> 
       </div>
