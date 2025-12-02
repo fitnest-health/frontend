@@ -34,7 +34,7 @@ const HeroSection = () => {
           sənin gündəlik motivasiyan üçün bir aradadır.
         </p>
 
-        <button className="z-40 w-full mb-4 sm:w-auto sm:px-[60px]  py-4 lg:text-s1 lg:leading-s1 sm:text-b1 sm:leading-b1 text-b2 leading-b2 font-semibold gradient-border rounded-[52px] text-white 
+        <button className="z-40 w-1/2 mb-4 sm:w-auto sm:px-24 py-3 lg:text-s1 lg:leading-s1 sm:text-b1 sm:leading-b1 text-b2 leading-b2 font-semibold rounded-[52px] text-white 
           bg-[linear-gradient(180deg,#0B0909_0%,#091120_100%)] transitoin-shadow duration-300"
           onMouseOver={(e) => {
             e.currentTarget.style.boxShadow =
