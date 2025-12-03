@@ -14,9 +14,9 @@ export default function MainLayout({
 }>) {
   return (
     <>
-      <div className="flex flex-col p-5 lg:px-18 md:py-10 min-h-screen bg-softblue-1000">
+      <div className="flex flex-col w-full  min-h-screen bg-softblue-1000">
         <Navbar />
-        <main className="grow w-full md:max-w-[1288px] mx-auto">{children}</main>
+        <main className="grow flex flex-col w-full  mx-auto">{children}</main>
       </div>
       <Footer />
     </>
