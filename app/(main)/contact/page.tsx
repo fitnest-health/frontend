@@ -13,6 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage, } from "@/componen
 import Image from "next/image";
 import contactImg from "@/public/images/contact.jpg";
 import { Textarea } from "@/components/ui/textarea";
+import Container from "@/components/common/Container";
 
 export default function BugReportForm() {
   const form = useForm<z.infer<typeof contactFormSchema>>({
@@ -59,63 +60,65 @@ export default function BugReportForm() {
 
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-14">
-      <div className="rounded-[50px] h-[750px] hidden sm:block">
-        <Image
-          src={contactImg}
-          className="rounded-[50px] grayscale w-full h-full object-cover"
-          width={1000}
-          height={760}
-          alt="Contact"
-        />
-      </div>
-      <Card className="w-full space-y-12 rounded-[50px]">
-        <CardHeader>
-          <h2 className="text-t1 leading-t1 sm:text-h2 sm:leading-h2 font-normal">
-            Bizimlə əlaqə saxla
-          </h2>
-          <p className="font-light text-b1 leading-b1 sm:text-t2 sm:leading-t2">
-            Komandamız səninlə əlaqə saxlayacaq
-          </p>
-        </CardHeader>
+    <Container className="lg:px-0!">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-[37px]">
+        <div className="rounded-[50px] h-[750px] hidden sm:block">
+          <Image
+            src={contactImg}
+            className="rounded-[50px] grayscale w-full h-full object-cover"
+            width={1000}
+            height={760}
+            alt="Contact"
+          />
+        </div>
+        <Card className="w-full space-y-12 rounded-[50px]">
+          <CardHeader>
+            <h2 className="text-t1 leading-t1 sm:text-h2 sm:leading-h2 font-normal">
+              Bizimlə əlaqə saxla
+            </h2>
+            <p className="font-light text-b1 leading-b1 sm:text-t2 sm:leading-t2">
+              Komandamız səninlə əlaqə saxlayacaq
+            </p>
+          </CardHeader>
 
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-8 w-full py-0 lg:py-10"
-          >
-            {fields.map((f) => (
-              <FormField
-                key={f.name}
-                control={form.control}
-                name={f.name as any}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <f.component
-                        {...field}
-                        placeholder={f.placeholder}
-                        {...(f.component === Input && f.leftIcon
-                          ? { leftIcon: f.leftIcon }
-                          : {})}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            ))}
-
-            <Button
-              disabled={!form.formState.isValid}
-              type="submit"
-              className="px-10 py-2.5"
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-8 w-full py-0 lg:py-10"
             >
-              Göndər
-            </Button>
-          </form>
-        </Form>
-      </Card>
-    </div>
+              {fields.map((f) => (
+                <FormField
+                  key={f.name}
+                  control={form.control}
+                  name={f.name as any}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <f.component
+                          {...field}
+                          placeholder={f.placeholder}
+                          {...(f.component === Input && f.leftIcon
+                            ? { leftIcon: f.leftIcon }
+                            : {})}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              ))}
+
+              <Button
+                disabled={!form.formState.isValid}
+                type="submit"
+                className="px-10 py-2.5"
+              >
+                Göndər
+              </Button>
+            </form>
+          </Form>
+        </Card>
+      </div>
+    </Container>
   );
 }

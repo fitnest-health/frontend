@@ -12,6 +12,7 @@ import {
 } from "@/components/common/offer-section/offers.types";
 import { cn } from "@/lib/utils";
 import Heading from "@/components/common/Heading";
+import Container from "@/components/common/Container";
 
 const plans: OfferPlan[] = [
   {
@@ -142,52 +143,54 @@ const OffersSection = () => {
   );
 
   return (
-    <section className="relative w-full py-16 sm:py-20 md:py-24">
-      <div className="mx-auto flex w-full  flex-col">
-        <div className="flex flex-col items-center ">
-          <Heading title="Təkliflərimiz" number={2} className="xl:pb-10!"/>
-          <OfferPeriodToggle
-            value={period}
-            options={periodOptions}
-            onChange={setPeriod}
-          />
-        </div>
+    <Container>
+      <section className="relative w-full py-16 sm:py-20 md:py-24">
+        <div className="mx-auto flex w-full  flex-col">
+          <div className="flex flex-col items-center ">
+            <Heading title="Təkliflərimiz" number={2} className="xl:pb-10!" />
+            <OfferPeriodToggle
+              value={period}
+              options={periodOptions}
+              onChange={setPeriod}
+            />
+          </div>
 
-        <div className="mt-10 hidden gap-6 md:grid md:grid-cols-3">
-          {plans.map((plan) => {
-            return (
-              <OfferPlanCard
-                key={`${plan.id}-desktop`}
-                plan={plan}
-                period={period}
-                containerClassName={toneStyles[plan.id].container}
-                accentClassName={toneStyles[plan.id].accent}
-              />
-            );
-          })}
-        </div>
+          <div className="mt-10 hidden gap-6 md:grid md:grid-cols-3">
+            {plans.map((plan) => {
+              return (
+                <OfferPlanCard
+                  key={`${plan.id}-desktop`}
+                  plan={plan}
+                  period={period}
+                  containerClassName={toneStyles[plan.id].container}
+                  accentClassName={toneStyles[plan.id].accent}
+                />
+              );
+            })}
+          </div>
 
-        <div className="mt-10 flex flex-col gap-4 md:hidden">
-          {plans.map((plan) => {
-            const isOpen = expandedPlan === plan.id;
+          <div className="mt-10 flex flex-col gap-4 md:hidden">
+            {plans.map((plan) => {
+              const isOpen = expandedPlan === plan.id;
 
-            return (
-              <OfferPlanAccordion
-                key={`${plan.id}-mobile`}
-                plan={plan}
-                period={period}
-                isOpen={isOpen}
-                onToggle={() =>
-                  setExpandedPlan((prev) => (prev === plan.id ? null : plan.id))
-                }
-                containerClassName={toneStyles[plan.id].container}
-                accentClassName={toneStyles[plan.id].accent}
-              />
-            );
-          })}
+              return (
+                <OfferPlanAccordion
+                  key={`${plan.id}-mobile`}
+                  plan={plan}
+                  period={period}
+                  isOpen={isOpen}
+                  onToggle={() =>
+                    setExpandedPlan((prev) => (prev === plan.id ? null : plan.id))
+                  }
+                  containerClassName={toneStyles[plan.id].container}
+                  accentClassName={toneStyles[plan.id].accent}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Container>
   );
 };
 
