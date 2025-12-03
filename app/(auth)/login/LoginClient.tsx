@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/button";
 
 import AuthGlassContainerLayout from "../sections/AuthGlassContainerLayout";
 import Image from "next/image";
+import Link from "next/link";
 
 const LoginClientPage = () => {
   const router = useRouter();
@@ -64,7 +65,7 @@ const LoginClientPage = () => {
       type: showPassword ? "text" : "password",
       component: Input,
       helperText: "* Şifrəni unutmusan?",
-      helperRoute: "/forgot-password",
+      helperRoute: "/forget-password",
     },
   ];
 
@@ -146,7 +147,7 @@ const LoginClientPage = () => {
 
           <div className="text-center">
             Hesabın yoxdur?{" "}
-            <span className="text-neutral-50 underline">Qeydiyyatdan keç</span>
+            <Link href={'/signup'} className="text-neutral-50 underline">Qeydiyyatdan keç</Link>
           </div>
         </form>
       </Form>

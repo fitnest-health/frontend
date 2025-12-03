@@ -4,8 +4,8 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import ArrowRightGrad from '@/public/icons/arrowRightGrad.svg';
-import ArrowLeftGrad from '@/public/icons/arrowLeftGrad.svg';
+import ArrowLeft from '@/public/icons/arrow-left.svg';
+import ArrowRight from '@/public/icons/arrow-right.svg';
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
@@ -196,8 +196,8 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <div className="size-10 rounded-full">
-        <Image src={ArrowLeftGrad} alt="arrow" />
+      <div className="size-10 max-md:gradient-border hover:bg-[#123B55]/70 gradient-border-diagonal grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md">
+        <Image src={ArrowLeft} alt="arrow" />
         <span className="sr-only">Next slide</span> 
       </div>
     </Button>
@@ -228,8 +228,8 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <div className="size-10 rounded-full">
-        <Image src={ArrowRightGrad} alt="arrow" />
+      <div className="size-10 max-md:gradient-border hover:bg-[#123B55]/70 gradient-border-diagonal grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md">
+        <Image src={ArrowRight} alt="arrow" />
         <span className="sr-only">Next slide</span> 
       </div>
     </Button>

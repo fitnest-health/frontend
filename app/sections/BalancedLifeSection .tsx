@@ -1,8 +1,8 @@
 import ArrowForward from '@/public/icons/arrow-forward.svg';
-import Coaches from '@/public/images/coaches.png';
-import FoodBalance from '@/public/images/foodBalance.png';
-import StartChanging from '@/public/images/startChanging.png';
-import Image, { StaticImageData } from 'next/image';
+import Coaches from '@/public/images/coaches.jpg';
+import FoodBalance from '@/public/images/foodBalance.jpg';
+import StartChanging from '@/public/images/startChanging.jpg';
+import Image,{ StaticImageData } from 'next/image';
 import * as React from "react"
 import {
     Carousel,

@@ -38,26 +38,54 @@ export const feedbackSchema = z.object({
 export const LoginSchema = z.object({
   email: z.email({ message: "Düzgün email ünvanı daxil edin" }),
   password: z.string({ message: "Şifrə tələb olunur" }),
-    
 });
 
-export const SignupSchema = z.object({
-  name: z.string()
-    .min(2, { message: "Ad ən azı 2 simvol olmalıdır" })
-    .max(50, { message: "Ad ən çox 50 simvol olmalıdır" })
-    .regex(/^[a-zA-ZəğüşıöçƏĞÜŞİÖÇ\s]+$/, { message: "Ad yalnız hərflərdən ibarət olmalıdır" }),
-  surname: z.string()
-    .min(2, { message: "Soyad ən azı 2 simvol olmalıdır" })
-    .max(50, { message: "Soyad ən çox 50 simvol olmalıdır" })
-    .regex(/^[a-zA-ZəğüşıöçƏĞÜŞİÖÇ\s]+$/, { message: "Soyad yalnız hərflərdən ibarət olmalıdır" }),
-  email: z.string().email({ message: "Düzgün email ünvanı daxil edin" }),
-  password: z.string()
-    .min(8, { message: "Şifrə ən azı 8 simvol olmalıdır" })
-    .max(20, { message: "Şifrə ən çox 20 simvol olmalıdır" })
-    .regex(/[A-Z]/, { message: "Şifrə ən azı 1 böyük hərf olmalıdır" })
-    .regex(/[0-9]/, { message: "Şifrə ən azı 1 rəqəm olmalıdır" }),
-  passwordRepeat: z.string()
-}).refine((data) => data.password === data.passwordRepeat, {
-  message: "Şifrələr eyni deyil",
-  path: ["passwordRepeat"],
+export const ForgetPassSchema = z.object({
+  email: z.email({ message: "Düzgün email ünvanı daxil edin" }),
 });
+
+export const ResetPassSchema = z
+  .object({
+    email: z.email({ message: "Düzgün email ünvanı daxil edin" }),
+    password: z
+      .string()
+      .min(8, { message: "Şifrə ən azı 8 simvol olmalıdır" })
+      .max(20, { message: "Şifrə ən çox 20 simvol olmalıdır" })
+      .regex(/[A-Z]/, { message: "Şifrə ən azı 1 böyük hərf olmalıdır" })
+      .regex(/[0-9]/, { message: "Şifrə ən azı 1 rəqəm olmalıdır" }),
+    passwordRepeat: z.string(),
+  })
+  .refine((data) => data.password === data.passwordRepeat, {
+    message: "Şifrələr eyni deyil",
+    path: ["passwordRepeat"],
+  });
+
+export const SignupSchema = z
+  .object({
+    name: z
+      .string()
+      .min(2, { message: "Ad ən azı 2 simvol olmalıdır" })
+      .max(50, { message: "Ad ən çox 50 simvol olmalıdır" })
+      .regex(/^[a-zA-ZəğüşıöçƏĞÜŞİÖÇ\s]+$/, {
+        message: "Ad yalnız hərflərdən ibarət olmalıdır",
+      }),
+    surname: z
+      .string()
+      .min(2, { message: "Soyad ən azı 2 simvol olmalıdır" })
+      .max(50, { message: "Soyad ən çox 50 simvol olmalıdır" })
+      .regex(/^[a-zA-ZəğüşıöçƏĞÜŞİÖÇ\s]+$/, {
+        message: "Soyad yalnız hərflərdən ibarət olmalıdır",
+      }),
+    email: z.string().email({ message: "Düzgün email ünvanı daxil edin" }),
+    password: z
+      .string()
+      .min(8, { message: "Şifrə ən azı 8 simvol olmalıdır" })
+      .max(20, { message: "Şifrə ən çox 20 simvol olmalıdır" })
+      .regex(/[A-Z]/, { message: "Şifrə ən azı 1 böyük hərf olmalıdır" })
+      .regex(/[0-9]/, { message: "Şifrə ən azı 1 rəqəm olmalıdır" }),
+    passwordRepeat: z.string(),
+  })
+  .refine((data) => data.password === data.passwordRepeat, {
+    message: "Şifrələr eyni deyil",
+    path: ["passwordRepeat"],
+  });

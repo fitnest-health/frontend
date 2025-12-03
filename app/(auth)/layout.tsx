@@ -16,7 +16,7 @@ export default function AuthLayout({
 }>) {
   return (
     <>
-      <div className="bg-transparent min-h-screen relative">
+      <div className="bg-transparent min-h-screen relative p-5 lg:px-18 md:py-10">
         <Navbar />
         {children}
         <Image
@@ -24,9 +24,9 @@ export default function AuthLayout({
           alt="auth"
           width={1440}
           height={1000}
-          className="w-full h-full absolute top-0 left-0 object-cover opacity-100 -z-20"
+          className="w-full h-full absolute top-0 left-0 object-cover opacity-100 -z-20 brightness-75"
         />
-        <div className="cover -z-10 absolute bg-softblue-1000 opacity-30 top-0 left-0 w-full h-full"></div>
+        {/* <div className="cover -z-10 absolute bg-softblue-1000 opacity-30 top-0 left-0 w-full h-full"></div> */}
       </div>
       <Footer />
     </>
