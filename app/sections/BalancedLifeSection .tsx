@@ -68,8 +68,8 @@ const BalancedLifeSection = () => {
                                                 <Image src={item.src} alt="arrow" className='size-full object-cover rounded-4xl' />
                                             </div>
                                             <div className="size-full flex flex-col max-md:flex-1 md:gap-4 max-md:justify-between max-md:py-10 items-start md:mt-auto z-2">
-                                                <h2 className='font-semibold text-s2 leading-s2 xl:text-h3 xl:leading-h3' dangerouslySetInnerHTML={{ __html: item.title }}></h2>
-                                                <p className="font-semibold text-b2 leading-b2 xl:text-s2 xl:leading-s2 max-w-[362px]" dangerouslySetInnerHTML={{ __html: item.text }} ></p>
+                                                <h2 className='font-semibold text-s2 leading-s2 md:text-h3 md:leading-h3' dangerouslySetInnerHTML={{ __html: item.title }}></h2>
+                                                <p className="font-semibold text-b2 leading-b2 md:text-s1 md:leading-s1 xl:text-s2 xl:leading-s2 max-w-[362px]" dangerouslySetInnerHTML={{ __html: item.text }} ></p>
                                             </div>
                                         </div>
                                     </CarouselItem>
@@ -88,7 +88,7 @@ const BalancedLifeSection = () => {
                                     <Image src={caruselContext[(current + 1) % caruselContext.length]?.src} alt="arrow" className=' object-cover size-full' />
                                 </div>
                                 <div className="w-full flex justify-between items-center self-end z-2">
-                                    <p className="font-semibold text-t2 leading-s2 max-w-[194px]" dangerouslySetInnerHTML={{ __html: caruselContext[(current + 1) % caruselContext.length]?.title }}></p>
+                                    <p className="font-semibold text-s2 leading-s2 max-w-[194px]" dangerouslySetInnerHTML={{ __html: caruselContext[(current + 1) % caruselContext.length]?.title }}></p>
                                     <Link href={caruselContext[(current + 1) % caruselContext.length]?.href} className="cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md grid place-items-center">
                                         <Image src={ArrowForward} alt="arrow" />
                                     </Link>
