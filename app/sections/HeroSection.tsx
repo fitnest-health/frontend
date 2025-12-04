@@ -1,5 +1,5 @@
 import Container from "@/components/common/Container";
-import { Button } from "@/components/ui/button";
+import ButtonLink from "@/components/ui/button-link";
 
 const HeroSection = () => {
   return (
@@ -37,29 +37,8 @@ const HeroSection = () => {
             sənin gündəlik motivasiyan üçün bir aradadır.
           </p>
 
-          <Button
-            className="w-full sm:max-w-[175px] md:max-w-[301px] h-10 md:h-[60px]  bg-linear-to-b
-                    from-[#0B0909]
-                    to-[#091120]
-                    shadow-[inset_0_-2px_20px_0_#134BCD,inset_0_0_13px_0_rgba(0,180,204,0.5),inset_0_-10px_40px_0_rgba(0,180,204,0.25)]
-                    hover:shadow-[inset_0_-2px_4px_0_#134BCD,inset_0_0_4px_0_rgba(0,180,204,0.5),inset_0_-10px_40px_0_rgba(0,180,204,0.25)]
-                    transition-shadow
-                    duration-300
-                   ">
-            İndi Başla
-          </Button>
+          <ButtonLink>İndi başla</ButtonLink>
 
-          {/* <button className="z-40 w-full mb-4 sm:w-auto sm:px-[60px]  py-4 lg:text-s1 lg:leading-s1 sm:text-b1 sm:leading-b1 text-b2 leading-b2 font-semibold gradient-border rounded-[52px] text-white 
-          bg-[linear-gradient(180deg,#0B0909_0%,#091120_100%)] transitoin-shadow duration-300"
-            onMouseOver={(e) => {
-              e.currentTarget.style.boxShadow =
-                "inset 0 -10px 40px rgba(0, 180, 204, 0.25), inset 0 0 13px rgba(0, 180, 204, 0.5), inset 0 -2px 20px #134BCD";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >          İndi Başla
-          </button> */}
         </div>
 
       </section>
