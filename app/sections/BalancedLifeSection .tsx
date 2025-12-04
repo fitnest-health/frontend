@@ -15,17 +15,19 @@ import {
 import Fade from "embla-carousel-fade"
 import Heading from '@/components/common/Heading';
 import Container from '@/components/common/Container';
+import Link from 'next/link';
 
 interface SlideItem {
     id: number;
     title: string;
     text: string;
     src: StaticImageData;
+    href: string;
 }
 const caruselContext: SlideItem[] = [
-    { id: 1, title: "Dəyişimi başlat", text: "<span class='text-primary-700'>FitNest</span>-in mütəxəssisləri illərin bilik və təcrübəsini sənin gündəlik inkişafına yönəldir.", src: StartChanging },
-    { id: 2, title: "Sənin qida balansın", text: "Sağlam bədən düzgün qidalanmadan başlayır — <span class='text-primary-700'>FitNest</span> sənə bunun üçün yol göstərir.", src: FoodBalance },
-    { id: 3, title: "<span class='text-primary-700'>FitNest</span> Coachları: Səni Yönləndirən Güc və İlham", text: "Məşqçilərimiz həm proqramlarınla, həm də gündəlik tövsiyələri ilə inkişafına dəstək olur.", src: Coaches },
+    { id: 1, title: "Dəyişimi başlat", text: "<span class='text-primary-700'>FitNest</span>-in mütəxəssisləri illərin bilik və təcrübəsini sənin gündəlik inkişafına yönəldir.", src: StartChanging, href: '#' },
+    { id: 2, title: "Sənin qida balansın", text: "Sağlam bədən düzgün qidalanmadan başlayır — <span class='text-primary-700'>FitNest</span> sənə bunun üçün yol göstərir.", src: FoodBalance, href: '/nutrition' },
+    { id: 3, title: "<span class='text-primary-700'>FitNest</span> Coachları: Səni Yönləndirən Güc və İlham", text: "Məşqçilərimiz həm proqramlarınla, həm də gündəlik tövsiyələri ilə inkişafına dəstək olur.", src: Coaches, href: '#' },
 ]
 
 const BalancedLifeSection = () => {
@@ -59,9 +61,9 @@ const BalancedLifeSection = () => {
                                 {caruselContext.map((item) => (
                                     <CarouselItem key={item.id}>
                                         <div className='min-h-[270px] max-[350px]:max-h-[120px]! md:min-h-[512px] flex flex-col p-4 md:p-[70px] xl:p-[50px] relative rounded-4xl'>
-                                            <a className="absolute xl:right-[30px] h-12 max-[410px]:w-7 max-[410px]:h-7 aspect-square xl:bottom-[30px] right-5 bottom-5 cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md z-3">
+                                            <Link href={item.href} className="absolute xl:right-[30px] h-12 max-[410px]:w-7 max-[410px]:h-7 aspect-square xl:bottom-[30px] right-5 bottom-5 cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md z-3">
                                                 <div className='size-full rounded-full'><Image src={ArrowForward} alt="arrow" /></div>
-                                            </a>
+                                            </Link>
                                             <div className='absolute inset-0 size-full rounded-4xl overflow-hidden'>
                                                 <Image src={item.src} alt="arrow" className='size-full object-cover rounded-4xl' />
                                             </div>
@@ -87,9 +89,9 @@ const BalancedLifeSection = () => {
                                 </div>
                                 <div className="w-full flex justify-between items-center self-end z-2">
                                     <p className="font-semibold text-t2 leading-s2 max-w-[194px]" dangerouslySetInnerHTML={{ __html: caruselContext[(current + 1) % caruselContext.length]?.title }}></p>
-                                    <a className="cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md grid place-items-center">
+                                    <Link href={caruselContext[(current + 1) % caruselContext.length]?.href} className="cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md grid place-items-center">
                                         <Image src={ArrowForward} alt="arrow" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="size-full flex p-5 relative aspect-360/270">
@@ -98,9 +100,9 @@ const BalancedLifeSection = () => {
                                 </div>
                                 <div className="w-full flex justify-between items-center self-end z-2">
                                     <p className="font-semibold text-s2 leading-s2 max-w-[228px]" dangerouslySetInnerHTML={{ __html: caruselContext[(current + 2) % caruselContext.length]?.title }}></p>
-                                    <a className="cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md grid place-items-center ">
+                                    <Link href={caruselContext[(current + 2) % caruselContext.length]?.href} className="cursor-pointer rounded-full bg-[#0E293D]/30 backdrop-blur-md grid place-items-center ">
                                         <Image src={ArrowForward} alt="arrow" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
