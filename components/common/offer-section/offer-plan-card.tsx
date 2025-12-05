@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -66,14 +64,7 @@ const OfferPlanCard = ({
         <CardContent className="relative z-10 flex w-full flex-1 flex-col gap-6 p-0 text-left text-neutral-50">
           <OfferPlanFeatureList features={features} />
 
-          <div className="mt-auto flex justify-end pt-4">
-            <Link
-              href="/"
-              className="grid gradient-border-diagonal size-12 place-items-center rounded-full border border-[#123B554D] bg-[#0A1628] transition-colors duration-200 hover:bg-primary-700/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 active:bg-primary-700/25 active:text-primary-300"
-            >
-              <ArrowUpRight className="size-5" />
-            </Link>
-          </div>
+          <div className="mt-auto flex justify-end pt-4"></div>
         </CardContent>
       </div>
     </Card>

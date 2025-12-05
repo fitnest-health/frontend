@@ -15,3 +15,8 @@ export interface OfferPlan {
   price: Record<BillingPeriod, OfferPrice>;
   features: Record<BillingPeriod, string[]>;
 }
+
+export interface PeriodOption {
+  value: BillingPeriod;
+  label: string;
+}
