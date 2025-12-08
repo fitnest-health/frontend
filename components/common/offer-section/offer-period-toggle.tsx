@@ -1,11 +1,9 @@
 import { cn } from "@/lib/utils";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { type BillingPeriod } from "@/components/common/offer-section/offers.types";
-
-interface PeriodOption {
-  value: BillingPeriod;
-  label: string;
-}
+import {
+  type BillingPeriod,
+  type PeriodOption,
+} from "@/components/common/offer-section/offers.types";
 
 interface OfferPeriodToggleProps {
   value: BillingPeriod;
@@ -20,7 +18,6 @@ const OfferPeriodToggle = ({
   onChange,
   className,
 }: OfferPeriodToggleProps) => {
-
   const activeIndex = options.findIndex((o) => o.value === value);
 
   return (
@@ -50,12 +47,10 @@ const OfferPeriodToggle = ({
                 "data-[state=inactive]:bg-transparent"
               )}
             >
-
               {option.label}
             </TabsTrigger>
           ))}
         </div>
-
       </TabsList>
     </Tabs>
   );

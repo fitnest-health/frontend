@@ -15,9 +15,9 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <div className="bg-transparent min-h-screen relative p-5 lg:px-18 md:py-10">
-        <Navbar />
+    <div className="bg-transparent min-h-screen relative">
+      <Navbar />
+      <div className="p-5 lg:px-18 md:py-10">
         {children}
         <Image
           src={authBackgroundImage}
@@ -29,6 +29,6 @@ export default function AuthLayout({
         {/* <div className="cover -z-10 absolute bg-softblue-1000 opacity-30 top-0 left-0 w-full h-full"></div> */}
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
