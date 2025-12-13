@@ -1,55 +1,26 @@
+import { memo } from "react";
 import { Button } from "@/components/ui/button";
 import React from "react";
+import Link from "next/link";
+import { COACH_CATEGORIES } from "@/config/constants";
 
-const mockCoachCategories = [
-  {
-    name: "All",
-    slug: "all",
-  },
-  {
-    name: "Kişi məşqçi",
-    slug: "man-coach",
-  },
-  {
-    name: "Qadın məşqçisi",
-    slug: "woman-coach",
-  },
-  {
-    name: "CrossFit",
-    slug: "balance-coach",
-  },
-  {
-    name: "Fitness",
-    slug: "fitness-coach",
-  },
-  {
-    name: "Performance",
-    slug: "performance-coach",
-  },
-  {
-    name: "Yoga",
-    slug: "yoga-coach",
-  },
-  {
-    name: "Pilates",
-    slug: "pilates-coach",
-  },
-  {
-    name: "Wellness Coach",
-    slug: "wellness-coach",
-  },
-];
 
-const ButtonSection = () => {
+
+const ButtonSection: React.FC = () => {
   return (
     <div className="flex items-center gap-4 mb-10">
-      {mockCoachCategories.map((item) => (
-        <Button className="py-3.5 px-7 text-b2 leading-b2 font-medium text-neutral-50" variant={"outline"} key={item.slug}>
-          {item.name}
+      {COACH_CATEGORIES.map((item) => (
+        <Button
+          asChild
+          className="py-3.5 px-7 text-b2 leading-b2 font-medium text-neutral-50"
+          variant={"outline"}
+          key={item.slug}
+        >
+          <Link href={`/coaches?category=${item.slug}`}>{item.name}</Link>
         </Button>
       ))}
     </div>
   );
 };
 
-export default ButtonSection;
+export default memo(ButtonSection);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Phone } from "lucide-react";
+import { memo } from "react";
 
 interface CoachCardContactItemProps {
   icon: React.ReactNode;
@@ -26,4 +26,4 @@ const CoachCardContactItem: React.FC<CoachCardContactItemProps> = ({
   );
 };
 
-export default CoachCardContactItem;
+export default memo(CoachCardContactItem);
