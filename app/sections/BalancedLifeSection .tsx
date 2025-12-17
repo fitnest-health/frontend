@@ -25,7 +25,7 @@ interface SlideItem {
     href: string;
 }
 const caruselContext: SlideItem[] = [
-    { id: 1, title: "Dəyişimi başlat", text: "<span class='text-primary-700'>FitNest</span>-in mütəxəssisləri illərin bilik və təcrübəsini sənin gündəlik inkişafına yönəldir.", src: StartChanging, href: '#' },
+    { id: 1, title: "Dəyişimi başlat", text: "<span class='text-primary-700'>FitNest</span>-in mütəxəssisləri illərin bilik və təcrübəsini sənin gündəlik inkişafına yönəldir.", src: StartChanging, href: '/gym' },
     { id: 2, title: "Sənin qida balansın", text: "Sağlam bədən düzgün qidalanmadan başlayır — <span class='text-primary-700'>FitNest</span> sənə bunun üçün yol göstərir.", src: FoodBalance, href: '/nutrition' },
     { id: 3, title: "<span class='text-primary-700'>FitNest</span> Coachları: Səni Yönləndirən Güc və İlham", text: "Məşqçilərimiz həm proqramlarınla, həm də gündəlik tövsiyələri ilə inkişafına dəstək olur.", src: Coaches, href: '/coaches' },
 ]
