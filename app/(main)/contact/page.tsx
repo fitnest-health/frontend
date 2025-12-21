@@ -60,7 +60,7 @@ export default function BugReportForm() {
 
 
   return (
-    <Container className="lg:px-0!">
+    <Container className="mt-10 sm:mt-25 lg:mt-[173px]">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-[37px]">
         <div className="rounded-[50px] h-[750px] hidden sm:block">
           <Image

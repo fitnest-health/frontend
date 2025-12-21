@@ -49,7 +49,7 @@ const aboutItems = [
 const About = () => {
     return (
         <>
-            <div className='flex justify-center md:pt-20 md:pb-[122px] sm:pt-12 sm:pb-[70px] py-6 px-4 md:top-[193px] text-white bg-blue-500 w-full bg-linear-to-l from-[#243665] to-[#0B1223]'>
+            <div className='flex justify-center md:pt-20 md:pb-[122px] sm:pt-12 sm:pb-[70px] py-6 px-4 mt-20 md:mt-[193px] text-white bg-blue-500 w-full bg-linear-to-l from-[#243665] to-[#0B1223]'>
                 <div>
                     <h2 className='text-t1 text-center leading-t1 font-medium sm:text-h2 sm:leading-h2'>Sağlam Həyat. Güclü Sən.</h2>
                     <p className='text-b2 mx-auto text-center leading-b2 font-medium mt-3 sm:text-s2 sm:leading-s2 max-w-[360px] sm:max-w-[460px] md:max-w-[628px]'>

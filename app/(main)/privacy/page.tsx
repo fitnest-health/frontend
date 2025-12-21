@@ -36,7 +36,7 @@ const PrivacyPolicy = () => {
                             <CardHeader className="text-s2 sm:text-h6 font-medium">
                                 <CardTitle>{item.id}. {item.title}</CardTitle>
                             </CardHeader>
-                            <CardContent className="text-neutral-50! text-b1 sm:leading-t1 font-normal leading-b1 sm:font-extralight sm:text-t1">
+                            <CardContent className="text-gray-50! text-b2 sm:leading-s1 font-[510px] leading-b2 sm:text-s1">
                                 {item.text}
                             </CardContent>
                         </Card>
