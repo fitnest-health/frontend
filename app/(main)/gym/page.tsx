@@ -23,7 +23,7 @@ const steps = [
 
 const gym = () => {
     return (
-            <Container className="mt-20 text-neutral-50">
+            <Container className="mt-[173px] text-neutral-50">
                 <h2 className="text-s1 leading-s1 sm:text-h6 sm:leading-h6 font-medium mb-4 sm:mb-7 lg:mb-10">
                     Məşq olanı necə işləyir?
                 </h2>

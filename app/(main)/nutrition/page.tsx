@@ -20,7 +20,7 @@ const context: PlanItem[] = [
 const NutritionProgramme = () => {
 
     return (
-       <Container>
+       <Container className='mt-[173px]'>
             {/* hero common */}
             <div className='w-full py-5 md:pt-[60px] xl:pt-20 mb-6'>
                 <h2 className='mb-4 md:mb-7 xl:mb-10 text-gray-50 font-medium text-s1 leading-s1 md:text-h6 md:leading-h6'>Qidalanma planı necə işləyir?</h2>

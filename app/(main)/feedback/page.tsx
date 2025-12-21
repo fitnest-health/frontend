@@ -69,11 +69,11 @@ const Feedback = () => {
       subtitle="Sizin fikirləriniz bizim üçün dəyərlidir – paylaşın, biz qulaq asırıq!"
       iconUrl={MessageIcon.src}
     >
-      <Card className="lg:max-w-[628px] mx-auto mt-4 mb-10">
+      <Card className="lg:max-w-[628px] mx-auto mb-10">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-8 w-full py-0 lg:py-10"
+            className="space-y-8 w-full "
           >
             {fields.map((f) => (
               <FormField

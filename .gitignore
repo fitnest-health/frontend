@@ -15,6 +15,7 @@
 
 # next.js
 /.next/
+/.marscode
 /out/
 
 # production
