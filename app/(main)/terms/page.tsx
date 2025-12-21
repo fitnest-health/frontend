@@ -59,14 +59,14 @@ const Terms = () => {
       }
       iconUrl={AlertIcon.src}
     >
-      <div className="space-y-4 sm:space-y-8 mt-4">
+      <div className="space-y-4 sm:space-y-8">
         {
           termsData.map((item, index) => (
             <Card key={item.id}>
               <CardHeader className="text-s2 sm:text-h6 font-medium">
                 <CardTitle>{index + 1}. {item.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-neutral-50! text-b1 sm:leading-t1 font-normal leading-b1 sm:font-extralight sm:text-t1">
+              <CardContent className="text-gray-50! text-b2 sm:leading-s1 font-[510px] leading-b2 sm:text-s1">
                 {item.content}
               </CardContent>
             </Card>

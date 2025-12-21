@@ -11,7 +11,7 @@ const CoachBanner = () => {
           src={BannerImg}
           alt="Coaches"
           fill
-          className="object-cover object-top brightness-75"
+          className="object-cover object-top top-0 left-0 brightness-75"
           priority
         />
 

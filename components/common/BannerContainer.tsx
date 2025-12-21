@@ -13,8 +13,8 @@ interface BannerProps {
 
 const BannerContainer: React.FC<BannerProps> = ({ title, subtitle, icon: Icon, children, iconClassName, iconUrl }) => {
     return (
-        <Container className='lg:px-0!'>
-            <div className='absolute flex justify-center left-0 md:pt-20 md:pb-[173px] sm:pt-12 sm:pb-[70px] pt-6 pb-[90px] px-4 top-20 md:top-[193px] text-white bg-blue-500 w-full bg-linear-to-l from-[#243665] to-[#0B1223]'>
+        <>
+            <div className='md:mt-[173px] mt-20 flex justify-center md:pt-20 md:pb-[173px] sm:pt-12 sm:pb-[70px] pt-6 pb-[90px] px-4 text-white bg-blue-500 w-full bg-linear-to-l from-[#243665] to-[#0B1223]'>
                 <div>
                     <div className='flex justify-center items-center gap-3'>
                         {
@@ -27,10 +27,12 @@ const BannerContainer: React.FC<BannerProps> = ({ title, subtitle, icon: Icon, c
                     <p className='text-b2 text-center leading-b2 font-medium mt-3 sm:text-s2 sm:leading-s2 max-w-[360px] sm:max-w-[460px] md:max-w-[628px]'>{subtitle}</p>
                 </div>
             </div>
-            <div className='md:pt-[332px] sm:pt-52 pt-36 pb-10 sm:pb-14 md:pb-20 max-w-[1062px] mx-auto'>
-                {children}
-            </div>
-        </Container>
+            <Container className='lg:px-0!'>
+                <div className='transform -translate-y-12 sm:-translate-y-10 md:-translate-y-20 z-20 relative pb-10 sm:pb-14 md:pb-20 max-w-[1062px] mx-auto'>
+                    {children}
+                </div>
+            </Container>
+        </>
     )
 }
 

@@ -4,7 +4,7 @@ import ButtonLink from "@/components/ui/button-link";
 const HeroSection = () => {
   return (
     <Container className="mb-5 xs:mb-0">
-      <section className="flex lg:items-center sm:items-center  max-w-screen lg:m-auto text-gray-50 lg:h-[calc(100vh-152px)] md:h-[474px] sm:h-[528px]">
+      <section className="flex lg:items-center pt-[153px] sm:items-center  max-w-screen lg:m-auto text-gray-50 lg:h-[calc(100vh-152px)] md:h-[474px] sm:h-[528px]">
 
         <video
           autoPlay
