@@ -26,7 +26,7 @@ export function Input({
   return (
     <div
       className={cn(
-        "flex items-center gap-2 rounded-full border border-primary-700 p-2 w-full",
+        "flex items-center gap-2 rounded-full border border-primary-700 ",
         "bg-[#0C0E1266]"
       )}
     >

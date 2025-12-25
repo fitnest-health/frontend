@@ -2,8 +2,9 @@ import Image from "next/image";
 import BannerImg from "@/public/images/coach-banner.jpg";
 import ButtonLink from "@/components/ui/button-link";
 import { memo } from "react";
+import Link from "next/link";
 
-const CoachBanner = () => {
+const CoachBannerSection = ({ withButton=true }: { withButton?: boolean }) => {
   return (
     <>
       <div className="relative h-[670px]">
@@ -15,7 +16,7 @@ const CoachBanner = () => {
           priority
         />
 
-        <div className="relative z-10 flex flex-col md:flex-row justify-end  md:justify-between gap-5 md:items-end h-full text-white py-[50px] w-[90%] md:w-5/6 mx-auto">
+        <div className={`relative z-10 flex flex-col md:flex-row  ${withButton && "justify-end md:justify-between " || "justify-center"}   gap-5  md:items-end h-full text-white py-[50px] w-[90%] md:w-5/6 mx-auto`}>
           <div>
             <h1 className=" font-bold mb-4 text-t2 leading-t2 md:text-h5 md:leading-h5">
               <span className="text-primary-700 ">FitNest</span> məşqçiləri ilə
@@ -28,11 +29,15 @@ const CoachBanner = () => {
             </p>
           </div>
 
-          <ButtonLink className="w-2/4 md:w-full">Kəşf et!</ButtonLink>
+          {withButton && (
+            <Link className="w-2/4 md:max-w-[300px] " href={"/discover"}>
+              <ButtonLink>Kəşf et!</ButtonLink>
+            </Link>
+          )}
         </div>
       </div>
     </>
   );
 };
 
-export default memo(CoachBanner);
+export default memo(CoachBannerSection);

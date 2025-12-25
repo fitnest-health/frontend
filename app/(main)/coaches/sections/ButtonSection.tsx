@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
 import { COACH_CATEGORIES } from "@/config/constants";
+import { Input } from "@/components/ui/input";
+import SearchIcon from '@/public/icons/search.svg'
 
 
 
 const ButtonSection: React.FC = () => {
   return (
-    <div className="flex items-center gap-4 mb-10">
+    <div className="flex flex-wrap items-center gap-4 mb-10 w-full">
       {COACH_CATEGORIES.map((item) => (
         <Button
           asChild
@@ -19,6 +21,7 @@ const ButtonSection: React.FC = () => {
           <Link href={`/coaches?category=${item.slug}`}>{item.name}</Link>
         </Button>
       ))}
+      <Input placeholder="Axtarış" className="w-60! text-white" leftIcon={SearchIcon} />
     </div>
   );
 };
