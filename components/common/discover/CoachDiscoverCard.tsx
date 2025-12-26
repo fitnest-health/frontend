@@ -6,7 +6,7 @@ interface CoachDiscoverCardProps {
 const CoachDiscoverCard = ({ isHovered = false }: CoachDiscoverCardProps) => {
   return (
     <div
-      className={`relative h-[350px] sm:h-[530px] rounded-3xl transition-all duration-700 ease-in-out`}
+      className={`relative h-[350px] sm:h-[530px] rounded-3xl transition-all duration-1000 ease-in-out`}
     >
       <Image
         src={"/images/woman-coach-placeholder.webp"}
@@ -15,13 +15,13 @@ const CoachDiscoverCard = ({ isHovered = false }: CoachDiscoverCardProps) => {
         height={500}
         className="w-full h-full object-cover rounded-3xl brightness-50"
       />
-      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out ${
+      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ease-in-out ${
         isHovered ? "items-end justify-start" : ""
       }`}>
         <div className={`${isHovered ? "p-5 w-full" : ""}`}>
           {/* Name with rotation animation */}
           <h2
-            className={`text-h5 leading-h5 font-bold text-neutral-50 transition-all duration-700 ease-in-out whitespace-nowrap ${
+            className={`text-h5 leading-h5 font-bold text-neutral-50 transition-all duration-1000 ease-in-out whitespace-nowrap ${
               isHovered ? "rotate-360 opacity-100" : "rotate-270 opacity-80"
             }`}
             style={{
@@ -33,7 +33,7 @@ const CoachDiscoverCard = ({ isHovered = false }: CoachDiscoverCardProps) => {
 
           {/* Other content with fade and slide animation */}
           <div
-            className={`transition-all duration-700 ease-in-out ${
+            className={`transition-all duration-1200  ${
               isHovered
                 ? "opacity-100 translate-y-0 max-h-96"
                 : "opacity-0 translate-y-8 max-h-0"
