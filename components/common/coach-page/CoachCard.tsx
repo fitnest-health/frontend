@@ -27,17 +27,17 @@ const CoachCard: React.FC<CoachCardProps> = ({
         <Image
           width={1280}
           height={720}
-          className="w-full md:h-[480px] object-cover rounded-2xl rounded-b-none"
+          className="w-full  h-[210px] md:h-[480px] object-cover rounded-2xl rounded-b-none"
           src={imageSrc}
           alt="coach"
         />
 
-        <div className="px-5 py-3.5 rounded-t-2xl absolute bottom-0 left-0 right-0 bg-softblue-950">
-          <h2 className="text-neutral-50 text-h6 leading-h6">
+        <div className="px-5 py-3.5 rounded-t-2xl absolute bottom-0 left-0 right-0 bg-softblue-950 h-20 md:h-auto">
+          <h2 className="text-neutral-50 text-b1 leading-b1 md:text-h6 md:leading-h6">
             {" "}
             {name || "Mia Brown"}
           </h2>
-          <p className="text-primary-700 text-b1 leading-b1 font-medium">
+          <p className="text-primary-700 text-b3 leading-b3 md:text-b1 md:leading-b1 font-medium">
             {jobTitle}
           </p>
         </div>
@@ -68,7 +68,7 @@ const CoachHoverCard = ({
       {/* TOP CONTENT */}
       <div
         className="
-          flex flex-col gap-7
+          flex flex-col gap-2 md:gap-7
           opacity-0 translate-y-[-20px]
           group-hover:opacity-100 group-hover:translate-y-0
           transition-all duration-300 ease-out
@@ -78,7 +78,7 @@ const CoachHoverCard = ({
           {coachName}
         </h2>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3 md:gap-5">
           <Image
             width={300}
             height={300}
@@ -93,7 +93,7 @@ const CoachHoverCard = ({
       </div>
 
       {/* CONTACT DETAILS */}
-      <div className="flex mt-5 md:mt-20 justify-between">
+      <div className="flex mt-2 md:mt-20 justify-between">
         {/* LEFT SIDE */}
         <div
           className="
