@@ -9,7 +9,7 @@ const Coaches: React.FC = () => {
     <div>
       <CoachBannerSection />
       <Container className="py-20">
-        {/* <ButtonSection /> */}
+        <ButtonSection />
         <CoachList />
       </Container>
     </div>
