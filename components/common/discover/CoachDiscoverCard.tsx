@@ -1,17 +1,14 @@
-'use client'
 import Image from "next/image";
 import React, { useState } from "react";
 
-const CoachDiscoverCard = ({}) => {
-  const [isHovered, setIsHovered] = useState(false);
+interface CoachDiscoverCardProps {
+  isHovered?: boolean;
+}
 
+const CoachDiscoverCard = ({ isHovered = false }: CoachDiscoverCardProps) => {
   return (
     <div
-      className={`relative h-[350px] sm:h-[530px] rounded-3xl transition-all duration-700 ease-in-out ${
-        isHovered ? "col-span-1 sm:col-span-2" : "col-span-1"
-      }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`relative h-[350px] sm:h-[530px] rounded-3xl transition-all duration-700 ease-in-out`}
     >
       <Image
         src={"/images/woman-coach-placeholder.webp"}
@@ -27,7 +24,7 @@ const CoachDiscoverCard = ({}) => {
           {/* Name with rotation animation */}
           <h2
             className={`text-h5 leading-h5 font-bold text-neutral-50 transition-all duration-700 ease-in-out whitespace-nowrap ${
-              isHovered ? "rotate-0 opacity-100" : "-rotate-90 opacity-80"
+              isHovered ? "rotate-0 opacity-100" : "rotate-90 opacity-80"
             }`}
             style={{
               transformOrigin: "center center",
