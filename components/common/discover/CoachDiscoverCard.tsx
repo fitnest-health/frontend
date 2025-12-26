@@ -1,6 +1,4 @@
 import Image from "next/image";
-import React, { useState } from "react";
-
 interface CoachDiscoverCardProps {
   isHovered?: boolean;
 }
@@ -24,7 +22,7 @@ const CoachDiscoverCard = ({ isHovered = false }: CoachDiscoverCardProps) => {
           {/* Name with rotation animation */}
           <h2
             className={`text-h5 leading-h5 font-bold text-neutral-50 transition-all duration-700 ease-in-out whitespace-nowrap ${
-              isHovered ? "rotate-0 opacity-100" : "rotate-90 opacity-80"
+              isHovered ? "rotate-360 opacity-100" : "rotate-270 opacity-80"
             }`}
             style={{
               transformOrigin: "center center",
