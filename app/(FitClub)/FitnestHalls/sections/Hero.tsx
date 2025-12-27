@@ -6,7 +6,7 @@ import Container from '@/components/common/Container';
 const Hero = () => {
 
     return (
-        <div className=' lg:h-screen md:h-[450px] h-[205px] relative'>
+        <div className='mt-[-152px] lg:h-screen md:h-[450px] h-[205px] relative'>
             <div className='absolute inset-0 size-full'>
                 <Image src={mesqZaliSecHeroImg} alt="arrow" className='size-full object-cover' />
                 <div className='absolute inset-0 bg-linear-to-b from-[#1A2A2D] from-40% to-[#000000] opacity-60' />
