@@ -25,7 +25,7 @@ const gym = () => {
     return (
             <Container className="mt-[173px] text-neutral-50">
                 <h2 className="text-s1 leading-s1 sm:text-h6 sm:leading-h6 font-medium mb-4 sm:mb-7 lg:mb-10">
-                    Məşq olanı necə işləyir?
+                    Məşq planı necə işləyir?
                 </h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
