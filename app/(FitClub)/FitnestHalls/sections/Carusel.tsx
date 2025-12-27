@@ -17,20 +17,23 @@ import Link from 'next/link';
 interface SlideItem {
     id: number;
     title: string;
-    text: string;
+    subtitle: string;
     src: StaticImageData;
     href: string;
+    address: string;
+    number: string;
+    time: string;
 }
 const caruselContext: SlideItem[] = [
-    { id: 1, title: "Power Gym", text: "<span class='text-primary-700'>FitNest</span>-in mütəxəssisləri illərin bilik və təcrübəsini sənin gündəlik inkişafına yönəldir.", src: hallCaruselImg1, href: '/' },
-    { id: 2, title: "Strong Gym", text: "Sağlam bədən düzgün qidalanmadan başlayır — <span class='text-primary-700'>FitNest</span> sənə bunun üçün yol göstərir.", src: hallCaruselImg1, href: '/' },
-    { id: 3, title: "Basqa Gym", text: "Məşqçilərimiz həm proqramlarınla, həm də gündəlik tövsiyələri ilə inkişafına dəstək olur.", src: hallCaruselImg1, href: '/' },
+    { id: 1, title: "Power Gym", subtitle: "Cardio & Ağırlıq", src: hallCaruselImg1, href: '/' ,address:'Bakı, Nizami 123', number:'+994 55 555 55 55' ,time:'İş saatları: 09:00  -20:00'},
+    { id: 2, title: "Strong Gym", subtitle: "Cardio & Ağırlıq", src: hallCaruselImg1, href: '/' ,address:'Bakı, Nizami 123', number:'+994 55 555 55 55' ,time:'İş saatları: 09:00  -20:00'},
+    { id: 3, title: "Basqa Gym", subtitle: "Cardio & Ağırlıq", src: hallCaruselImg1, href: '/' ,address:'Bakı, Nizami 123', number:'+994 55 555 55 55' ,time:'İş saatları: 09:00  -20:00'},
 ]
 
 
 const Carusel = () => {
   return (
-    <div className='mb-10'>
+    <div className='mb-20'>
         <Carousel
             opts={{
                 loop: true,
@@ -48,21 +51,21 @@ const Carusel = () => {
                             <div className='text-b3 leading-b3 font-bold py-4 px-6 text-white rounded-4xl gradient-border-diagonal bg-[#123B55/30%] max-w-[100px] md:hidden'>Standart</div>
                             <div className='flex flex-col gap-0.5 md:gap-4'>
                                 <h2 className='text-b2 leading-b2 md:text-s1 md:leading-s1 font-semibold ' dangerouslySetInnerHTML={{ __html: item.title }}></h2>
-                                <p className='text-b3 leading-b3 md:text-b2 md:leading-b2 text-primary-700 font-medium md:font-bold'>Cardio & Ağırlıq</p>
+                                <p className='text-b3 leading-b3 md:text-b2 md:leading-b2 text-primary-700 font-medium md:font-bold'>{item?.subtitle}</p>
                             </div>
                             <div className='flex flex-col md:flex-row md:justify-between'>
                                 <div id='credetentials' className='max-[1440px]:pl-2 text-neutral-500 flex flex-col gap-1 md:gap-3'>
                                     <div  className='flex items-center min-h-[30px] gap-2 text-[#C1C1CC]'>
                                         <Image src={LocationBoz} alt='locationIcon' className='md:w-5! aspect-square' width={14} height={14} />
-                                        <p className='text-b3 leading-b3 md:font-medium md:text-b2 md:leading-b2'>Bakı, Nizami 123</p>
+                                        <p className='text-b3 leading-b3 md:font-medium md:text-b2 md:leading-b2'>{item?.address}</p>
                                     </div>
                                     <div  className='flex items-center gap-2 text-[#C1C1CC] min-h-[30px]'>
                                         <Image src={CallBoz} alt='callIcon'className='md:w-5! aspect-square' width={14} height={14} />
-                                        <p className='text-b3 leading-b3 md:font-medium md:text-b2 md:leading-b2'>+994 55 555 55 55</p>
+                                        <p className='text-b3 leading-b3 md:font-medium md:text-b2 md:leading-b2'>{item?.number}</p>
                                     </div>
                                     <div className='flex items-center gap-2 text-[#C1C1CC] min-h-[30px]'>
                                         <Image src={ClockBoz} alt='clockIcon' className='md:w-5! aspect-square' width={14} height={14} />
-                                        <p className='text-b3 leading-b3 md:font-medium md:text-b2 md:leading-b2'>İş saatları: 09:00  -20:00</p>
+                                        <p className='text-b3 leading-b3 md:font-medium md:text-b2 md:leading-b2'>{item?.time}</p>
                                     </div>
                                 </div>
                                 <Link href={item.href} className="self-end h-6 md:h-12 rounded-full aspect-square cursor-pointer gradient-border-diagonal bg-[#0E293D]/30 backdrop-blur-md">
@@ -74,8 +77,8 @@ const Carusel = () => {
                 ))}
             </CarouselContent>
             <div className='mt-5'>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious className='gradient-border-diagonal' />
+                <CarouselNext className='gradient-border-diagonal' />
             </div>
         </Carousel>
     </div>

@@ -190,13 +190,13 @@ function CarouselPrevious({
         orientation === "horizontal"
           ? "top-[calc(100%+20px)] left-[50%] -translate-x-[52px]"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
+        
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <div className="size-10 max-md:gradient-border hover:bg-[#123B55]/70 gradient-border-diagonal grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md">
+      <div className={cn("size-10  hover:bg-[#123B55]/70 grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md",className)}>
         <Image src={ArrowLeft} alt="arrow" />
         <span className="sr-only">Next slide</span> 
       </div>
@@ -222,13 +222,13 @@ function CarouselNext({
         orientation === "horizontal"
           ? "top-[calc(100%+20px)] right-[50%] translate-x-[52px]"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
+        
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <div className="size-10 max-md:gradient-border hover:bg-[#123B55]/70 gradient-border-diagonal grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md">
+      <div className={cn("size-10 hover:bg-[#123B55]/70 grid place-items-center rounded-full bg-[#0E293D]/30 backdrop-blur-md",className)}>
         <Image src={ArrowRight} alt="arrow" />
         <span className="sr-only">Next slide</span> 
       </div>
