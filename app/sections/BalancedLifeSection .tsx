@@ -76,8 +76,8 @@ const BalancedLifeSection = () => {
                                 ))}
                             </CarouselContent>
                             <div className='mt-5'>
-                                <CarouselPrevious />
-                                <CarouselNext />
+                                <CarouselPrevious className='max-md:gradient-border gradient-border-diagonal' />
+                                <CarouselNext className='max-md:gradient-border gradient-border-diagonal' />
                             </div>
                         </Carousel>
                     </div>
