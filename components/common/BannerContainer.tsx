@@ -7,14 +7,15 @@ interface BannerProps {
     subtitle: string | React.ReactNode;
     icon?: LucideIcon;
     iconClassName?: string;
+    className?: string;
     iconUrl?: string;
     children: React.ReactNode;
 }
 
-const BannerContainer: React.FC<BannerProps> = ({ title, subtitle, icon: Icon, children, iconClassName, iconUrl }) => {
+const BannerContainer: React.FC<BannerProps> = ({ title, subtitle, icon: Icon, children, iconClassName, iconUrl, className }) => {
     return (
         <>
-            <div className='md:mt-[173px] mt-20 flex justify-center md:pt-20 md:pb-[173px] sm:pt-12 sm:pb-[70px] pt-6 pb-[90px] px-4 text-white bg-blue-500 w-full bg-linear-to-l from-[#243665] to-[#0B1223]'>
+            <div className={`md:mt-[173px] mt-20 flex justify-center md:pt-20 md:pb-[173px] sm:pt-12 sm:pb-[70px] pt-6 pb-[90px] px-4 text-white bg-blue-500 w-full bg-linear-to-l from-[#243665] to-[#0B1223] ${className}`}>
                 <div>
                     <div className='flex justify-center items-center gap-3'>
                         {

@@ -1,6 +1,8 @@
 import LangBtn from '@/app/footer/LangBtn'
 import Container from "@/components/common/Container";
+import HeroBanner from '@/components/common/HeroBanner';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import GymBannerImg from '@/public/images/GymBanner.jpg'
 
 const steps = [
     {
@@ -23,10 +25,23 @@ const steps = [
 
 const gym = () => {
     return (
-            <Container className="mt-[173px] text-neutral-50">
+        <>
+            <HeroBanner
+                imageUrl={GymBannerImg}
+                subTitle={<h1 className=" font-bold mb-4 text-t2 leading-t2 md:text-h5 md:leading-h5">
+                    Düymə səni
+                    <span className="text-primary-700 "> FitNest</span> mobil tətbiqinə / tətbiq mağazasına yönləndirəcək.
+                </h1>}
+                title="Hədəfinə uyğun məşqlərlə daha güclü və balanslı ol!"
+                buttonHref="#"
+                buttonText="Tətbiqə keç"
+            />
+            <Container className="my-20 text-neutral-50">
                 <h2 className="text-s1 leading-s1 sm:text-h6 sm:leading-h6 font-medium mb-4 sm:mb-7 lg:mb-10">
-                    Məşq olanı necə işləyir?
+                    Məşq planı necə işləyir?
                 </h2>
+
+
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
                     {steps.map((step) => (
@@ -55,6 +70,7 @@ const gym = () => {
                     ))}
                 </div>
             </Container>
+        </>
     )
 }
 
