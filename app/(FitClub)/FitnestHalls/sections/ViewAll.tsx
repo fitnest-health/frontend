@@ -1,3 +1,4 @@
+import ButtonLink from '@/components/ui/button-link'
 import Link from 'next/link'
 
 const ViewAll = () => {
@@ -7,9 +8,9 @@ const ViewAll = () => {
                 <h2 className='text-b1 leading-b1 font-medium md:text-h6 md:leading-h6 min-[1440px]:text-h3 min-[1440px]:leading-h3 md:mb-2'>İdmansevərlərin Seçimi</h2>
                 <p className='text-b3 leading-b3 md:font-medium md:text-s2 md:leading-s2 min-[1440px]:text-t2 min-[1440px]:leading-t2'>Son zamanların ən çox maraq görən idman məkanları.</p>
             </div>
-            <Link 
-            href={''}
-            className='text-b3 leading-b3 md:text-b2 md:leading-b2 md:font-medium py-[13px] px-2.5 w-[134px] md:w-[268px] text-nowrap text-center rounded-4xl border border-primary-700 text-primary-700'>Hamısına bax</Link>
+            <Link href={''}>
+              <ButtonLink className='shadow-none! bg-none! bg-transparent! md:max-h-12 hover:shadow-none! text-b3 leading-b3 md:text-b2 md:leading-b2 md:font-medium py-[13px] px-2.5 max-[300px]:max-w-[134px] md:w-[268px] text-nowrap text-center rounded-4xl border border-primary-700 text-primary-700' >Hamısına bax</ButtonLink>
+            </Link>
         </div>
   )
 }
