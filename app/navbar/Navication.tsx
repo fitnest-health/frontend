@@ -12,7 +12,7 @@ export const NavLinks = [
         name: 'FitClub',
         icon: <ChevronDown className='w-[18px] h-[18px]' />,
         options: [
-            { name: 'Wellness Zone', href: '/#' },
+            { name: 'Wellness Zone', href: '/WellnessZone' },
             { name: 'Su Balansı', href: '/#' },
             { name: 'FitNest Zallar', href: '/#' },
             { name: 'FitMarket', href: '/#' },
