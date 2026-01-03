@@ -136,7 +136,7 @@ const Page = () => {
                                 <Image
                                     src={ArctionsTapscroll}
                                     alt="tap-scroll"
-                                    className='ml-auto cursor-pointer'
+                                    className='m-auto cursor-pointer'
                                     onClick={(e) => handleTabletTapClick(item.id, e)}
                                 />
 
