@@ -1,6 +1,4 @@
-'use client'
 import Container from '@/components/common/Container'
-import Hero from '@/app/(FitClub)/FitnestHalls/sections/Hero'
 import Carusel from './sections/Carusel'
 import ViewAll from './sections/ViewAll'
 import Equipment from './sections/Equipment'
