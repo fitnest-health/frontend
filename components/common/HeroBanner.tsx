@@ -25,7 +25,7 @@ const HeroBanner = ({ withButton = true, subTitle, title, buttonHref, buttonText
           priority
         />
 
-        <div className={`relative z-10 flex flex-col md:flex-row  ${withButton && "justify-end md:justify-between " || "justify-center"}   gap-5  md:items-end h-full text-white py-[50px] w-[90%] md:w-5/6 mx-auto`}>
+        <div className={`relative z-10 flex flex-col md:flex-row  ${withButton && "justify-end md:justify-between " || "justify-center"}  gap-5  md:items-end h-full text-white py-[50px] w-[90%] md:w-5/6 mx-auto`}>
           <div>
             {subTitle}
             <p className="max-w-4xl text-s2 leading-s2 md:text-t2 md:leading-t2">
