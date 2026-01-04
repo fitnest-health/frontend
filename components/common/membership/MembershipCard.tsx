@@ -59,14 +59,14 @@ export default function MembershipCard({ item }: any) {
     return (
         <motion.div
             whileHover={{ scale: 1.01 }}
-            className="bg-softblue-1100 text-white rounded-3xl p-4 sm:p-6 md:p-10 cursor-pointer"
+            className='md:px-10 md:py-[50px] sm:p-[26px] sm:rounded-4xl rounded-3xl bg-softblue-1100 text-neutral-50'
             onClick={handleMobileToggle}
         >
-            <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+            <div className="flex flex-col md:flex-row md:gap-[60px] sm:gap-5">
                 {/* ===== LEFT CARD ===== */}
                 <div
-                    className={`bg-softblue-1000 rounded-3xl p-6 md:w-2/5 flex flex-col justify-between
-          ${isMobileOpen ? 'hidden sm:flex' : 'flex'}`}
+                    className={`bg-softblue-1000 flex flex-col justify-between rounded-3xl sm:p-8 px-6 py-4 md:w-2/5 w-full md:h-auto sm:h-[376px] h-[220px]
+                    ${isMobileOpen ? 'hidden sm:flex' : 'flex'}`}
                 >
                     <MembershipCardHeader label={item.label} discount={item.discount} />
                 </div>
@@ -91,7 +91,7 @@ export default function MembershipCard({ item }: any) {
             <AnimatePresence>
                 {isTabletOpen && (
                     <motion.div
-                        className="hidden sm:block md:hidden mt-4 overflow-hidden"
+                        className="hidden sm:block md:hidden overflow-hidden"
                         variants={expandVariants}
                         initial="hidden"
                         animate="visible"
@@ -106,7 +106,7 @@ export default function MembershipCard({ item }: any) {
             <AnimatePresence>
                 {isMobileOpen && (
                     <motion.div
-                        className="sm:hidden mt-4 overflow-hidden"
+                        className="sm:hidden p-6 overflow-hidden"
                         variants={expandVariants}
                         initial="hidden"
                         animate="visible"
