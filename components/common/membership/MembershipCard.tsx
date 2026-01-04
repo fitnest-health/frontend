@@ -1,25 +1,36 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence,Variants } from 'framer-motion';
 import Image from 'next/image';
 import MembershipDetails from './MembershipDetails';
 import TapIcon from '@/public/icons/arcticons_tapscroll.svg';
 import MembershipCardHeader from './MembershipCardHeader';
 
-const expandVariants = {
-    hidden: { opacity: 0, height: 0 },
-    visible: {
-        opacity: 1,
-        height: 'auto',
-        transition: { duration: 0.35 },
+const expandVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    height: 0,
+  },
+  visible: {
+    opacity: 1,
+    height: 'auto',
+    transition: {
+      height: { duration: 0.35, ease: 'easeInOut' },
+      opacity: { duration: 0.35, ease: 'easeInOut' },
     },
-    exit: {
-        opacity: 0,
-        height: 0,
-        transition: { duration: 0.25 },
+  },
+  exit: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      height: { duration: 0.25, ease: 'easeInOut' },
+      opacity: { duration: 0.25, ease: 'easeInOut' },
     },
+  },
 };
+
+
 
 type OpenCard = {
     id: string | null;
@@ -65,10 +76,11 @@ export default function MembershipCard({ item }: any) {
             <div className="flex flex-col md:flex-row md:gap-[60px] sm:gap-5">
                 {/* ===== LEFT CARD ===== */}
                 <div
-                    className={`bg-softblue-1000 flex flex-col justify-between rounded-3xl sm:p-8 px-6 py-4 md:w-2/5 w-full md:h-auto sm:h-[376px] h-[220px]
-                    ${isMobileOpen ? 'hidden sm:flex' : 'flex'}`}
+                    className={`relative overflow-hidden bg-softblue-1000 flex flex-col justify-between rounded-3xl
+                    sm:p-8 px-6 py-4 md:w-2/5 w-full sm:h-[376px] h-[220px]
+                    ${isMobileOpen ? "hidden sm:flex" : "flex"}`}
                 >
-                    <MembershipCardHeader label={item.label} discount={item.discount} />
+                    <MembershipCardHeader label={item.label} discount={item.discount} glowColor={item.glowColor} />
                 </div>
 
                 {/* ===== DESKTOP CONTENT ===== */}
@@ -88,7 +100,7 @@ export default function MembershipCard({ item }: any) {
             </div>
 
             {/* ===== TABLET CONTENT ===== */}
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {isTabletOpen && (
                     <motion.div
                         className="hidden sm:block md:hidden overflow-hidden"
@@ -103,7 +115,7 @@ export default function MembershipCard({ item }: any) {
             </AnimatePresence>
 
             {/* ===== MOBILE CONTENT ===== */}
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {isMobileOpen && (
                     <motion.div
                         className="sm:hidden p-6 overflow-hidden"
