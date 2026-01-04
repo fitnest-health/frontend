@@ -10,6 +10,7 @@ const memberships = [
             "FitNest-in əsas xidmətlərindən istifadə və partnyor mağazalarda 5% endirim imkanı təqdim edir.",
         type: "Standart",
         fee: "50",
+        glowColor: "rgba(0, 180, 204, 1)",
     },
     {
         id: "gold",
@@ -19,6 +20,7 @@ const memberships = [
             "FitNest daxilində daha geniş xidmətlərdən yararlanmaq və bütün partnyor mağazalarda 10% endirim əldə etmək imkanı verir.",
         type: "Gold",
         fee: "100",
+        glowColor: "rgba(255, 211, 84, 1)"
     },
     {
         id: "premium",
@@ -28,6 +30,7 @@ const memberships = [
             "Maksimum imtiyazlar təqdim edir: bütün FitNest xidmətlərinə giriş və bütün partnyor platformalarda 15%",
         type: "Premium",
         fee: "150",
+        glowColor: "rgba(155, 118, 227, 1)"
     },
 ];
 
