@@ -1,12 +1,13 @@
+import Container from "@/components/common/Container";
 import { OffersHero } from "@/components/common/offer-page/OffersHero";
-import { OffersPricingSection } from "@/components/common/offer-page/OffersPricingSection";
+import  OffersPricingSection  from "@/components/common/offer-page/OffersPricingSection";
 
 const OffersPage = () => {
   return (
-    <main className="relative min-h-screen bg-[#0D0F1C] text-neutral-50">
+    <Container className="pt-10 md:pt-50 space-y-10 md:space-y-20">
       <OffersHero />
       <OffersPricingSection />
-    </main>
+    </Container>
   );
 };
 

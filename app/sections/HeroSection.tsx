@@ -1,15 +1,15 @@
 import Container from "@/components/common/Container";
-import ButtonLink from "@/components/ui/button-link";
+// import ButtonLink from "@/components/ui/button-link";
 
 const HeroSection = () => {
   return (
-    <section className="relative flex lg:items-center pt-[153px] sm:items-center text-gray-50 w-screen left-0 lg:h-screen md:h-[474px] sm:h-[528px] overflow-hidden">
+    <section className="relative flex lg:items-center pt-[153px] sm:items-center text-gray-50 w-full aspect-video overflow-hidden">
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="lg:hidden absolute inset-0 w-screen h-full object-cover brightness-90"
+        className="lg:hidden aspect-video absolute inset-0 w-full h-full object-cover brightness-90"
       >
         <source src="/videos/HeroSectionVideo.mp4" type="video/mp4" />
       </video>
@@ -18,7 +18,7 @@ const HeroSection = () => {
         loop
         muted
         playsInline
-        className="hidden lg:block absolute inset-0 w-screen h-full object-cover brightness-90"
+        className="hidden aspect-video lg:block absolute inset-0 w-full h-full object-cover brightness-90"
       >
         <source src="/videos/ScreenRecording.mp4" type="video/mp4" />
       </video>
@@ -32,12 +32,11 @@ const HeroSection = () => {
           </h1>
 
           <p className="lg:mb-16 sm:mb-9 mb-[30px] lg:text-t2 lg:leading-t2 sm:text-s2 sm:leading-s2 text-b3 leading-b3">
-            Sağlam və balanslı yaşamaq artıq daha asandır. Fərdi məşq planları,
-            düzgün qidalanma və yaxın fitness mərkəzləri — hamısı FitNest-də,
-            sənin gündəlik motivasiyan üçün bir aradadır.
+            FitNest istifadəçilərə yaxınlıqdakı fitness mərkəzlərini tapmaq,
+            uyğun abunə seçmək və QR sistemi ilə məşqə başlamaq imkanı yaradır.
           </p>
 
-          <ButtonLink>İndi başla</ButtonLink>
+          {/* <ButtonLink>İndi başla</ButtonLink> */}
         </div>
       </Container>
     </section>
