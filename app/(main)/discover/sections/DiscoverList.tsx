@@ -4,29 +4,63 @@ import CoachDiscoverCard from "@/components/common/discover/CoachDiscoverCard";
 import { useState } from "react";
 
 const DiscoverList = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  
+  const handleCardClick = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+  
+
+  // api data goes here
+  const cards = Array.from({ length: 12 });
+  const rows = [];
+  
+  // Group cards into rows of 4
+  for (let i = 0; i < cards.length; i += 4) {
+    rows.push(cards.slice(i, i + 4));
+  }
   
   return (
     <Container>
-      <div className={`grid gap-2 transition-all duration-700 ${
-        hoveredIndex !== null 
-          ? "grid-cols-1 sm:grid-cols-5 md:grid-cols-6" 
-          : "grid-cols-1 sm:grid-cols-3 md:grid-cols-4"
-      }`}>
-        {Array.from({ length: 12 }).map((_, index) => (
-          <div
-            key={index}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            className={`transition-all duration-700 ${
-              hoveredIndex === index 
-                ? "col-span-1 sm:col-span-2" 
-                : "col-span-1"
-            }`}
-          >
-            <CoachDiscoverCard isHovered={hoveredIndex === index} />
-          </div>
-        ))}
+      <div className="flex flex-col gap-10">
+        {rows.map((row, rowIndex) => {
+          const rowStartIndex = rowIndex * 4;
+          const hasExpandedCard = row.some((_, cardIndex) => 
+            expandedIndex === rowStartIndex + cardIndex
+          );
+          
+          return (
+            <div 
+              key={rowIndex}
+              className={`flex flex-wrap transition-all duration-700 ${
+                hasExpandedCard ? "gap-[10px]" : "gap-6"
+              }`}
+            >
+              {row.map((_, cardIndex) => {
+                const globalIndex = rowStartIndex + cardIndex;
+                const isExpanded = expandedIndex === globalIndex;
+                
+                return (
+                  <div
+                    key={globalIndex}
+                    className={`transition-all duration-700 ${
+                      isExpanded 
+                        ? "w-full sm:w-[calc(40%-7.5px)]" 
+                        : hasExpandedCard
+                        ? "w-full sm:w-[calc(20%-7.5px)]"
+                        : "w-full sm:w-[calc(25%-18px)]"
+                    }`}
+                  >
+                    <CoachDiscoverCard 
+                      isExpanded={isExpanded}
+                      onClick={() => handleCardClick(globalIndex)}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </Container>
   );
