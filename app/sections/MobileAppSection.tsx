@@ -13,28 +13,29 @@ const MobileAppSection = () => {
         title="Mobil <span class='text-primary-700'>FitNest</span>"
         number={3}
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 justify-between max-h-[700px]">
-        <div className="space-y-5 text-center flex flex-col justify-center items-center h-full">
-          <h2 className="font-medium text-h6 leading-h6">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-end gap-8 md:gap-0">
+        <div className="space-y-5 text-center flex flex-col justify-center items-center h-full py-8 md:py-0">
+          <h2 className="font-medium text-s1 leading-s1 md:text-h6 md:leading-h6">
             Sağlam həyat tərzinə bir addım da yaxınlaş
           </h2>
-          <p className="font-medium text-t2 leading-t2">
+          <p className="font-medium text-b1 leading-b1 md:text-t2 md:leading-t2">
             <span className="text-primary-700">FitNest</span> ilə bədənini,
             zehnini və motivasiyanı balansda saxla.
           </p>
-          <QrCode size={300} />
+          <QrCode size={200} className="md:hidden" />
+          <QrCode size={300} className="hidden md:block" />
         </div>
-        <div className="mx-auto max-h-[700px] overflow-clip">
+        <div className="mx-auto overflow-clip">
           <div className="relative">
             {/* Phone frame */}
             <Image
               src={phoneScreen}
               alt="phone window"
-              className="aspect-9/16 h-[450px] md:h-[900px] w-auto relative z-10"
+              className="aspect-9/16 h-[350px] sm:h-[450px] md:h-[700px] w-auto relative z-10"
             />
 
             {/* Screen area */}
-            <div className="absolute top-0 translate-y-1 md:translate-y-5 left-0 overflow-hidden aspect-9/16 h-[430px] md:h-[850px] z-0 rounded-[45px] md:rounded-[55px]">
+            <div className="absolute top-0 translate-y-1 md:translate-y-4 left-0 overflow-hidden aspect-9/16 h-[333px] sm:h-[430px] md:h-[665px] z-0 rounded-[35px] sm:rounded-[45px] md:rounded-[52px]">
               <Image src={splash} alt={"splash"} className="h-full w-full " />
             </div>
           </div>

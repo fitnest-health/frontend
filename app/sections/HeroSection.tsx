@@ -3,7 +3,7 @@ import Container from "@/components/common/Container";
 
 const HeroSection = () => {
   return (
-    <section className="relative flex lg:items-center pt-[153px] sm:items-center text-gray-50 w-full aspect-video overflow-hidden">
+    <section className="relative flex lg:items-center pt-[80px] sm:items-center text-gray-50 w-full min-h-screen overflow-hidden">
       <video
         autoPlay
         loop
