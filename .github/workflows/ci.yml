@@ -41,11 +41,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: fitnest-chart/frontend
-          token: ${{ secrets.CHART_REPO_SSH_PRIVATE_KEY }}
           ref: development
+          path: helm-repo
+          ssh-key: ${{ secrets.CHART_REPO_SSH_PRIVATE_KEY }}
 
       - name: Update image tag in values.yaml
         run: |
+          cd helm-repo
           sed -i 's/tag: .*/tag: "${{ github.sha }}"/' values.yaml
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -57,7 +59,20 @@ jobs:
     needs: update-helm-chart
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare ArgoCD token
+        env:
+          ARGOCD_TOKEN_RAW: ${{ secrets.ARGOCD_TOKEN }}
+        run: |
+          CLEAN_TOKEN="$ARGOCD_TOKEN_RAW"
+          CLEAN_TOKEN="${CLEAN_TOKEN%\"}"
+          CLEAN_TOKEN="${CLEAN_TOKEN#\"}"
+          echo "ARGOCD_TOKEN=$CLEAN_TOKEN" >> $GITHUB_ENV
+
       - name: Trigger ArgoCD Sync
         run: |
-          curl -X POST -H "Authorization: Bearer ${{ secrets.ARGOCD_TOKEN }}" \
-          https://argo.fitnest.az/api/v1/applications/fitnest-frontend-dev/sync
+          curl -k -X POST \
+            -H "Authorization: Bearer ${{ env.ARGOCD_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            http://161.97.183.7:31052/api/v1/applications/fitnest-frontend-dev/sync \
+            -d '{}'
+
