@@ -1,12 +1,7 @@
-name: Frontend CI/CD
-
 on:
   push:
     branches:
       - development
-    paths:
-      - 'code/frontend/**'
-      - 'chart/frontend/**'
 
 jobs:
   build-and-push:
@@ -29,7 +24,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./code/frontend
+          context: .
+
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/fitnest-frontend:development
