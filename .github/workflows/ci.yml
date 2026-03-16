@@ -1,0 +1,67 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches:
+      - development
+    paths:
+      - 'code/frontend/**'
+      - 'chart/frontend/**'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/development'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./code/frontend
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/fitnest-frontend:development
+            ghcr.io/${{ github.repository_owner }}/fitnest-frontend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  update-helm-chart:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout chart repository
+        uses: actions/checkout@v4
+        with:
+          repository: fitnest-chart/frontend
+          token: ${{ secrets.CHART_REPO_SSH_PRIVATE_KEY }}
+          ref: development
+
+      - name: Update image tag in values.yaml
+        run: |
+          sed -i 's/tag: .*/tag: "${{ github.sha }}"/' values.yaml
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add values.yaml
+          git commit -m "chore: update frontend image tag to ${{ github.sha }}"
+          git push origin development
+
+  sync-argocd:
+    needs: update-helm-chart
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger ArgoCD Sync
+        run: |
+          curl -X POST -H "Authorization: Bearer ${{ secrets.ARGOCD_TOKEN }}" \
+          https://argo.fitnest.az/api/v1/applications/fitnest-frontend-dev/sync
