@@ -15,7 +15,7 @@ import LangBtn from "./LangBtn";
 
 const Footer = async () => {
   return (
-    <footer className="text-white  bg-softblue-950 font-display! relative">
+    <footer className="text-white  bg-softblue-950 font-display! relative z-50">
       <ToTopBtn />
       <div className="footer_inside max-w-7xl mx-auto py-[30px] sm:py-[60px] px-5 ">
         <div className="footer_top flex flex-col sm:flex-row justify-between gap-14 sm:gap-0 ">

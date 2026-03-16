@@ -1,11 +1,12 @@
 import HamburgerMenu from "./HamburgerMenu"
 import Logo from "./Logo"
+import NavbarRight from "./NavbarRight"
 import Navication from "./Navication"
-import UserAuth from "./UserAuth"
+// import UserAuth from "./UserAuth"
 
-const initialUser = {
-    // name: 'Fermayil'
-}
+// const initialUser = {
+//     // name: 'Fermayil'
+// }
 
 const Navbar = () => {
     return (
@@ -13,7 +14,8 @@ const Navbar = () => {
             <Logo />
             <div className="flex items-center justify- w-full lg:max-w-[887px]">
                 <Navication />
-                <UserAuth initialUser={initialUser} />
+                {/* <UserAuth initialUser={initialUser} /> */}
+                <NavbarRight />
             </div>
             <HamburgerMenu />
         </header>

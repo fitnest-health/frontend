@@ -11,7 +11,7 @@ const Heading = ({ title, number, className }: HeadingProps) => {
             <div className="circle w-10 h-10 sm:w-[60px] sm:h-[60px] text-b1 leading-b1 xs:text-s1 xs:leading-s1 font-bold ">
                 {number}
             </div>
-            <h3 className="text-s1 md:text-h4 font-semibold leading-s1 md:leading-h4">{title}</h3>
+            <h3 className="text-s1 md:text-h4 font-semibold leading-s1 md:leading-h4" dangerouslySetInnerHTML={{__html:title}}/>
         </div>
     )
 }

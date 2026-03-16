@@ -72,15 +72,7 @@ const OffersSection = () => {
                 >
                   {offerPlans.map((plan) => (
                     <SwiperSlide key={`${plan.id}-slide`} className="h-auto!">
-                      <OfferPlanCard
-                        plan={plan}
-                        period={period}
-                        containerClassName={cn(
-                          "w-full border border-[#1A2E40]/40 backdrop-blur-md",
-                          toneStyles[plan.id].container
-                        )}
-                        accentClassName={toneStyles[plan.id].accent}
-                      />
+                      <OfferPlanCard />
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -98,7 +90,7 @@ const OffersSection = () => {
                       isOpen={isOpen}
                       onToggle={() =>
                         setExpandedPlan((prev) =>
-                          prev === plan.id ? null : plan.id
+                          prev === plan.id ? null : plan.id,
                         )
                       }
                       containerClassName={toneStyles[plan.id].container}

@@ -1,37 +1,47 @@
-'use client'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
-import Link from 'next/link'
-import { useState } from 'react'
-import { usePathname } from 'next/navigation'
+"use client";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export const NavLinks = [
-    { name: 'Əsas səhifə', href: '/' },
-    { name: 'Bizi tanıyın', href: '/about' },
-    {
-        name: 'FitClub',
-        icon: <ChevronDown className='w-[18px] h-[18px]' />,
-        options: [
-            { name: 'Wellness Zone', href: '/WellnessZone' },
-            { name: 'Su Balansı', href: '/WaterBalance' },
-            { name: 'FitNest Zallar', href: '/FitnestHalls' },
-            { name: 'FitMarket', href: '/FitMarket' },
-            { name: 'İstirahət və Sağlamlıq mərkəzləri', href: '/RecreationandHealthCenters' },
-        ]
-    },
-    { name: 'Üzvlük', href: '/membership' },
-]
+  { name: "Əsas səhifə", href: "/" },
+  { name: "Bizi tanıyın", href: "/about" },
+  {
+    name: "FitClub",
+    icon: <ChevronDown className="w-[18px] h-[18px]" />,
+    options: [
+      { name: "Wellness Zone", href: "/WellnessZone" },
+      { name: "Su Balansı", href: "/WaterBalance" },
+      { name: "FitNest Zallar", href: "/FitnestHalls" },
+      { name: "FitMarket", href: "/FitMarket" },
+      {
+        name: "İstirahət və Sağlamlıq mərkəzləri",
+        href: "/RecreationandHealthCenters",
+      },
+    ],
+  },
+  { name: "Üzvlük", href: "/membership" },
+];
+
+export const NewLinks = [
+  { name: "Zallar", href: "/" },
+  { name: "Abunəlik", href: "/offers" },
+  { name: "Fit market", href: "/fit-market" },
+  { name: "FAQ", href: "/faq" },
+  { name: "BMI", href: "/bmi" },
+];
 
 const Navication = () => {
-    const [open, setOpen] = useState<boolean>(false)
-    const pathname = usePathname()
+  const pathname = usePathname();
 
-    return (
-        <div className='hidden md:flex md:justify-center xl:justify-normal w-full'>
-            <nav className="flex justify-between text-white! w-full gradient-border py-4 px-7 rounded-4xl bg-[#0E293D4D] backdrop-blur-md lg:max-w-[528px]">
-                {NavLinks.map((item, index) => (
-                    <div key={item.name}>
-                        {item.options ? (
+  return (
+    <div className="hidden md:flex md:justify-center xl:justify-normal w-full">
+      <nav className="flex justify-between text-white! w-full gradient-border py-4 px-7 rounded-4xl bg-[#0E293D4D] backdrop-blur-md lg:max-w-[528px]">
+        {NewLinks.map((item, index) => (
+          <div key={item.name}>
+            {/* {item.options ? (
                             <div className="relative">
                                 <div
                                     onClick={() => setOpen(prev => !prev)}
@@ -54,7 +64,7 @@ const Navication = () => {
                                             transition={{ duration: 0.2, ease: "easeOut" }}
                                             className="absolute top-full left-1/2 -translate-x-1/2 mt-5 bg-[#0E293D] text-center rounded-4xl py-4 px-7 w-[331px]"
                                         >
-                                            {item.options.map((opt) => (
+                                            {item?.options?.map((opt) => (
                                                 <Link
                                                     key={opt.name}
                                                     href={opt.href}
@@ -68,21 +78,20 @@ const Navication = () => {
                                     )}
                                 </AnimatePresence>
                             </div>
-                        ) : (
-                            <Link
-                                href={item.href}
-                                onClick={() => setOpen(false)}
-                                className={`text-lg flex items-center gap-1 cursor-pointer z-10 leading-6 font-medium
+                        ) : ( */}
+            <Link
+              href={item.href}
+            //   onClick={() => setOpen(false)}
+              className={`text-lg flex items-center gap-1 cursor-pointer z-10 leading-6 font-medium
                                     ${pathname === item.href ? "text-primary-700" : ""}`}
-                            >
-                                {item.name}
-                            </Link>
-                        )}
-                    </div>
-                ))}
-            </nav>
-        </div>
-    )
-}
+            >
+              {item.name}
+            </Link>
+          </div>
+        ))}
+      </nav>
+    </div>
+  );
+};
 
-export default Navication
+export default Navication;
