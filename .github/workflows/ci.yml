@@ -1,7 +1,17 @@
+name: Frontend CI/CD
+
 on:
   push:
     branches:
       - development
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
+  HELM_VALUES_FILE: values.yaml
 
 jobs:
   build-and-push:
@@ -10,6 +20,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set image variables
+        run: |
+          echo "IMAGE_TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+          echo "IMAGE_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -25,11 +40,10 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/fitnest-frontend:development
-            ghcr.io/${{ github.repository_owner }}/fitnest-frontend:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:${{ env.IMAGE_BRANCH }}-${{ env.IMAGE_TAG }}
+            ${{ env.IMAGE_NAME }}:${{ env.IMAGE_BRANCH }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -45,14 +59,23 @@ jobs:
           path: helm-repo
           ssh-key: ${{ secrets.CHART_REPO_SSH_PRIVATE_KEY }}
 
-      - name: Update image tag in values.yaml
+      - name: Install yq
+        uses: mikefarah/yq@v4
+
+      - name: Set image tag
+        run: echo "IMAGE_TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      - name: Update Helm values
         run: |
           cd helm-repo
-          sed -i 's/tag: .*/tag: "${{ github.sha }}"/' values.yaml
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add values.yaml
-          git commit -m "chore: update frontend image tag to ${{ github.sha }}"
+          
+          FULL_TAG="development-${{ env.IMAGE_TAG }}"
+          yq eval -i ".image.tag = \"$FULL_TAG\"" $HELM_VALUES_FILE
+          
+          git add $HELM_VALUES_FILE
+          git commit -m "chore: update frontend image tag to ${{ env.IMAGE_TAG }}"
           git push origin development
 
   sync-argocd:
@@ -73,6 +96,8 @@ jobs:
           curl -k -X POST \
             -H "Authorization: Bearer ${{ env.ARGOCD_TOKEN }}" \
             -H "Content-Type: application/json" \
-            http://161.97.183.7:31052/api/v1/applications/fitnest-frontend-dev/sync \
+            https://argocd.fitnest.az/api/v1/applications/fitnest-frontend-dev/sync \
             -d '{}'
+
+
 
