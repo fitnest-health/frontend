@@ -16,7 +16,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/mesqZaliSecHeroImg.jpg",
     category: "Cardio & Ağırlıq",
     membership: "platinum",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "pulse-lounge",
@@ -27,7 +27,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/GymBanner.jpg",
     category: "Cardio & Ağırlıq",
     membership: "bronze",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "omega-performance",
@@ -38,7 +38,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/coaches.jpg",
     category: "Cardio & Ağırlıq",
     membership: "silver",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "urban-motion",
@@ -49,7 +49,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/main-page.webp",
     category: "Cardio & Ağırlıq",
     membership: "gold",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "nova-athletics",
@@ -60,7 +60,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/startChanging.jpg",
     category: "Cardio & Ağırlıq",
     membership: "platinum",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "balance-zone",
@@ -71,7 +71,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/wellness.png",
     category: "Cardio & Ağırlıq",
     membership: "bronze",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "power-7",
@@ -82,7 +82,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/image1.png",
     category: "Cardio & Ağırlıq",
     membership: "platinum",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "power-8",
@@ -93,7 +93,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/image2.png",
     category: "Cardio & Ağırlıq",
     membership: "gold",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "power-9",
@@ -104,7 +104,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/image3.png",
     category: "Cardio & Ağırlıq",
     membership: "platinum",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "power-10",
@@ -115,7 +115,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/abunelik.webp",
     category: "Cardio & Ağırlıq",
     membership: "platinum",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "power-11",
@@ -126,7 +126,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/second.png",
     category: "Cardio & Ağırlıq",
     membership: "silver",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
   {
     id: "power-12",
@@ -137,7 +137,7 @@ const fitnessCenters: FitnessCenterListItem[] = [
     image: "/images/third.png",
     category: "Cardio & Ağırlıq",
     membership: "platinum",
-    href: "/offers",
+    href: "/fitness-centers/power-gym",
   },
 ];
 

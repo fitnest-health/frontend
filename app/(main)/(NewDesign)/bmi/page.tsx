@@ -1,6 +1,8 @@
 "use client";
 
 import Container from "@/components/common/Container";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   BadgeCheck,
   CalendarDays,
@@ -21,6 +23,14 @@ const BMI_MAX = 40;
 
 const normalizeDecimalInput = (value: string) =>
   value.replace(/[^\d.,]/g, "").replace(",", ".");
+
+const formatDateDisplay = (date?: Date) => {
+  if (!date) return "";
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = String(date.getFullYear());
+  return `${day}.${month}.${year}`;
+};
 
 const getBmiMeta = (bmi: number) => {
   if (bmi < 18.5) {
@@ -93,7 +103,7 @@ const tips = [
 const BmiPage = () => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [birthDate, setBirthDate] = useState("");
+  const [birthDate, setBirthDate] = useState<Date>();
   const [gender, setGender] = useState<Gender>("female");
   const [bmiResult, setBmiResult] = useState<number | null>(null);
 
@@ -101,7 +111,7 @@ const BmiPage = () => {
     const weightValue = Number(weight);
     const heightValue = Number(height);
 
-    if (!birthDate.trim()) return false;
+    if (!birthDate) return false;
     if (!Number.isFinite(weightValue) || weightValue <= 0) return false;
     if (!Number.isFinite(heightValue) || heightValue <= 0) return false;
 
@@ -213,12 +223,34 @@ const BmiPage = () => {
                           <span className="mr-3 flex size-[38px] items-center justify-center rounded-full bg-[#373A41]">
                             <CalendarDays className="size-[18px] text-[#00B4CC]" />
                           </span>
-                          <input
-                            value={birthDate}
-                            onChange={(event) => setBirthDate(event.target.value)}
-                            placeholder="Gün / Ay / İl"
-                            className="h-full w-full bg-transparent text-base leading-6 text-white placeholder:text-[#61656C] outline-none"
-                          />
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <button
+                                type="button"
+                                className={`h-full w-full text-left text-base leading-6 outline-none ${
+                                  birthDate ? "text-white" : "text-[#61656C]"
+                                }`}
+                              >
+                                {birthDate
+                                  ? formatDateDisplay(birthDate)
+                                  : "dd.mm.yyyy"}
+                              </button>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              align="start"
+                              className="w-auto p-0"
+                            >
+                              <Calendar
+                                mode="single"
+                                selected={birthDate}
+                                onSelect={setBirthDate}
+                                captionLayout="dropdown"
+                               
+                                disabled={(date) => date > new Date()}
+                                className="rounded-md"
+                              />
+                            </PopoverContent>
+                          </Popover>
                         </div>
                       </div>
 
@@ -373,11 +405,7 @@ const BmiPage = () => {
             ))}
           </div>
 
-          <div className="pointer-events-none mt-8 flex justify-end xl:mt-14">
-            <div className="flex size-[36px] items-center justify-center rounded-full border border-[#00B4CC] text-sm text-[#00B4CC]">
-              ↑
-            </div>
-          </div>
+          
         </section>
       </Container>
     </div>
