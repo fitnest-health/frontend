@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Navbar from "../navbar/Navbar";
-import Footer from "../footer/Footer";
+import Navbar from "../(layout)/navbar/Navbar";
+import Footer from "../(layout)/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Fitnest",

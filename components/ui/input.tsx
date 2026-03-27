@@ -11,6 +11,7 @@ type IconType = {
 type InputProps = React.ComponentProps<"input"> & {
   leftIcon?: IconType | string | StaticImageData;
   rightIcon?: IconType | string | StaticImageData;
+  wrapperClassName?: string;
 };
 
 export function Input({
@@ -18,6 +19,7 @@ export function Input({
   type,
   leftIcon,
   rightIcon,
+  wrapperClassName,
   ...props
 }: InputProps) {
   const left = normalizeIcon(leftIcon);
@@ -27,7 +29,8 @@ export function Input({
     <div
       className={cn(
         "flex items-center gap-2 rounded-full border border-primary-700 ",
-        "bg-[#0C0E1266]"
+        "bg-[#0C0E1266]",
+        wrapperClassName
       )}
     >
       {/* Left Icon */}
