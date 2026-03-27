@@ -106,7 +106,7 @@ export default function ContactPage() {
                                                 <f.component
                                                     {...field}
                                                     placeholder={f.placeholder}
-                                                    {...(f.component === Input && f.leftIcon
+                                                    {...(f.component === Input && "leftIcon" in f && f.leftIcon
                                                         ? { leftIcon: f.leftIcon }
                                                         : {})}
                                                 />
