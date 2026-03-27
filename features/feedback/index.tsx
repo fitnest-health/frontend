@@ -95,14 +95,14 @@ const FeedbackPage = () => {
                                                     value={field.value}
                                                     onChange={field.onChange}
                                                     placeholder={f.placeholder}
-                                                    leftIcon={f.leftIcon}
-                                                    options={f.options}
+                                                    leftIcon={"leftIcon" in f ? f.leftIcon : undefined}
+                                                    options={"options" in f ? [...f.options] : undefined}
                                                 />
                                             ) : (
                                                 <f.component
                                                     {...field}
                                                     placeholder={f.placeholder}
-                                                    {...(f.component === Input && f.leftIcon ? { leftIcon: f.leftIcon } : {})}
+                                                    {...(f.component === Input && "leftIcon" in f && f.leftIcon ? { leftIcon: f.leftIcon } : {})}
                                                 />
                                             )}
                                         </FormControl>
