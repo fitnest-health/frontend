@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import icon from '@/public/Logo.png'
+import { QueryProvider } from "@/lib/providers/query-provider";
+import { I18nProvider } from "../lib/i18n/provider";
+import { getLocale } from "../lib/i18n/server";
 
 const sfPro = localFont({
   src: [
@@ -18,17 +21,18 @@ export const metadata: Metadata = {
   icons: icon.src
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
   return (
-    <html lang="en">
-      <body
-        className={` ${sfPro.className} antialiased`}
-      >
-       {children}
+    <html lang={locale}>
+      <body className={` ${sfPro.className} antialiased`}>
+        <QueryProvider>
+          <I18nProvider initialLocale={locale}>{children}</I18nProvider>
+        </QueryProvider>
       </body>
     </html>
   );

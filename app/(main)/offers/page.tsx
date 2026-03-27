@@ -1,6 +1,6 @@
 import Container from "@/components/common/Container";
-import { OffersHero } from "@/components/common/offer-page/OffersHero";
-import OffersPricingSection from "@/components/common/offer-page/OffersPricingSection";
+import { OffersHero } from "@/features/offers/components/OffersHero";
+import OffersPricingSection from "@/features/offers/components/OffersPricingSection";
 
 type OffersPageProps = {
   searchParams: Promise<{
