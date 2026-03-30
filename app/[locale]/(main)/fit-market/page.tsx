@@ -5,6 +5,8 @@ import { parseRouteLocale } from "@/lib/i18n/route-locale";
 import { createPageMetadata } from "@/lib/seo";
 import { getSeoContent } from "@/lib/seo-content";
 
+export const dynamic = "force-dynamic";
+
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
@@ -24,6 +26,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function LocaleFitMarketPage() {
-  const data = await getStoresServerCached();
-  return <FitMarketPage stores={data.items} />;
+  try {
+    const data = await getStoresServerCached();
+    return <FitMarketPage stores={data.items} />;
+  } catch {
+    return <FitMarketPage stores={[]} />;
+  }
 }
