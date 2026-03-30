@@ -6,7 +6,6 @@ import {
   getLocaleFromPathname,
   localeCookieName,
   normalizeLocale,
-  stripLocaleFromPathname,
 } from "@/lib/i18n/config";
 
 export function proxy(request: NextRequest) {
@@ -31,17 +30,7 @@ export function proxy(request: NextRequest) {
     return response;
   }
 
-  const strippedPath = stripLocaleFromPathname(pathname);
-  const rewriteUrl = nextUrl.clone();
-  rewriteUrl.pathname = strippedPath;
-
-  const headers = new Headers(request.headers);
-  headers.set("x-current-path", strippedPath);
-  headers.set("x-locale", localeFromPath);
-
-  const response = NextResponse.rewrite(rewriteUrl, {
-    request: { headers },
-  });
+  const response = NextResponse.next();
 
   response.cookies.set(localeCookieName, localeFromPath, {
     path: "/",

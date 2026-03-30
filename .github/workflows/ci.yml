@@ -1,0 +1,103 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches:
+      - development
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
+  HELM_VALUES_FILE: values.yaml
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/development'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set image variables
+        run: |
+          echo "IMAGE_TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+          echo "IMAGE_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:${{ env.IMAGE_BRANCH }}-${{ env.IMAGE_TAG }}
+            ${{ env.IMAGE_NAME }}:${{ env.IMAGE_BRANCH }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  update-helm-chart:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout chart repository
+        uses: actions/checkout@v4
+        with:
+          repository: fitnest-chart/frontend
+          ref: development
+          path: helm-repo
+          ssh-key: ${{ secrets.CHART_REPO_SSH_PRIVATE_KEY }}
+
+      - name: Install yq
+        uses: mikefarah/yq@v4
+
+      - name: Set image tag
+        run: echo "IMAGE_TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      - name: Update Helm values
+        run: |
+          cd helm-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          FULL_TAG="development-${{ env.IMAGE_TAG }}"
+          yq eval -i ".image.tag = \"$FULL_TAG\"" $HELM_VALUES_FILE
+          
+          git add $HELM_VALUES_FILE
+          git commit -m "chore: update frontend image tag to ${{ env.IMAGE_TAG }}"
+          git push origin development
+
+  sync-argocd:
+    needs: update-helm-chart
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare ArgoCD token
+        env:
+          ARGOCD_TOKEN_RAW: ${{ secrets.ARGOCD_TOKEN }}
+        run: |
+          CLEAN_TOKEN="$ARGOCD_TOKEN_RAW"
+          CLEAN_TOKEN="${CLEAN_TOKEN%\"}"
+          CLEAN_TOKEN="${CLEAN_TOKEN#\"}"
+          echo "ARGOCD_TOKEN=$CLEAN_TOKEN" >> $GITHUB_ENV
+
+      - name: Trigger ArgoCD Sync
+        run: |
+          curl -k -X POST \
+            -H "Authorization: Bearer ${{ env.ARGOCD_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            https://argocd.fitnest.az/api/v1/applications/fitnest-frontend-dev/sync \
+            -d '{}'
+
+
+

@@ -1,3 +1,5 @@
+"use client";
+
 import BannerContainer from "@/components/common/BannerContainer"
 import {
     Accordion,
@@ -6,24 +8,24 @@ import {
     AccordionContent,
 } from "@/components/ui/accordion"
 import MessageIcon from '@/public/icons/message-question-circle.svg'
-import { getMessages } from "@/lib/i18n/server";
+import { useI18n } from "@/lib/i18n/provider";
 
 interface AccordionData {
     title: string
     content: string
 }
 
-const FaqPage = async () => {
-    const { messages } = await getMessages();
-    const accordionItems: AccordionData[] = messages.faq.items;
+const FaqPage = () => {
+    const { t } = useI18n();
+    const accordionItems: AccordionData[] = t.faq.items;
 
     return (
         <BannerContainer
-            title={messages.faq.title}
+            title={t.faq.title}
             subtitle={
                 <>
                     <span className="text-primary-700">FitNest</span>
-                    <span> {messages.faq.subtitle}</span>
+                    <span> {t.faq.subtitle}</span>
                 </>
             }
             iconUrl={MessageIcon.src}

@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpRight, Clock3, MapPin, Phone } from "lucide-react";
@@ -5,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { Membership } from "../lib/fitness-centers-data";
-import { getMessages } from "@/lib/i18n/server";
+import { useI18n } from "@/lib/i18n/provider";
 
 export type FitnessCenterCardProps = {
   name: string;
@@ -32,7 +34,7 @@ const membershipVariantMap: Record<Membership, Membership> = {
   platinum: "platinum",
 };
 
-const FitnessCenterCard = async ({
+const FitnessCenterCard = ({
   name,
   location,
   phone,
@@ -42,7 +44,7 @@ const FitnessCenterCard = async ({
   membership,
   href,
 }: FitnessCenterCardProps) => {
-  const { messages } = await getMessages();
+  const { t } = useI18n();
   return (
     <article className="flex h-full flex-col gap-6 rounded-4xl border border-[#111729] bg-[#111729] p-7">
       <div className="relative h-[250px] w-full overflow-hidden rounded-3xl">
@@ -87,7 +89,7 @@ const FitnessCenterCard = async ({
             <div className="flex items-center gap-2 text-sm text-[#C1C1CC]">
               <Clock3 className="h-5 w-5 text-[#C1C1CC]" />
               <span>
-                {messages.centers.workHours}: {workHours}
+                {t.centers.workHours}: {workHours}
               </span>
             </div>
           </div>
@@ -97,7 +99,7 @@ const FitnessCenterCard = async ({
             size="icon"
             className="size-12 rounded-full bg-[rgba(14,41,61,0.3)] text-white hover:bg-[rgba(14,41,61,0.45)]"
           >
-            <Link href={href} aria-label={`${name} ${messages.centers.detailsAria}`}>
+            <Link href={href} aria-label={`${name} ${t.centers.detailsAria}`}>
               <ArrowUpRight className="h-5 w-5" />
             </Link>
           </Button>

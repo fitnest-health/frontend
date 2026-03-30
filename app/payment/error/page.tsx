@@ -1,11 +1,28 @@
 // app/payment-error/page.tsx
 
+import type { Metadata } from "next";
 import { Card } from '@/components/ui/card'
 import { XCircle, CreditCard, AlertTriangle, Clock } from 'lucide-react'
-import { getMessages } from "@/lib/i18n/server";
+import { getLocale, getMessages } from "@/lib/i18n/server";
+import { createPageMetadata } from "@/lib/seo";
+import { getSeoContent } from "@/lib/seo-content";
 
 interface Props {
   searchParams: Promise<{ last4?: string; reason?: string }>
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const seo = getSeoContent("paymentError", locale);
+
+  return createPageMetadata({
+    title: seo.title,
+    description: seo.description,
+    pathname: "/payment/error",
+    locale,
+    keywords: seo.keywords,
+    noIndex: true,
+  });
 }
 
 const PaymentErrorPage = async ({ searchParams }: Props) => {

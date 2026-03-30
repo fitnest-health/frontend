@@ -250,6 +250,12 @@
   scroll-behavior: smooth;
 }
 
+body[data-scroll-locked][data-scroll-locked] {
+  overflow: auto !important;
+  margin-right: 0 !important;
+}
+
+
 @layer utilities {
   .gradient-border {
     position: relative;
@@ -293,9 +299,8 @@
     border-radius: inherit;
     pointer-events: none;
 
-    background: linear-gradient(
-      135deg, 
-     rgba(250, 250, 250, 1) 0%,
+    background: linear-gradient(135deg,
+        rgba(250, 250, 250, 1) 0%,
         rgba(250, 250, 250, 0.7) 15%,
         rgba(250, 250, 250, 0.2) 25%,
         rgba(250, 250, 250, 0) 35%,
@@ -303,19 +308,70 @@
         rgba(250, 250, 250, 0) 65%,
         rgba(250, 250, 250, 0.2) 75%,
         rgba(250, 250, 250, 0.7) 85%,
-        rgba(250, 250, 250, 1) 100%
-    );
+        rgba(250, 250, 250, 1) 100%);
 
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
   }
+
+  .glass-fitnest {
+    position: relative;
+  }
+
+  .glass-fitnest::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    /* Conic gradient istiqametleri:
+       0deg/360deg = sag (right)
+       90deg = asagi (bottom)
+       180deg = sol (left)
+       270deg = yuxari (top)
+
+       Kunc bucaqlari:
+       sag-yuxari (top-right)   ~ 315deg
+       sol-yuxari (top-left)    ~ 225deg
+       sol-asagi (bottom-left)  ~ 135deg
+       sag-asagi (bottom-right) ~ 45deg
+
+       Qayda:
+       alpha boyuk (0.6-0.8) -> daha parlaq border
+       alpha kicik (0.1-0.2) -> daha solgun border
+    */
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(180, 180, 180, 0.9) 0deg,   /* sag */
+      rgba(180, 180, 180, 0) 28deg,  /* sag-yuxariya kecid */
+      rgba(180, 180, 180, 0) 56deg,  /* sag-asagi (bottom-right) - solgun     sag yux*/
+      rgba(180, 180, 180, 0) 66deg,  /* sag-asagi (bottom-right) - solgun     sag yux*/
+      rgba(180, 180, 180, 0.9) 96deg,  /* sag */
+      rgba(180, 180, 180, 0.9) 135deg, /* sag-asagi (bottom-left) - solgun */
+      rgba(180, 180, 180, 0.9) 170deg, /* sol asagiya kecid */
+      rgba(180, 180, 180, 0) 226deg, /* sol-yuxari (top-left) - solgun   sol asagi*/
+      rgba(180, 180, 180, 0) 245deg, /* sol-yuxari (top-left) - solgun   sol asagi*/
+      rgba(180, 180, 180, 0.9) 290deg, /* sol */
+      rgba(180, 180, 180, 0.9) 316deg, /* sol-yuxari (top-right) */
+      rgba(180, 180, 180, 0.9) 360deg  /* yuxari sol */
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
   /* responsive */
   @media (max-width: 768px) {
     .max-md\:gradient-border {
       position: relative;
     }
+
     .max-md\:gradient-border::before {
       display: block;
       content: "";
@@ -326,9 +382,9 @@
       pointer-events: none;
       background: linear-gradient(90deg, #c6a7f5, #01a2bc);
       -webkit-mask: linear-gradient(#fff 0 0) content-box,
-                    linear-gradient(#fff 0 0);
+        linear-gradient(#fff 0 0);
       mask: linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
+        linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
     }
@@ -337,7 +393,7 @@
 
 .circle {
   position: relative;
- /*  width: 60px;
+  /*  width: 60px;
   height: 60px; */
   border-radius: 50%;
   background: rgba(18, 59, 85, 0.30);

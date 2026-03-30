@@ -1,9 +1,11 @@
+"use client";
+
 import Container from "@/components/common/Container";
 import Image from "next/image";
-import { getMessages } from "@/lib/i18n/server";
+import { useI18n } from "@/lib/i18n/provider";
 
-const FitMarketHeroSection = async () => {
-  const { messages } = await getMessages();
+const FitMarketHeroSection = () => {
+  const { t } = useI18n();
 
   return (
     <section className="relative h-[520px] md:h-[680px]">
@@ -19,10 +21,10 @@ const FitMarketHeroSection = async () => {
       <Container className="relative z-10 h-full">
         <div className="absolute bottom-12 max-w-3xl space-y-4 md:bottom-16 md:space-y-5">
           <h1 className="text-3xl font-bold leading-tight text-white md:text-h3 md:leading-h3">
-            {messages.fitMarket.heroTitle}
+            {t.fitMarket.heroTitle}
           </h1>
           <p className="max-w-[848px] text-sm font-normal leading-6 text-[#FAFAFA] md:text-2xl md:leading-9">
-            {messages.fitMarket.heroDescription}
+            {t.fitMarket.heroDescription}
           </p>
         </div>
       </Container>

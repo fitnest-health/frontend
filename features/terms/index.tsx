@@ -1,7 +1,9 @@
+"use client";
+
 import BannerContainer from "@/components/common/BannerContainer"
 import AlertIcon from '@/public/icons/alert-circle.svg'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getMessages } from "@/lib/i18n/server";
+import { useI18n } from "@/lib/i18n/provider";
 
 interface TermItem {
     id: string;
@@ -9,9 +11,9 @@ interface TermItem {
     content: string;
 }
 
-const TermsPage = async () => {
-    const { messages } = await getMessages();
-    const termsData: TermItem[] = messages.terms.items.map((item, index) => ({
+const TermsPage = () => {
+    const { t } = useI18n();
+    const termsData: TermItem[] = t.terms.items.map((item, index) => ({
         id: String(index + 1),
         title: item.title,
         content: item.content,
@@ -19,11 +21,11 @@ const TermsPage = async () => {
 
     return (
         <BannerContainer
-            title={messages.terms.title}
+            title={t.terms.title}
             subtitle={
                 <>
                     <span className="text-primary-700">FitNest</span>
-                    <span> {messages.terms.subtitle}</span>
+                    <span> {t.terms.subtitle}</span>
                 </>
             }
             iconUrl={AlertIcon.src}
