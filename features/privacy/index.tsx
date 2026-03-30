@@ -1,3 +1,5 @@
+"use client";
+
 import BannerContainer from "@/components/common/BannerContainer";
 import {
     Card,
@@ -6,16 +8,16 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import ShieldIcon from '@/public/icons/shield.svg'
-import { getMessages } from "@/lib/i18n/server";
+import { useI18n } from "@/lib/i18n/provider";
 
 interface PolicyItem {
     id: number;
     title: string;
     text: string;
 }
-const PrivacyPolicyPage = async () => {
-    const { messages } = await getMessages();
-    const context: PolicyItem[] = messages.privacy.items.map((item, index) => ({
+const PrivacyPolicyPage = () => {
+    const { t } = useI18n();
+    const context: PolicyItem[] = t.privacy.items.map((item, index) => ({
         id: index + 1,
         title: item.title,
         text: item.text,
@@ -23,8 +25,8 @@ const PrivacyPolicyPage = async () => {
 
     return (
         <BannerContainer
-            title={messages.privacy.title}
-            subtitle={messages.privacy.subtitle}
+            title={t.privacy.title}
+            subtitle={t.privacy.subtitle}
             iconUrl={ShieldIcon.src}
         >
             <div className="w-full flex flex-col gap-5 items-center">

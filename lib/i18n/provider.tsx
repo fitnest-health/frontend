@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -35,8 +36,14 @@ export const I18nProvider = ({ initialLocale, children }: I18nProviderProps) => 
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  useEffect(() => {
+    setLocaleState(initialLocale);
+  }, [initialLocale]);
+
   const setLocale = useCallback(
     (nextLocale: Locale) => {
+      if (nextLocale === locale) return;
+
       setLocaleState(nextLocale);
       document.cookie = `${localeCookieName}=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
 
@@ -44,9 +51,10 @@ export const I18nProvider = ({ initialLocale, children }: I18nProviderProps) => 
       const queryString = searchParams.toString();
       const nextUrl = queryString ? `${localizedPath}?${queryString}` : localizedPath;
 
-      router.push(nextUrl);
+      router.replace(nextUrl);
+      router.refresh();
     },
-    [pathname, router, searchParams],
+    [locale, pathname, router, searchParams],
   );
 
   const value = useMemo(

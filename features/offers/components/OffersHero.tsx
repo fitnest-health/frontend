@@ -1,12 +1,14 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import { getMessages } from "@/lib/i18n/server";
+import { useI18n } from "@/lib/i18n/provider";
 
 interface OffersHeroProps {
   className?: string;
 }
 
-const OffersHero = async ({ className }: OffersHeroProps) => {
-  const { messages } = await getMessages();
+const OffersHero = ({ className }: OffersHeroProps) => {
+  const { t } = useI18n();
 
   return (
     <div
@@ -16,7 +18,7 @@ const OffersHero = async ({ className }: OffersHeroProps) => {
       )}
     >
       <h1 className="max-w-3xl mx-auto text-center text-balance text-h6 font-bold leading-tight sm:text-h3 text-white">
-        {messages.offers.heroTitle}
+        {t.offers.heroTitle}
       </h1>
     </div>
   );

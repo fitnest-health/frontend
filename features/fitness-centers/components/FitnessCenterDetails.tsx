@@ -26,9 +26,25 @@ const FitnessCenterDetails = async ({ slug }: FitnessCenterDetailsProps) => {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
   const name = fallbackName || "ProFit Club";
+  const gymSchema = {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    name,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Baku",
+      streetAddress: "Nizami küçəsi 10/4",
+      addressCountry: "AZ",
+    },
+    telephone: "050-000-00-00",
+  };
 
   return (
     <Container className="pb-16 pt-12 md:pb-24 md:pt-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(gymSchema) }}
+      />
       <section className="space-y-8 md:space-y-10">
         <div className="space-y-3">
           <h1 className="text-3xl font-semibold leading-tight text-[#F5F8FF] md:text-h3 md:leading-h3">

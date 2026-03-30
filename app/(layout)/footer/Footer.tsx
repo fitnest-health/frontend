@@ -13,18 +13,18 @@ import Link from "next/link";
 import roundedPhone from "@/public/icons/phone-rounded.svg";
 import roundedMail from "@/public/icons/mail-rounded.svg";
 import ToTopBtn from "./ToTopBtn";
-import LangBtn from "./LangBtn";
 import { useI18n } from "@/lib/i18n/provider";
+import { addLocaleToPathname } from "@/lib/i18n/config";
 
 const Footer = () => {
-  const { t, locale, setLocale } = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <footer className="text-white  bg-softblue-950 font-display! relative z-50">
       <ToTopBtn />
       <div className="footer_inside max-w-7xl mx-auto py-[30px] sm:py-[60px] px-5 ">
         <div className="footer_top flex flex-col sm:flex-row justify-between gap-14 sm:gap-0 ">
-          <Link className=" block sm:hidden mx-auto" href="/">
+          <Link className=" block sm:hidden mx-auto" href={addLocaleToPathname("/", locale)}>
             <Image
               src={logo}
               className="w-20 h-12"
@@ -34,7 +34,7 @@ const Footer = () => {
             />
           </Link>
           <div className="left-side flex w-full sm:w-3/4 justify-between mx-auto">
-            <Link className=" hidden sm:block" href="/">
+            <Link className=" hidden sm:block" href={addLocaleToPathname("/", locale)}>
               <Image
                 src={logo}
                 className="w-20 h-12"
@@ -54,7 +54,12 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-4 text-b1 leading-b1 text-neutral-50 font-medium ">
               <li>
-                <a className="flex gap-3 items-center" href="#">
+                <Link
+                  className="flex gap-3 items-center"
+                  href="https://www.instagram.com/fitnest_azerbaijan?igsh=MWFvaG9yM3l3cHlhbQ%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src={instagramIcon}
                     width={24}
@@ -63,10 +68,15 @@ const Footer = () => {
                     alt="instagram"
                   />
                   Instagram
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="flex gap-3 items-center" href="#">
+                <Link
+                  className="flex gap-3 items-center"
+                  href="https://www.facebook.com/profile.php?id=61584857837005"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src={facebookIcon}
                     width={24}
@@ -75,11 +85,16 @@ const Footer = () => {
                     alt="facebook"
                   />
                   Facebook
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a className="flex gap-3 items-center" href="#">
+                <Link
+                  className="flex gap-3 items-center"
+                  href="https://www.linkedin.com/company/fitnest-school/?viewAsMember=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src={linkedinIcon}
                     width={24}
@@ -88,11 +103,16 @@ const Footer = () => {
                     alt="linkedin"
                   />
                   Linkedin
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a className="flex gap-3 items-center" href="#">
+                <Link
+                  className="flex gap-3 items-center"
+                  href="https://www.tiktok.com/@fitnest.azerbaijan?_r=1&_t=ZS-950g0A0nvjJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src={tiktokIcon}
                     width={24}
@@ -101,11 +121,16 @@ const Footer = () => {
                     alt="tiktok"
                   />
                   Tiktok
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a className="flex gap-3 items-center" href="#">
+                <Link
+                  className="flex gap-3 items-center"
+                  href="https://www.youtube.com/@FitNestAzerbaijan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src={yticon}
                     width={24}
@@ -114,18 +139,18 @@ const Footer = () => {
                     alt="youtube"
                   />
                   Youtube
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           <div className="right-side sm:w-1/2 flex justify-end">
             <div className="contact flex flex-col sm:items-end gap-14 w-full">
-              <div className="lang flex gap-9 justify-between sm:justify-start">
+              {/* <div className="lang flex gap-9 justify-between sm:justify-start">
                 <LangBtn isActive={locale === "az"} txt="AZ" onClick={() => setLocale("az")} />
                 <LangBtn isActive={locale === "en"} txt="EN" onClick={() => setLocale("en")} />
                 <LangBtn isActive={locale === "ru"} txt="RU" onClick={() => setLocale("ru")} />
-              </div>
+              </div> */}
 
               <div className="contact_details text-b1 leading-b1 text-neutral-50 font-medium space-y-5">
                 <div className="flex gap-2 items-center">

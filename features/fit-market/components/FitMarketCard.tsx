@@ -1,15 +1,17 @@
+"use client";
+
 import { ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Store } from "../api/types";
-import { getMessages } from "@/lib/i18n/server";
+import { useI18n } from "@/lib/i18n/provider";
 
 interface FitMarketCardProps {
   store: Store;
 }
 
-const FitMarketCard = async ({ store }: FitMarketCardProps) => {
-  const { messages } = await getMessages();
+const FitMarketCard = ({ store }: FitMarketCardProps) => {
+  const { t } = useI18n();
 
   return (
     <article className="rounded-4xl bg-[#111729] px-7 py-6">
@@ -45,7 +47,7 @@ const FitMarketCard = async ({ store }: FitMarketCardProps) => {
 
         {store.isNew && (
           <span className="inline-block rounded-full bg-[#00B4CC] px-3 py-1 text-xs font-bold text-white">
-            {messages.fitMarket.newBadge}
+            {t.fitMarket.newBadge}
           </span>
         )}
       </div>
@@ -66,7 +68,7 @@ const FitMarketCard = async ({ store }: FitMarketCardProps) => {
         <Link
           href={`/fit-market/${store.storeId}`}
           className="flex size-[62px] shrink-0 items-center justify-center rounded-full bg-[rgba(14,41,61,0.3)] transition hover:bg-[rgba(14,41,61,0.45)]"
-          aria-label={`${store.name} ${messages.fitMarket.cardDetailsAria}`}
+          aria-label={`${store.name} ${t.fitMarket.cardDetailsAria}`}
         >
           <ArrowUpRight className="size-6 text-white" />
         </Link>

@@ -1,3 +1,5 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -8,18 +10,18 @@ import Image from "next/image";
 import { QrCode } from "lucide-react";
 import phoneScreen from "@/public/images/phone-window.webp";
 import splash from "@/public/images/splash.png";
-import { getMessages } from "@/lib/i18n/server";
+import { useI18n } from "@/lib/i18n/provider";
 
 type OffersPricingSectionProps = {
   selectedType?: string;
   selectedMonth?: string;
 };
 
-const OffersPricingSection = async ({
+const OffersPricingSection = ({
   selectedType,
   selectedMonth,
 }: OffersPricingSectionProps) => {
-  const { messages } = await getMessages();
+  const { t } = useI18n();
   const premiumBadges = [
     { label: "Bronze", type: "bronze", variant: "bronze" as const },
     { label: "Silver", type: "silver", variant: "silver" as const },
@@ -27,13 +29,13 @@ const OffersPricingSection = async ({
     { label: "Platinum", type: "platinum", variant: "platinum" as const },
   ];
   const monthBadges = [
-    { label: `1 ${messages.offers.months}`, month: "1" },
-    { label: `3 ${messages.offers.months}`, month: "3" },
-    { label: `6 ${messages.offers.months}`, month: "6" },
-    { label: `12 ${messages.offers.months}`, month: "12" },
+    { label: `1 ${t.offers.months}`, month: "1" },
+    { label: `3 ${t.offers.months}`, month: "3" },
+    { label: `6 ${t.offers.months}`, month: "6" },
+    { label: `12 ${t.offers.months}`, month: "12" },
   ];
 
-  const benefits = messages.offers.benefits;
+  const benefits = t.offers.benefits;
 
   const buildSearchHref = (next: { type?: string; month?: string }) => {
     const params = new URLSearchParams();
@@ -103,7 +105,7 @@ const OffersPricingSection = async ({
         </h2>
         <p className="font-bold text-t1 leading-t1 text-neutral-50 text-center">
           <span className="text-primary-700">FitNest</span>{" "}
-          {messages.offers.whatAwaits}
+          {t.offers.whatAwaits}
         </p>
 
         <div className=" benefits-div">
@@ -127,18 +129,18 @@ const OffersPricingSection = async ({
 
       <div className="mx-auto max-w-md">
         <Button asChild variant="outline" size="default" className=" w-full text-primary-700 hover:text-white">
-          <Link href="/fitness-centers">{messages.offers.includedGyms}</Link>
+          <Link href="/fitness-centers">{t.offers.includedGyms}</Link>
         </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 justify-between max-h-[700px] ">
         <div className="space-y-5 text-center flex flex-col justify-center items-center h-full">
           <h2 className="font-medium text-h6 leading-h6">
-            {messages.offers.appHeading}
+            {t.offers.appHeading}
           </h2>
           <p className="font-medium text-t2 leading-t2">
             <span className="text-primary-700">FitNest</span>{" "}
-            {messages.offers.appDescription}
+            {t.offers.appDescription}
           </p> 
           <QrCode size={300} />
         </div>

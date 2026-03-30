@@ -1,5 +1,6 @@
 import { apiClient, serverApiClient } from "@/lib/api";
 import type { SubscriptionPackagesResponse } from "./types";
+import { unstable_cache } from "next/cache";
 
 const ENDPOINT = "/subscription-packages";
 
@@ -12,4 +13,14 @@ export async function getSubscriptionPackagesServer(): Promise<SubscriptionPacka
   const { data } =
     await serverApiClient.get<SubscriptionPackagesResponse>(ENDPOINT);
   return data;
+}
+
+const getSubscriptionPackagesServerCachedInternal = unstable_cache(
+  async () => getSubscriptionPackagesServer(),
+  ["subscription-packages"],
+  { revalidate: 900, tags: ["subscription-packages"] },
+);
+
+export async function getSubscriptionPackagesServerCached(): Promise<SubscriptionPackagesResponse> {
+  return getSubscriptionPackagesServerCachedInternal();
 }

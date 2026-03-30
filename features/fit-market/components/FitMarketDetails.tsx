@@ -19,9 +19,25 @@ const FitMarketDetails = async ({ slug }: FitMarketDetailsProps) => {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
   const title = fallbackTitle || "Vitamin House";
+  const storeSchema = {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    name: title,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Baku",
+      streetAddress: "Nizami küçəsi 10/4",
+      addressCountry: "AZ",
+    },
+    telephone: "050-000-00-00",
+  };
 
   return (
     <Container className="pb-16 pt-12 md:pb-24 md:pt-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(storeSchema) }}
+      />
       <section className="rounded-4xl border border-[#373A41] bg-[#111729] p-5 md:p-6">
         <div className="space-y-5 md:space-y-6">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
