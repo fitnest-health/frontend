@@ -1,45 +1,59 @@
-// app/payment-success/page.tsx
-
 import type { Metadata } from "next";
 import { Card } from "@/components/ui/card";
-import { CheckCircle, CreditCard, Clock, CheckSquare } from "lucide-react";
-import { getLocale, getMessages } from "@/lib/i18n/server";
+import { XCircle, CreditCard, AlertTriangle, Clock } from "lucide-react";
+import { getMessages } from "@/lib/i18n/server";
+import { parseRouteLocale } from "@/lib/i18n/route-locale";
 import { createPageMetadata } from "@/lib/seo";
 import { getSeoContent } from "@/lib/seo-content";
 
 interface Props {
-  searchParams: Promise<{ last4?: string }>;
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ last4?: string; reason?: string }>;
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
-  const seo = getSeoContent("paymentSuccess", locale);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = parseRouteLocale(localeParam);
+  const seo = getSeoContent("paymentError", locale);
 
   return createPageMetadata({
     title: seo.title,
     description: seo.description,
-    pathname: "/payment/success",
+    pathname: "/payment/error",
     locale,
     keywords: seo.keywords,
     noIndex: true,
   });
 }
 
-const PaymentSuccessPage = async ({ searchParams }: Props) => {
-  const { last4 } = await searchParams;
-  const { messages } = await getMessages();
+const LocalizedPaymentErrorPage = async ({ params, searchParams }: Props) => {
+  const { locale: localeParam } = await params;
+  const locale = parseRouteLocale(localeParam);
+  const { last4, reason } = await searchParams;
+  const { messages } = await getMessages(locale);
 
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-primary-1000">
       <Card className="max-w-4xl flex flex-col items-center">
-        <div className="w-18 h-18 rounded-full bg-primary-950 flex items-center justify-center mb-2">
-          <CheckCircle className="text-green-500" size={40} strokeWidth={1.5} />
+        <div className="w-18 h-18 rounded-full  flex items-center justify-center mb-2">
+          <XCircle className="text-red-500" size={40} strokeWidth={1.5} />
         </div>
 
         <h1 className="text-h2 leading-h2 text-center font-semibold text-primary-700">
           Fitnest
         </h1>
-        <p className="text-t2 leading-t2">{messages.payment.success}</p>
+        <p className="text-t2 leading-t2">{messages.payment.failed}</p>
+
+        {reason && (
+          <div className="w-full flex items-start gap-2 rounded-lg px-4 py-3 mt-2 text-lg">
+            <AlertTriangle size={24} className="text-red-400 mt-0.5 shrink-0" />
+            <p className=" text-red-600">{reason}</p>
+          </div>
+        )}
 
         <div className="w-full border-t border-border mt-4 pt-4 flex flex-col gap-2.5">
           <div className="flex justify-between items-center">
@@ -58,10 +72,10 @@ const PaymentSuccessPage = async ({ searchParams }: Props) => {
           </div>
           <div className="flex justify-between items-center">
             <span className="text-sm text-muted-foreground flex items-center gap-1.5">
-              <CheckSquare size={14} /> {messages.payment.status}
+              <XCircle size={14} /> {messages.payment.status}
             </span>
-            <span className="text-xs  px-3 py-0.5 rounded-full font-semibold">
-              {messages.payment.successStatus}
+            <span className="text-xs bg-red-50 text-red-600 px-3 py-0.5 rounded-full font-medium">
+              {messages.payment.failedStatus}
             </span>
           </div>
         </div>
@@ -70,4 +84,4 @@ const PaymentSuccessPage = async ({ searchParams }: Props) => {
   );
 };
 
-export default PaymentSuccessPage;
+export default LocalizedPaymentErrorPage;
