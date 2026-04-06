@@ -7,23 +7,23 @@ const HeroSection = async () => {
 
   return (
     <section className="relative flex lg:items-center pt-[153px] sm:items-center text-gray-50 w-full aspect-video overflow-hidden">
-      <video
+      {/* <video
         autoPlay
         loop
         muted
         playsInline
-        className="lg:hidden aspect-video absolute inset-0 w-full h-full object-cover brightness-90"
+        className="lg:hidden aspect-video absolute inset-0 w-full h-full object-cover brightness-50"
       >
         <source src="/videos/HeroSectionVideo.mp4" type="video/mp4" />
-      </video>
+      </video> */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="hidden aspect-video lg:block absolute inset-0 w-full h-full object-cover brightness-90"
+        className=" aspect-video lg:block absolute inset-0 w-full h-full object-cover brightness-80"
       >
-        <source src="/videos/ScreenRecording.mp4" type="video/mp4" />
+        <source src="/videos/FitNest.mp4" type="video/mp4" />
       </video>
       {/* <div className="absolute top-0 left-0 w-full h-full bg-[#00000033]"></div> */}
 

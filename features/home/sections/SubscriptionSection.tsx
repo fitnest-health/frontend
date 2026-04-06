@@ -18,14 +18,14 @@ const SubscriptionSection = ({ packages }: SubscriptionSectionProps) => {
   return (
     <section aria-labelledby="subscription-heading">
       <Container className="space-y-10 py-7 md:space-y-20 md:py-15">
-        <Heading title={t.home.subscriptionTitle} number={2} />
+        <Heading title={t.home.subscriptionTitle} number={2} className="mt-7 md:mt-0 pb-0! mb-4!"/>
 
-        <div className="grid grid-cols-1 gap-y-20 md:grid-cols-4 lg:grid-cols-5">
-          <div className="order-2 md:order-1 md:col-span-2 lg:col-span-3">
+        <div className="flex flex-col md:flex-row items-center gap-10">
+          <div className="order-2 md:order-1 md:col-span-2 lg:col-span-3 w-full">
             <OfferPlanCarousel packages={packages} />
           </div>
 
-          <div className="order-1 flex flex-col justify-center gap-3 md:order-2 md:col-span-2 lg:col-span-2">
+          <div className="order-1 max-w-[411px] flex flex-col justify-center gap-3 md:order-2 md:col-span-2 lg:col-span-2">
             <h3 className="text-h5 font-medium leading-h5">
               {t.home.subscriptionHeading}
             </h3>

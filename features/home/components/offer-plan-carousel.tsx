@@ -67,16 +67,26 @@ const OfferPlanCarousel = ({ packages }: OfferPlanCarouselProps) => {
 
   if (total === 0) return null;
 
+  const slotStyles: Record<
+    number,
+    { translateX: number; scale: number; opacity: number; zIndex: number }
+  > = {
+    [-1]: { translateX: -68, scale: 0.92, opacity: 1, zIndex: 8 },
+    [0]: { translateX: 0, scale: 1.06, opacity: 1, zIndex: 20 },
+    [1]: { translateX: 54, scale: 0.94, opacity: 1, zIndex: 12 },
+    [2]: { translateX: 84, scale: 0.9, opacity: 1, zIndex: 10 },
+  };
+
   return (
     <section
       aria-label={t.home.carouselAria}
-      className="relative w-full overflow-hidden py-13 md:py-0"
+      className="relative w-full overflow-hidden py-13 md:py-10"
     >
       <div
         ref={containerRef}
         className={cn(
           "relative flex items-center justify-center",
-          "h-[560px] md:h-[620px]",
+          "h-[560px] md:h-[600px]",
           dragging ? "cursor-grabbing" : "cursor-grab",
         )}
         onPointerDown={onPointerDown}
@@ -91,11 +101,12 @@ const OfferPlanCarousel = ({ packages }: OfferPlanCarouselProps) => {
 
           const normOffset =
             offset > 1 ? offset - total : offset < -1 ? offset + total : offset;
-
-          const translateX = normOffset * 40;
-          const scale = isActive ? 1.1 : 1;
-          const zIndex = isActive ? 20 : 10 - Math.abs(normOffset);
-          const opacity = Math.abs(normOffset) > 1 ? 0 : 1;
+          const stylePreset = slotStyles[normOffset];
+          const isVisible = Boolean(stylePreset);
+          const translateX = stylePreset?.translateX ?? 0;
+          const scale = stylePreset?.scale ?? 0.88;
+          const zIndex = stylePreset?.zIndex ?? 0;
+          const opacity = stylePreset?.opacity ?? 0;
 
           return (
             <article
@@ -112,8 +123,8 @@ const OfferPlanCarousel = ({ packages }: OfferPlanCarouselProps) => {
                   : "transform 0.45s cubic-bezier(0.34,1.2,0.64,1), opacity 0.35s ease",
               }}
               className={cn(
-                "absolute w-[80%] max-w-[320px]! md:max-w-[360px]!",
-                isActive ? "pointer-events-auto" : "pointer-events-none",
+                "absolute left-1/2 w-[80%] max-w-[320px]! -translate-x-1/2 md:max-w-[310px]!",
+                isVisible ? "pointer-events-auto" : "pointer-events-none",
               )}
             >
               <OfferPlanCard package_data={pkg} />
