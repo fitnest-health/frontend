@@ -28,7 +28,7 @@ const HowItWorks = () => {
 
   return (
     <Container className="py-7 md:py-15">
-      <Heading title={t.home.howTitle} number={1} />
+      <Heading title={t.home.howTitle} number={1} className="md:pb-0!"/>
 
       <Carousel
         plugins={[
@@ -40,7 +40,7 @@ const HowItWorks = () => {
         <CarouselContent>
           {mockData.map((item, index) => (
             <CarouselItem key={index}>
-              <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="w-full md:max-h-[650px] flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="space-y-7 md:max-w-1/2">
                   <h2 className="font-bold text-white text-h6 leading-h6">
                     {item.title}
@@ -50,7 +50,7 @@ const HowItWorks = () => {
                   </p>
                 </div>
 
-                <div className="relative">
+                <div className="relative w-fit  md:scale-[0.70] origin-center">
                   {/* Phone frame */}
                   <Image
                     src={phoneWindow}
@@ -59,12 +59,15 @@ const HowItWorks = () => {
                   />
 
                   {/* Screen area */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden aspect-9/16 h-[430px] md:h-[850px] z-0 rounded-[55px]">
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      className="h-full w-full "
-                    />
+                  <div className="absolute w-[92%] left-2 md:left-5 h-[95%] top-4 rounded-[70px] border z-0">
+                    <div className="relative h-full w-full overflow-hidden rounded-[30px] md:rounded-[52px]">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
